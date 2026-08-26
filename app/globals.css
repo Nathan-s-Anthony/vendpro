@@ -199,8 +199,11 @@ body {
  
   }
  
-  .panel-mount {
-width: calc(100% - var(--spacing) * 64);
+.panel-mount {
+  width: calc(100% - var(--spacing) * 64);
   margin-left: auto;
   }
+.active{
+  @apply bg-primary
+}
 }

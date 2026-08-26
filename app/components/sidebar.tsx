@@ -2,14 +2,18 @@
 import Link from "next/link";
 import { LayoutDashboard, Package, Boxes, ChevronLeft, MapPin, DollarSign } from "lucide-react";
 import { useState } from "react";
+import { useParams, usePathname } from "next/navigation";
 export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolean }) {
     const [active, setActive] = useState(true);
+    const pathname = usePathname();
+    const childUrl = pathname.split("/")[2];
+    const params = useParams()
     const navItems = [
         {
             id: 0,
             defaultSelected: true,
             name: "Overview",
-            icon: <LayoutDashboard className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
+            icon: <LayoutDashboard className="transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "overview",
 
         },
@@ -45,7 +49,6 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
             page: "locations",
 
         },
-
     ]
     return (
         <>
@@ -54,12 +57,12 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
                     <div className="col-span-2">
                         <nav>
                             <ul className="w-full flex flex-col justify-start gap-4 items-baseline  h-full">
-                                {navItems.map((item) => {
+                                {navItems.map((item, id) => {
                                     return (
                                         <li key={item.id} className="group w-full rounded-sm">
                                             <Link
                                                 scroll={false}
-                                                className={`${item.defaultSelected === true ? "active" : ""} block transition-all duration-300 group-hover:bg-secondary`}
+                                                className={`${item.page === childUrl ? "active" : ""} block transition-all duration-300 group-hover:bg-secondary`}
                                                 href={`/dashboard/${item.page}`}
                                             >
                                                 <div className="flex items-center justify-between">
@@ -89,7 +92,7 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
                         </div>
                     </div>
                 </div>
-            </aside >
+            </aside>
         </>
     )
 }

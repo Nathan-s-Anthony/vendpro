@@ -1,7 +1,12 @@
+import Card from "@/app/components/card";
 import Panel from "@/app/components/panel";
 
-export default function Kocations() {
+export default function Locations() {
     return (
-        <Panel heading="Your active locations" subHeading="Locations ZA" />
+        <Panel heading="Your Active locations" subHeading="monitor your active locations" >
+            <Card />
+            <Card />
+            <Card />
+        </Panel>
     )
 }

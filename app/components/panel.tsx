@@ -1,6 +1,4 @@
-import Card from "./card";
-
-export default function Panel({ heading, subHeading }: { heading: string, subHeading: string }) {
+export default function Panel({ heading, children, subHeading }: { heading: string, subHeading: string, children: React.ReactNode }) {
     return (
         <div className="mt-6 p-6">
             <div className="flex items-start flex-col justify-center">
@@ -8,9 +6,7 @@ export default function Panel({ heading, subHeading }: { heading: string, subHea
                 <h1 className="mb-6 capatialize">{heading}</h1>
             </div>
             <div className="overflow-auto grid-cols-3 grid gap-4">
-                <Card />
-                <Card />
-                <Card />
+                {children}
             </div>
         </div>
     )
