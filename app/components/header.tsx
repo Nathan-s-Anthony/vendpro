@@ -10,12 +10,12 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     const router = useRouter()
     return (
         <header className={`${className} flex items-center justify-between  h-20 border-b border-border/30 w-full `}>
-            <Link href={"/dashboard#overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full">
+            <Link href={"/dashboard/overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
                 <div className="bg-primary rounded-sm w-10 h-10 block relative  ">
                     <div className="absolute inset-0 m-auto h-3 rounded-full w-3 bg-background">
                     </div>
                 </div>
-                <div className="flex justify-start flex-col ">
+                <div className="flex justify-start flex-col  ">
                     <span className="font-display font-bold text-3xl">VENDPRO</span>
                     <span className="font-display font-bold text-sm">Portal</span>
                 </div>
@@ -27,8 +27,12 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                     {pageNavName}
                 </span>
             </div>
-            <div className=" min-w-0 flex items-center gap-2  lg:pr-4">
-                <CircleUser onClick={() => router.push("/dashboard/profile")} className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
+            <div className=" min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer   lg:pr-4">
+                <Link href={"/dashboard/profile"} className="group flex items-center justify-center gap-2   text-sm text-secondary-faded  ">
+                    <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
+                    <small className="transition-all duration-300 text-secondary-faded group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
+                </Link>
+
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
                 <span className="text-sm text-secondary-faded font-mono">{dateDayMonthYear}</span>

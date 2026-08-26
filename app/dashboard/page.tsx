@@ -9,7 +9,10 @@ export default function Dashboard() {
         }
     ]
     return (
-        <Panel heading="Your stats" subHeading="dashboard" />
+        <div>
+            test
+        </div>
+        // <Panel heading="Your stats" subHeading="dashboard" />
     )
 }
 
