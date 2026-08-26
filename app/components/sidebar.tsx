@@ -23,7 +23,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             id: 1,
             defaultSelected: false,
             name: "Your Machines",
-            icon: <DollarSign className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
+            icon: <DollarSign width={25} height={25} className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "your-machines",
 
         },
@@ -58,7 +58,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
     }
     return (
         <>
-            <aside className={`fixed ${desktopMenuCollapse ? "lg:w-12" : "lg:w-64"} ${burgerMenuExpand ? "flex" : "hidden"}   top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
+            <aside className={`fixed ${desktopMenuCollapse ? "lg:w-14" : "lg:w-64"} ${burgerMenuExpand ? "flex" : "hidden"}  p-1 top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
                 <div className="grid h-full grid-cols-2  mt-30 lg:mt-30 lg:p-2">
                     <div className="col-span-2">
                         <nav>
@@ -72,14 +72,12 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
                                                 href={`/dashboard/${item.page}`}
                                             >
                                                 <div className="flex items-center justify-between">
-                                                    <div className="flex items-center justify-between ">
+                                                    <div className={`transition-all duration-300 delay-300 flex items-center w-full ${desktopMenuCollapse ? "justify-center" : ""}  min-h-12 relative`}>
                                                         {item.icon}
-                                                        <div className="p-2 min-h-12" >
-                                                            {/* <span className={` ${item.page === childUrl ? "active-name" : "text-secondary-faded"} text-nowrap text-lg block font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
-                                                                {item.name}
-                                                            </span> */}
-                                                        </div>
-
+                                                        {/* <div className={`p-2 min-h-12 hidden`} ></div> */}
+                                                        <span className={`${desktopMenuCollapse ? "hidden delay-300" : "block absolute left-8"} ${item.page === childUrl ? "active-name  " : "text-secondary-faded "}   text-nowrap text-lg block font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
+                                                            {item.name}
+                                                        </span>
                                                     </div>
                                                     {item.id === 2 ?
                                                         <div className="bg-alert-primary rounded-full w-7 h-7 text-center flex items-center justify-center mr-2"><span className="text-white text-sm font-mono font-bold">{item.restockNotification}</span></div>
