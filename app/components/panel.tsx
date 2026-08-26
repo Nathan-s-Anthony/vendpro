@@ -1,6 +1,6 @@
 export default function Panel({ heading, children, subHeading }: { heading: string, subHeading: string, children: React.ReactNode }) {
     return (
-        <div className="mt-6 p-6">
+        <div className="mt-6 p-6 transition-all duration-300 ">
             <div className="flex items-start flex-col justify-center">
                 <span className="text-primary font-mono font-bold -mb-6 uppercase">{subHeading}</span>
                 <h1 className="mb-6 capatialize">{heading}</h1>

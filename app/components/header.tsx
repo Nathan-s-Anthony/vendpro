@@ -6,8 +6,10 @@ import { Bell, CircleUser } from "lucide-react";
 import { dateDayMonthYear } from "../utils/date";
 import { useRouter } from 'next/navigation';
 
+
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
-    const router = useRouter()
+    const router = useRouter();
+    console.log(pageNavName, "page nav name")
     return (
         <header className={`${className} flex items-center justify-between  h-20 border-b border-border/30 w-full `}>
             <Link href={"/dashboard/overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
@@ -27,12 +29,11 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                     {pageNavName}
                 </span>
             </div>
-            <div className=" min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer   lg:pr-4">
-                <Link href={"/dashboard/profile"} className="group flex items-center justify-center gap-2   text-sm text-secondary-faded  ">
+            <div className="min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
+                <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                     <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
-                    <small className="transition-all duration-300 text-secondary-faded group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
+                    <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
                 </Link>
-
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
                 <span className="text-sm text-secondary-faded font-mono">{dateDayMonthYear}</span>

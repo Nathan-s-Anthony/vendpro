@@ -2,12 +2,9 @@
 import Link from "next/link";
 import { LayoutDashboard, Package, Boxes, ChevronLeft, MapPin, DollarSign } from "lucide-react";
 import { useState } from "react";
-import { useParams, usePathname } from "next/navigation";
-export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolean }) {
+
+export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpand: boolean, childUrl: string }) {
     const [active, setActive] = useState(true);
-    const pathname = usePathname();
-    const childUrl = pathname.split("/")[2];
-    const params = useParams()
     const navItems = [
         {
             id: 0,
