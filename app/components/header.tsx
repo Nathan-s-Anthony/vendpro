@@ -8,13 +8,13 @@ import { dateDayMonthYear } from "../utils/date";
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     return (
         <header className={`${className} flex items-center justify-between  h-20 border-b border-border/30 w-full `}>
-            <Link href={"/"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full">
+            <Link href={"/dashboard#overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full">
                 <div className="bg-primary rounded-sm w-10 h-10 block relative  ">
                     <div className="absolute inset-0 m-auto h-3 rounded-full w-3 bg-background">
                     </div>
                 </div>
                 <div className="flex justify-start flex-col ">
-                    <span className="font-display font-bold text-xl">VENDERS R US</span>
+                    <span className="font-display font-bold text-3xl">VENDPRO</span>
                     <span className="font-display font-bold text-sm">Portal</span>
                 </div>
             </Link>

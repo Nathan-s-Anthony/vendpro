@@ -9,10 +9,10 @@ export default function Dashboard() {
         }
     ]
     return (
-        <div className=" grid h-screen relative overflow-hidden w-screen grid-cols-[250px_1fr] grid-rows-[auto_1fr]">
+        <div className="grid h-screen relative overflow-hidden w-screen grid-cols-[250px_1fr] grid-rows-[auto_1fr]">
             <ToolBar />
-            <div className="min-w-0 absolute col-span-2 w-full mt-30 lg:mt-30 lg:px-6 py-4 lg:ml-64 ml-0 ">
-                <Panel />
+            <div className="min-w-0 col-start-2 z-10  lg:px-6 py-4">
+                <Panel heading="Your stats" />
             </div>
         </div>
     )

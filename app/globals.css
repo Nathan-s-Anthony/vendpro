@@ -52,6 +52,7 @@
   --border: oklch(0.922 0 0);
   --sidebar-primary: #030213;
   --text-2xl:5.5rem;
+  --card-primary :#161618;
 
 --alert-primary :#ef4444;
 }
@@ -67,6 +68,7 @@
   --color-border:var(--border);
   --color-sidebar-primary:var(--sidebar-primary);
   --color-alert-primary:var(--alert-primary);
+  --color-card-primary:var(--card-primary);
 
 /* fonts */
   --font-display: var(--font-barlow-condensed);
@@ -196,5 +198,9 @@ body {
  font-size: var(--text-xl);
  
   }
-
+ 
+  .panel-mount {
+width: calc(100% - var(--spacing) * 64);
+  margin-left: auto;
+  }
 }
