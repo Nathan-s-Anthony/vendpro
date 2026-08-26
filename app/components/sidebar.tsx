@@ -2,11 +2,14 @@
 import Link from "next/link";
 import { LayoutDashboard, Package, Boxes, ChevronLeft, MapPin, DollarSign, ChevronRight } from "lucide-react";
 import { useState } from "react";
+// import { useAppSelector, useAppDispatch } from "../hooks/hooks";
+
 
 export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpand: boolean, childUrl: string }) {
     const [active, setActive] = useState(true);
     const [desktopMenuCollapse, setDesktopMenuCollapse] = useState(false);
     const [slideInText, setSlideInText] = useState(false);
+
     const navItems = [
         {
             id: 0,
@@ -55,7 +58,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
     }
     return (
         <>
-            <aside className={`fixed ${desktopMenuCollapse ? "lg:w-12" : "lg:w-64 "} ${burgerMenuExpand ? "flex" : "hidden"}   top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
+            <aside className={`fixed ${desktopMenuCollapse ? "lg:w-12" : "lg:w-64"} ${burgerMenuExpand ? "flex" : "hidden"}   top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
                 <div className="grid h-full grid-cols-2  mt-30 lg:mt-30 lg:p-2">
                     <div className="col-span-2">
                         <nav>

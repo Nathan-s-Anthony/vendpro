@@ -1,4 +1,4 @@
-export default function Panel({ heading, children, subHeading }: { heading: string, subHeading: string, children: React.ReactNode }) {
+export default function Panel({ heading, children, subHeading, desktopMenuCollapsed }: { heading: string, subHeading: string, children: React.ReactNode, desktopMenuCollapsed: boolean }) {
     return (
         <div className="mt-6 p-6 transition-all duration-300 ">
             <div className="flex items-start flex-col justify-center">
