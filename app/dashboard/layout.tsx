@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ToolBar from "../components/toolbar";
 
-import StoreProvider from "../providers/storeProvider";
+// import StoreProvider from "../providers/storeProvider";
 export const metadata: Metadata = {
     title: "Dashboard-",
     description: "Vendpro Dashboard",
