@@ -62,13 +62,13 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
                                         <li key={item.id} className="group w-full rounded-sm">
                                             <Link
                                                 scroll={false}
-                                                className={`${item.page === childUrl ? "active" : ""} block transition-all duration-300 group-hover:bg-secondary`}
+                                                className={`${item.page === childUrl ? "active" : "group-hover:bg-secondary"} block transition-all duration-300 `}
                                                 href={`/dashboard/${item.page}`}
                                             >
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex items-center justify-between">
                                                         {item.icon}
-                                                        <span className=" text-lg block p-2 font-bold text-secondary-faded transition-all duration-300 group-hover:translate-x-2 group-hover:text-white">
+                                                        <span className={`${item.page === childUrl ? "active-name" : "text-secondary-faded"} text-lg block p-2 font-bold  transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
                                                             {item.name}
                                                         </span>
                                                     </div>
