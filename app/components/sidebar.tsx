@@ -34,7 +34,7 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
             defaultSelected: false,
             name: "Source Cargo",
             icon: <Boxes className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
-            page: "source",
+            page: "source-cargo",
 
         },
         {
@@ -49,7 +49,7 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
     ]
     return (
         <>
-            <aside className={`fixed ${burgerMenuExpand ? "flex" : "hidden"}   top-0 left-0 h-full z-50 lg:w-64 lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
+            <aside className={`fixed ${burgerMenuExpand ? "flex" : "hidden"}   top-0 left-0 h-full z-40 lg:w-64 lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
                 <div className="grid h-full grid-cols-2  mt-30 lg:mt-30 lg:p-2">
                     <div className="col-span-2">
                         <nav>
@@ -60,7 +60,7 @@ export default function SideBar({ burgerMenuExpand }: { burgerMenuExpand: boolea
                                             <Link
                                                 scroll={false}
                                                 className={`${item.defaultSelected === true ? "active" : ""} block transition-all duration-300 group-hover:bg-secondary`}
-                                                href={`/dashboard#${item.page}`}
+                                                href={`/dashboard/${item.page}`}
                                             >
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex items-center justify-between">
