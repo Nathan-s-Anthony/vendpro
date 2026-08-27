@@ -1,6 +1,10 @@
-export default function Button({ value }: { value: string }) {
+"use client";
+
+
+export default function Button({ value, className, action }: { value: string, className: string, action?: () => void | undefined }) {
+
     return (
-        <button className="px-4 py-2 bg-secondary-faded rounded-sm">
+        <button onClick={action} className={`${className} cursor-pointer px-4 py-2 bg-secondary-faded rounded-sm`}>
             {value}
         </button>
     )

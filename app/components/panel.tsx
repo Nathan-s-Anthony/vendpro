@@ -6,7 +6,7 @@ export default function Panel({ heading, children, subHeading, desktopMenuCollap
             <div className="flex items-start flex-col justify-center">
                 <div className="flex items-center justify-between w-full ">
                     <span className="text-primary  font-mono font-bold -mb-6 uppercase">{subHeading}</span>
-                    <Button value={btnValue} />
+                    <Button value={btnValue} className="" />
                 </div>
                 <h1 className="mb-6 capatialize">{heading}</h1>
             </div>

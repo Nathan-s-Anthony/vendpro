@@ -4,6 +4,7 @@ import Link from "next/link";
 import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
+import Button from "./button";
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const router = useRouter();
@@ -28,6 +29,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 </span>
             </div>
             <div className="min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
+                <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} />
                 <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                     <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
                     <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
