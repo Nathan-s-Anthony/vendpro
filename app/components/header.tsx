@@ -5,8 +5,6 @@ import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
 
-
-
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const router = useRouter();
     console.log(pageNavName, "page nav name")
@@ -36,7 +34,6 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 </Link>
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
-
             </div>
             <div className="lg:hidden">
                 <div>
