@@ -74,7 +74,6 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
                                                 <div className="flex items-center justify-between">
                                                     <div className={`transition-all duration-300 delay-300 flex items-center w-full ${desktopMenuCollapse ? "justify-center" : ""}  min-h-12 relative`}>
                                                         {item.icon}
-                                                        {/* <div className={`p-2 min-h-12 hidden`} ></div> */}
                                                         <span className={`${desktopMenuCollapse ? "hidden delay-300" : "block absolute left-8"} ${item.page === childUrl ? "active-name  " : "text-secondary-faded "}   text-nowrap text-lg block font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
                                                             {item.name}
                                                         </span>

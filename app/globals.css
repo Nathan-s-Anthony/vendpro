@@ -198,12 +198,12 @@ body {
  font-size: var(--text-xl);
 
   }
-  a{
-    @apply font-mono 
-  }
+
  a:hover{
 @apply  text-primary transition-all duration-300;
  }
+ 
+
 .panel-mount {
   width: calc(100% - var(--spacing) * 64);
   margin-left: auto;
@@ -214,4 +214,14 @@ body {
 .active-name{
   @apply text-primary;
 }
+ .grid-bg{
+    background-image:linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px);
+    background-size: 55px 55px;
+    inset: 0;
+    position: absolute;
+    opacity: 0.045;
+ }
+ .grid-bg-overlay{
+  background: linear-gradient(145deg, #111115 0%, #16100a 100%);
+ }
 }
