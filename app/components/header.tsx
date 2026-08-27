@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Pill from "./pill";
-import { Bell, CircleUser } from "lucide-react";
+import { Bell, CircleUser, Zap } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Button from "./button";
 
@@ -11,10 +11,9 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     console.log(pageNavName, "page nav name")
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
-            <Link href={"/dashboard/overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
-                <div className="bg-primary rounded-sm w-10 h-10 block relative  ">
-                    <div className="absolute inset-0 m-auto h-3 rounded-full w-3 bg-background">
-                    </div>
+            <Link href={"/dashboard/overview"} className="group justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
+                <div className="bg-primary rounded-sm w-10 h-10 flex items-center justify-center relative  ">
+                    <Zap className="transition-transform duration-300 group-hover:-scale-x-100 group-hover:text-background" />
                 </div>
                 <div className="flex justify-start flex-col">
                     <span className="font-display font-bold text-3xl">VENDPRO</span>
@@ -29,6 +28,8 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 </span>
             </div>
             <div className="min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
+                <span  >Casino Manager? Visit our dedicated platform</span>
+                <Link href={"/slotspro"}>slotspro.co.za</Link>
                 <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} />
                 <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                     <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />

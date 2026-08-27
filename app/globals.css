@@ -198,7 +198,12 @@ body {
  font-size: var(--text-xl);
 
   }
- 
+  a{
+    @apply font-mono 
+  }
+ a:hover{
+@apply  text-primary transition-all duration-300;
+ }
 .panel-mount {
   width: calc(100% - var(--spacing) * 64);
   margin-left: auto;
@@ -209,5 +214,4 @@ body {
 .active-name{
   @apply text-primary;
 }
-
 }
