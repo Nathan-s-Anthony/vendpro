@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
-import { dateDayMonthYear } from "../utils/date";
 import { useRouter } from 'next/navigation';
+
 
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
@@ -17,7 +17,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                     <div className="absolute inset-0 m-auto h-3 rounded-full w-3 bg-background">
                     </div>
                 </div>
-                <div className="flex justify-start flex-col hidden">
+                <div className="flex justify-start flex-col">
                     <span className="font-display font-bold text-3xl">VENDPRO</span>
                     <span className="font-display font-bold text-sm">Portal</span>
                 </div>
@@ -36,7 +36,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 </Link>
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
-                <span className="text-sm text-secondary-faded font-mono">{dateDayMonthYear}</span>
+
             </div>
             <div className="lg:hidden">
                 <div>
