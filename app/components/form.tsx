@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Form() {
     return (
-        <div className="bg-red-500  lg:w-64  m-auto rounded-sm">
+        <div className="bg-red-500 h-[] lg:w-64  m-auto rounded-sm">
             <Link href={"/dashboard/overview"} className="justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
                 <div className="bg-primary rounded-sm w-10 h-10 block relative  ">
                     <div className="absolute inset-0 m-auto h-3 rounded-full w-3 bg-background">
@@ -16,7 +16,5 @@ export default function Form() {
                 </div>
             </Link>
         </div>
-
-
     )
 }
