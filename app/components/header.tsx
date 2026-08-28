@@ -16,7 +16,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     };
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
-            <Logo />
+            <Logo variant="normal" />
             <div className=" min-w-0 flex items-center flex-1  lg:pl-4">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
@@ -27,7 +27,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
                 <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
                 <Link href={"/slotspro"}>slotspro.co.za</Link>
-                <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} />
+                <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} variant={"primary"} />
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />

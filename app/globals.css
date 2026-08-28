@@ -55,6 +55,7 @@
   --card-primary :#161618;
 
 --alert-primary :#ef4444;
+--button-primary-text:#0C0C0D;
 }
 @theme inline {
 
@@ -69,6 +70,7 @@
   --color-sidebar-primary:var(--sidebar-primary);
   --color-alert-primary:var(--alert-primary);
   --color-card-primary:var(--card-primary);
+  --color-primary-button-text:var(--button-primary-text);
 
 /* fonts */
   --font-display: var(--font-barlow-condensed);

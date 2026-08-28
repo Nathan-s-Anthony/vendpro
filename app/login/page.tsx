@@ -1,3 +1,4 @@
+import Button from "../components/button";
 import Logo from "../components/logo";
 
 export default function Login() {
@@ -15,11 +16,16 @@ export default function Login() {
                         <div className="flex flex-col justify-between p-8 h-full">
                             <div>
                                 <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard</a>
-                                <Logo />
+                                <Logo variant="large" />
                             </div>
                             <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-4 flex-1 ">
                                 <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
                                 <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
+                                <div className="flex justify-evenly gap-4">
+                                    <Button value={"View Features"} className={""} variant={"primary"} />
+                                    <Button value={"View Pricing"} className={""} variant={"secondary"} />
+                                </div>
+
                             </div>
                         </div>
                     </div>

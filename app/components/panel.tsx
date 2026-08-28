@@ -11,7 +11,7 @@ export default function Panel({ heading, children, subHeading, desktopMenuCollap
             <div className="flex items-start flex-col justify-center">
                 <div className="flex items-center justify-between w-full ">
                     <SubHeading heading={heading} subHeading={subHeading} />
-                    <Button value={btnValue} className="" />
+                    <Button value={btnValue} className="" variant={"secondary"} />
                 </div>
             </div>
             <div className={className}>
