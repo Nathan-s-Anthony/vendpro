@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import Pill from "./pill";
-import { Bell, CircleUser, Zap } from "lucide-react";
+import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Button from "./button";
+import Logo from "./logo";
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const router = useRouter();
@@ -15,15 +16,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     };
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
-            <Link href={"/dashboard/overview"} className="group justify-start  flex items-center z-50 gap-2 lg:w-64 w-full lg:p-2">
-                <div className="bg-primary rounded-sm w-10 h-10 flex items-center justify-center relative  ">
-                    <Zap className="text-secondary transition-transform duration-300 group-hover:-scale-x-100" />
-                </div>
-                <div className="flex justify-start flex-col">
-                    <span className="font-display font-bold text-3xl">VENDPRO</span>
-                    <span className="font-display font-bold text-sm">Portal</span>
-                </div>
-            </Link>
+            <Logo />
             <div className=" min-w-0 flex items-center flex-1  lg:pl-4">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>

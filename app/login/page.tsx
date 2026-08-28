@@ -1,3 +1,5 @@
+import Logo from "../components/logo";
+
 export default function Login() {
     return (
         <div className="relative w-screen min-w-screen grid grid-cols-1 min-h-screen h-screen">
@@ -9,9 +11,16 @@ export default function Login() {
             </div>
             <div className="absolute inset-0">
                 <div className="relative grid grid-cols-2 h-screen">
-                    <div className=" lg:col-span-1 col-span-2 ">
-                        <div className="flex justify-between items-center ">
-                            <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
+                    <div className=" lg:col-span-1 col-span-2  ">
+                        <div className="flex flex-col justify-between p-8 h-full">
+                            <div>
+                                <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard</a>
+                                <Logo />
+                            </div>
+                            <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-4 flex-1 ">
+                                <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
+                                <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
+                            </div>
                         </div>
                     </div>
                     <div className=" lg:col-span-1 col-span-2">col-2</div>
