@@ -10,9 +10,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     const router = useRouter();
     console.log(pageNavName, "page nav name");
 
-    const handleMouseEnterProfile = (
-        e: React.MouseEvent<HTMLDivElement>
-    ) => {
+    const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
     return (
