@@ -1,5 +1,7 @@
-import Button from "../components/button";
-import Logo from "../components/logo";
+import Button from "@/app/components/button";
+import Logo from "@/app/components/logo";
+import Heading from "@/app/components/subHeading";
+import { Lock } from "lucide-react";
 
 export default function Login() {
     return (
@@ -18,18 +20,22 @@ export default function Login() {
                                 <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard</a>
                                 <Logo variant="large" />
                             </div>
-                            <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-4 flex-1 ">
+                            <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-6 flex-1 ">
                                 <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
                                 <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
                                 <div className="flex justify-evenly gap-4">
                                     <Button value={"View Features"} className={""} variant={"primary"} />
                                     <Button value={"View Pricing"} className={""} variant={"secondary"} />
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                    <div className=" lg:col-span-1 col-span-2">col-2</div>
+                    <div className=" lg:col-span-1 col-span-2">
+                        <Heading heading={{
+                            main: "sign in to ",
+                            highlight: "dashboard",
+                        }} subHeading={"secure access"} icon={<Lock width={20} height={20} className="text-primary hover:animate-pulse transition-all duration-300" />} />
+                    </div>
                 </div>
             </div>
         </div>

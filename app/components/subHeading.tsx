@@ -1,8 +1,11 @@
-export default function heading({ heading, subHeading }: { heading: string, subHeading: string }) {
+export default function Heading({ heading, subHeading, icon }: { heading: { main: string, highlight?: string }, subHeading: string, icon?: React.ReactNode }) {
     return (
         <div>
-            <span className="text-primary font-mono font-bold italic uppercase">{subHeading}</span>
-            <h1 className="capitalize ">{heading}</h1>
+            <div className="flex flex-1 gap-2 mt-4">
+                {icon && icon}
+                <span className="text-primary font-mono font-medium uppercase ">{subHeading}</span>
+            </div>
+            <h1 className={`uppercase lg:text-6xl ${icon && icon ? " lg:max-w-62" : "lg:w-full"}  mb-4`}>{heading.main} <b className="text-primary">{heading.highlight}</b></h1>
         </div>
     )
 }
