@@ -2,6 +2,7 @@ import Button from "@/app/components/button";
 import Logo from "@/app/components/logo";
 import Heading from "@/app/components/subHeading";
 import { Lock } from "lucide-react";
+import Form from "@/app/components/form";
 
 export default function Login() {
     return (
@@ -35,6 +36,7 @@ export default function Login() {
                             main: "sign in to ",
                             highlight: "dashboard",
                         }} subHeading={"secure access"} icon={<Lock width={20} height={20} className="text-primary hover:animate-pulse transition-all duration-300" />} />
+                        <Form />
                     </div>
                 </div>
             </div>
