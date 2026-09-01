@@ -1,84 +1,32 @@
 "use client";
-import { useActionState, useState } from "react";
+import { useActionState, } from "react";
 
 import { email } from "zod";
 import { login } from "../actions/auth";
+import Button from "./button";
+import Link from "next/link";
+
 
 
 export default function Form() {
     const [state, action, pending] = useActionState(login, undefined);
-
-    // const handleFormSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     if (!email) {
-    //         setErrors("Please fill email...");
-    //         return;
-    //     }
-    //     try {
-    //         axiosInstance.get('/sanctum/csrf-cookie', { baseURL: "http://localhost:8000" }).then(response => {
-    //             axiosInstance.post("/login", {
-    //                 email: email,
-    //                 password: password,
-    //                 device_name: "brave-browser",
-    //             }).then((response) => {
-    //                 console.log(response, "login user")
-    //                 if (response.data.access_token) {
-    //                     setAccessToken(response.data.access_token);
-    //                 }
-    //                 console.log(response, "login user")
-    //             }).catch((error) => {
-    //                 console.error(error, "error logging in user");
-    //             });
-    //         }).catch((error) => {
-    //             console.error(error, "error getting csrf cookie")
-    //         })
-    //     }
-    //     catch (error) {
-    //         console.error(error, 'error getting token');
-    //     }
-    // }
-    // const handleLogin = async () => {
-    //     try {
-    //         axiosInstance.get('/sanctum/csrf-cookie', { baseURL: "http://localhost:8000" }).then(response => {
-    //             axiosInstance.post("/login", {
-    //                 email: "nathan@test.com",
-    //                 password: "nathanwww",
-    //                 device_name: "brave-browser",
-    //             }).then((response) => {
-    //                 if (response.data.access_token) {
-    //                     setAccessToken(response.data.access_token);
-    //                     redirect("/dashboard");
-    //                 }
-    //                 console.log(response, "login user")
-    //                 // setAccessToken(response?.data?.token);
-    //             }).catch((error) => {
-    //                 console.error(error, "error logging in user");
-    //             });
-    //         })
-    //     }
-    //     catch (error) {
-    //         console.error(error, 'error getting token');
-    //     }
-    // };
     return (
         <>
-            {/* <button onClick={handleLogin}>Login now</button> */}
-            {/* <button type="button" onClick={handleClick}>
-                Click me
-            </button> */}
-            <div className=" lg:w-64">
-                <form action={action}>
+            <div className="  w-full">
+                <form action={action} className="flex p-8 flex-col gap-4 bg-form-primary">
                     {/* {state?.errors?.name && <p>{state.errors.name}</p>} */}
-                    <div>
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="email">Email</label>
-                        <input id="email" name="email" placeholder="Email" />
+                        <input className="bg-input-background text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" id="email" name="email" placeholder="Email" />
                     </div>
                     {state?.errors?.email && <p>{state.errors.email}</p>}
-
-                    <div>
+                    <div className="flex flex-col gap-2">
                         <label htmlFor="password">Password</label>
-                        <input id="password" name="password" type="password" />
+                        <input id="password" className="bg-input-background text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" name="password" type="password" />
+                        <Link href="/forgot-password" className=" self-end text-secondary-faded hover:underline">Forgot Password?</Link>
                     </div>
+
+
                     {state?.errors?.password && (
                         <div>
                             <p>Password must:</p>
@@ -89,9 +37,8 @@ export default function Form() {
                             </ul>
                         </div>
                     )}
-                    <button disabled={pending} type="submit">
-                        Sign Up
-                    </button>
+                    <Button disabled={pending} type="submit" value={"Login"} className={""} variant={"primary"} />
+                    <Button type="submit" value={"register"} className={""} variant={"secondary"} />
                 </form>
             </div>
         </>
