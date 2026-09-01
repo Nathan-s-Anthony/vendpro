@@ -20,7 +20,7 @@ export default function Panel({ heading, subHeading, highlight, children, deskto
                         main: heading,
                         highlight: highlight
                     }} subHeading={subHeading} />
-                    <Button value={btnValue} action={() => action} className="mt-4 mb-4" variant={"secondary"} type={"button"} />
+                    <Button value={btnValue} action={() => logout()} className="mt-4 mb-4 text-" variant={"primary"} type={"button"} />
                 </div>
             </div>
             <div className={className}>

@@ -220,6 +220,7 @@ body {
 .active-name{
   @apply text-primary;
 }
+
  .grid-bg{
     background-image:linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px);
     background-size: 55px 55px;

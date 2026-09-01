@@ -10,7 +10,7 @@ export async function loginUser(
     password: FormDataEntryValue | null
 ) {
     try {
-            const resp = await axiosInstance.post(ENDPOINTS.USER, {
+            const resp = await axiosInstance.post(ENDPOINTS.LOGIN, {
                 email,
                 password,
                 device_name: "brave-browser",
