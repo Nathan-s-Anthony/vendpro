@@ -17,7 +17,7 @@ export default function Panel({ heading, subHeading, highlight, children, deskto
                         main: heading,
                         highlight: highlight
                     }} subHeading={subHeading} />
-                    <Button value={btnValue} className="" variant={"secondary"} />
+                    <Button value={btnValue} className="" variant={"secondary"} type={"button"} />
                 </div>
             </div>
             <div className={className}>

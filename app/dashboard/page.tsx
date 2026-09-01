@@ -1,23 +1,20 @@
-import { getToken } from "@/app/api/services/token";
+import Card from "../components/card";
 import Panel from "../components/panel";
 import ToolBar from "../components/toolbar";
+import { verifySession } from "../lib/dal";
 
-
-
-export default function Dashboard() {
-    const navigationMenu = [
-        {
-            id: 0,
-            name: "Overview",
-
-        }
-    ]
-
+export default async function Dashboard() {
+    const session = await verifySession();
+    const userID = session?.userID;
+    const userRole = session?.userRole;
+    console.log("userID", userID);
+    console.log("userRole", userRole);
     return (
-        <div>
-            test
-        </div>
-        // <Panel heading="Your stats" subHeading="dashboard" />
+        <>
+            {userRole === "admin" && (
+                <div>test admin</div>
+            )}
+        </>
     )
 }
 

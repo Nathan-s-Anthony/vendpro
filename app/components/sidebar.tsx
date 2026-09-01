@@ -5,7 +5,7 @@ import { useState } from "react";
 // import { useAppSelector, useAppDispatch } from "../hooks/hooks";
 
 
-export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpand: boolean, childUrl: string }) {
+export default function SideBar({ burgerMenuExpand, childUrl, userRole }: { burgerMenuExpand: boolean, childUrl: string, userRole: string }) {
     const [active, setActive] = useState(true);
     const [desktopMenuCollapse, setDesktopMenuCollapse] = useState(false);
     const [slideInText, setSlideInText] = useState(false);
@@ -17,6 +17,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             name: "Overview",
             icon: <LayoutDashboard className="transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "overview",
+            permission: ["admin", "manager", "operator"]
 
         },
         {
@@ -25,7 +26,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             name: "Your Machines",
             icon: <DollarSign width={25} height={25} className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "your-machines",
-
+            permission: ["admin"]
         },
         {
             id: 2,
@@ -33,6 +34,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             name: "Stock Levels",
             icon: <Package className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "stock-levels",
+            permission: ["admin", "manager", "operator"],
             restockNotification: 5,
         },
         {
@@ -40,6 +42,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             defaultSelected: false,
             name: "Source Cargo",
             icon: <Boxes className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
+            permission: ["admin", "manager", "operator"],
             page: "source-cargo",
 
         },
@@ -48,6 +51,7 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
             defaultSelected: false,
             name: "Locations",
             icon: <MapPin className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
+            permission: ["admin", "manager", "operator"],
             page: "locations",
 
         },
@@ -63,8 +67,9 @@ export default function SideBar({ burgerMenuExpand, childUrl }: { burgerMenuExpa
                     <div className="col-span-2">
                         <nav>
                             <ul className="w-full flex flex-col justify-start gap-4 items-baseline  h-full">
-                                {navItems.map((item) => {
+                                {navItems.filter((item) => item.permission.includes(userRole)).map((item) => {
                                     return (
+
                                         <li key={item.id} className="group w-full rounded-sm">
                                             <Link
                                                 scroll={false}
