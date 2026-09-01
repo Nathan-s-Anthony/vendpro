@@ -1,5 +1,9 @@
+import { getToken } from "@/app/api/services/token";
 import Panel from "../components/panel";
 import ToolBar from "../components/toolbar";
+
+
+
 export default function Dashboard() {
     const navigationMenu = [
         {
@@ -8,6 +12,7 @@ export default function Dashboard() {
 
         }
     ]
+
     return (
         <div>
             test

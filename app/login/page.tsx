@@ -3,8 +3,44 @@ import Logo from "@/app/components/logo";
 import Heading from "@/app/components/subHeading";
 import { Lock } from "lucide-react";
 import Form from "@/app/components/form";
+import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from "axios";
+// import { getToken } from "../api/services/token";
+
+// const api: AxiosInstance = axios.create({
+//   baseURL: "http://localhost:8000",
+//   timeout: 5000,
+//     withCredentials: true,
+//     withXSRFToken:true,
+//      headers: {
+//         'Accept': 'application/json',
+//     }
+// });
+// api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+//   config.headers.set("Authorization", `Bearer ${csrfToken}`);
+//   return config;
+// });
+// api.interceptors.response.use(
+//   (response: AxiosResponse) => response,
+//   (error) => Promise.reject(error)
+// ); 
 
 export default function Login() {
+
+    // const token = getToken();
+
+    // try {
+    //     const response = await api.post("/login", {
+    //         email: "nsanthony95@gmail.com",
+    //         token_name: "login-user",
+    //     });
+    //     const token = response.data.token;
+    //     // login(token);
+    //     console.log(token, "token on login")
+    // }
+    // catch (error) {
+    //     console.error(error, 'error getting token');
+    // }
+    //
     return (
         <div className="relative w-screen min-w-screen grid grid-cols-1 min-h-screen h-screen">
             <div
@@ -18,7 +54,7 @@ export default function Login() {
                     <div className=" lg:col-span-1 col-span-2  ">
                         <div className="flex flex-col justify-between p-8 h-full">
                             <div>
-                                <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard</a>
+                                <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard </a>
                                 <Logo variant="large" />
                             </div>
                             <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-6 flex-1 ">
@@ -26,8 +62,9 @@ export default function Login() {
                                 <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
                                 <div className="flex justify-evenly gap-4">
                                     <Button value={"View Features"} className={""} variant={"primary"} />
+
                                     <Button value={"View Pricing"} className={""} variant={"secondary"} />
-                                </div>
+                                </div>9
                             </div>
                         </div>
                     </div>
@@ -37,6 +74,7 @@ export default function Login() {
                             highlight: "dashboard",
                         }} subHeading={"secure access"} icon={<Lock width={20} height={20} className="text-primary hover:animate-pulse transition-all duration-300" />} />
                         <Form />
+                        {/* <button onClick={handleLogin} >login</button> */}
                     </div>
                 </div>
             </div>

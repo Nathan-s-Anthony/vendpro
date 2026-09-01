@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ToolBar from "../components/toolbar";
+import { AuthProvider } from "../providers/authProvider";
 
 // import StoreProvider from "../providers/storeProvider";
 export const metadata: Metadata = {
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
     description: "Vendpro Dashboard",
 };
 
-export default function DashboardLayout({ children }: LayoutProps<"/">) {
 
+export default function DashboardLayout({ children }: LayoutProps<"/">) {
     return (
         <main>
             {/* <StoreProvider> */}
@@ -18,6 +19,7 @@ export default function DashboardLayout({ children }: LayoutProps<"/">) {
                     {children}
                 </div>
             </div>
+
             {/* </StoreProvider> */}
         </main>
     );

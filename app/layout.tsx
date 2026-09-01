@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, DM_Sans, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
+import { AuthProvider } from "./providers/authProvider";
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${barlowCondensed.variable} ${dmSans.variable} ${jetBrainsMono.variable}`}
     >
-      <body className="">{children}</body>
+      <body className=""><AuthProvider>{children}</AuthProvider></body>
     </html>
   );
 }

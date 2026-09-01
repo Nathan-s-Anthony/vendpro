@@ -6,17 +6,33 @@ import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Button from "./button";
 import Logo from "./logo";
+import { useAuth } from "../providers/authProvider";
+import axios from "axios";
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const router = useRouter();
+    const { login } = useAuth();
     console.log(pageNavName, "page nav name");
 
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
+    const api = axios.create({ baseURL: "http://localhost:8000/api" });
+
+    const handleUser = async () => {
+        try {
+            const response = await api.get("/user");
+            const user = response.data;
+            return user;
+        }
+        catch (error) {
+            console.error(error, 'error getting token');
+        }
+    };
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
             <Logo variant="normal" />
+
             <div className=" min-w-0 flex items-center flex-1  lg:pl-4">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
@@ -26,11 +42,11 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
             </div>
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
                 <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
-                <Link href={"/slotspro"}>slotspro.co.za</Link>
+                <Link href={"/slotspro"}>   </Link>
                 <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} variant={"primary"} />
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
-                        <CircleUser onClick={() => router.push("/dashboard/profile")} className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
+                        <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
                         <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
                     </Link>
                 </div>
