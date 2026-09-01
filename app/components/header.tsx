@@ -4,15 +4,15 @@ import Link from "next/link";
 import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
-import Button from "./button";
 import Logo from "./logo";
-import { useAuth } from "../providers/authProvider";
 import axios from "axios";
 import { logout } from "../api/services/logout";
+import Button from "./button";
+import { getUser } from "../api/services/users";
 
 export default function Header({ className, burgerMenuClick, pageNavName, userID, userRole }: { className: string, burgerMenuClick: () => void, pageNavName: string, userID: string, userRole: string }) {
     const router = useRouter();
-    const { login } = useAuth();
+
     console.log(pageNavName, "page nav name");
 
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -44,16 +44,13 @@ export default function Header({ className, burgerMenuClick, pageNavName, userID
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
                 <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
                 <Link href={"/slotspro"}>   </Link>
-                <Button value={"View Login Route"} className="lg:mr-5" action={() => router.push("/login")} variant={"primary"} type={"button"} />
-                <Button value={"logout"} className="lg:mr-5" action={() => logout()} variant={"primary"} type={"button"} />
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
                         <div className="flex flex-col">
                             <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
-                            <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">{userID} - {userRole} </small>
+                            <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{userRole} </small>
                         </div>
-
                     </Link>
                 </div>
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />

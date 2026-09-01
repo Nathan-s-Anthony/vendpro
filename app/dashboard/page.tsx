@@ -17,7 +17,6 @@ export default async function Dashboard() {
         </>
     )
 }
-
 export const metadata = {
     title: "Vendpro - One stop app for vendors to run their business",
     description: "Vendpro is a comprehensive platform designed to empower vendors in managing their businesses efficiently.",

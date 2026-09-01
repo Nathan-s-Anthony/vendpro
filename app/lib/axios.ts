@@ -1,5 +1,6 @@
+import { verifySession } from '@/app/lib/dal';
 import axios, { InternalAxiosRequestConfig } from "axios";
-import { getAccessToken } from "../api/services/tokens";
+
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:8000/api",
@@ -9,8 +10,13 @@ const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
-// axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-//   config.headers.set("Authorization", `Bearer ${getAccessToken()}`);
-//   return config;
-// });
-export default axiosInstance;
+async function getAccessToken(){
+  const session = await verifySession();
+  return session.userID;
+}
+const token = getAccessToken();
+axiosInstance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  config.headers.set("Authorization", `Bearer ${token}`);
+  return config;
+});
+export  {axiosInstance};

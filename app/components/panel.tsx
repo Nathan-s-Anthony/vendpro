@@ -1,12 +1,15 @@
+"use client";
 
+import { logout } from "../api/services/logout";
 import Button from "./button";
 import SubHeading from "./subHeading";
 
-export default function Panel({ heading, subHeading, highlight, children, desktopMenuCollapsed, className, btnValue }:
+export default function Panel({ heading, subHeading, highlight, children, desktopMenuCollapsed, className, btnValue, action }:
     {
         heading: string, subHeading: string, children: React.ReactNode,
         desktopMenuCollapsed?: boolean, className: string, btnValue: string,
         highlight: string,
+        action?: () => void
     }) {
 
     return (
@@ -17,7 +20,7 @@ export default function Panel({ heading, subHeading, highlight, children, deskto
                         main: heading,
                         highlight: highlight
                     }} subHeading={subHeading} />
-                    <Button value={btnValue} className="" variant={"secondary"} type={"button"} />
+                    <Button value={btnValue} action={() => action} className="mt-4 mb-4" variant={"secondary"} type={"button"} />
                 </div>
             </div>
             <div className={className}>

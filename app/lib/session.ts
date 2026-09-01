@@ -1,7 +1,8 @@
 "use server";
 import 'server-only'
 import { SignJWT, jwtVerify } from 'jose'
-import { SessionPayload } from '@/app/lib/definitions'
+import { SessionPayload } from '@/app/lib/definitions';
+import { cookies } from 'next/headers'
  
 const secretKey = process.env.SESSION_SECRET
 const encodedKey = new TextEncoder().encode(secretKey)
@@ -24,13 +25,12 @@ export async function decrypt(session: string | undefined = '') {
     console.log('Failed to verify session')
   }
 }
-import 'server-only'
-import { cookies } from 'next/headers'
+
  
 export async function createSession(userId: string) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
   const userRole =  "admin";
-  const session = await encrypt({ userID:userId,userRole: userRole,expiresAt: expiresAt })
+  const session = await encrypt({ userID:userId,userRole: userRole,expiresAt: expiresAt})
   const cookieStore = await cookies()
  
   cookieStore.set('session', session, {

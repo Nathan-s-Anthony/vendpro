@@ -1,5 +1,4 @@
-import 'server-only'
- 
+import 'server-only' 
 import { cookies } from 'next/headers'
 import { decrypt } from '@/app/lib/session'
 import { cache } from 'react'
@@ -11,8 +10,6 @@ export const verifySession = cache(async () => {
   if (!session?.userID) {
     redirect('/login')
   }
-  if(session?.userRole !== 'admin') {
-    redirect('/dashboard')
-  }
-  return { isAuth: true, userID: session.userID , userRole: session.userRole, expiresAt: session.expiresAt}
+ 
+  return { isAuth: true, userID: session.userID,userRole:session.userRole }
 })

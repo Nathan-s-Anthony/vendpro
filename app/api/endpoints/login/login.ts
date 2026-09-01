@@ -1,13 +1,9 @@
 
 export const ENDPOINTS = {
-    COOKIES: {
-        CSRF: "/sanctum/csrf-cookie",
-    },
-    user:{
+     CSRF: "/sanctum/csrf-cookie",
+     USER :"/user",
      LOGIN: "/login",
      REGISTER: "/register",
      LOGOUT: "/logout",
      REFRESH: "/refresh",
-    }
-   
 };

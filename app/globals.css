@@ -57,6 +57,7 @@
 --alert-primary :#ef4444;
 --button-primary-text:#0C0C0D;
 --form-primary:#161618;
+--aside-primary :#222225;
 }
 @theme inline {
 
@@ -73,6 +74,7 @@
   --color-card-primary:var(--card-primary);
   --color-primary-button-text:var(--button-primary-text);
   --color-form-primary:var(--form-primary);
+  --color-aside-primary:var(--aside-primary);
 
 /* fonts */
   --font-display: var(--font-barlow-condensed);

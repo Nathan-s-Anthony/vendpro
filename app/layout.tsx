@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${barlowCondensed.variable} ${dmSans.variable} ${jetBrainsMono.variable}`}
     >
-      <body className=""><AuthProvider>{children}</AuthProvider></body>
+      <body className="">{children}</body>
     </html>
   );
 }

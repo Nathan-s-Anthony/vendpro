@@ -1,103 +1,44 @@
-import axiosInstance from "@/app/lib/axios";
+"use server";
+import "server-only";
+import  { axiosInstance} from "@/app/lib/axios";
 import { redirect } from "next/navigation";
 import { ENDPOINTS } from "@/app/api/endpoints/login/login";
 import { createSession } from "@/app/lib/session";
+import { verifySession } from "@/app/lib/dal";
 export async function loginUser(
     email: FormDataEntryValue | null,
     password: FormDataEntryValue | null
 ) {
     try {
-        await axiosInstance.get(ENDPOINTS.COOKIES.CSRF, {
-            baseURL: "http://localhost:8000",
-        });
-        const response = await axiosInstance.post(ENDPOINTS.user.LOGIN, {
-            email,
-            password,
-            device_name: "brave-browser",
-        });
-        const accessToken = response.data.access_token;
-        console.log("Access token:", accessToken);
-        if (!accessToken) {
-            console.error("No access token returned");
-            return;
-        }
-        await createSession(accessToken);
+            const resp = await axiosInstance.post(ENDPOINTS.USER, {
+                email,
+                password,
+                device_name: "brave-browser",
+            });
+            console.log(resp, "login response");
+            const accessToken = resp.data.access_token;
+            if (!accessToken) {
+                console.error("No access token returned");
+                return;
+            }
+            console.log("Access token:", accessToken);
+            await createSession(accessToken);
+
     } catch (error) {
         console.error(error, "Login failed");
+        return;
     }
-   redirect("/dashboard");
+
+    const session = await verifySession();
+
+    const userID = session?.userID;
+    const userRole = session?.userRole;
+
+    console.log("Session:", session);
+    console.log("User ID:", userID);
+    console.log("User Role:", userRole);
+
+    if (userID) {
+        redirect("/dashboard");
+    }
 }
-// export async function loginUser(email:FormDataEntryValue | null, password:FormDataEntryValue | null) {
-//           axiosInstance.get('/sanctum/csrf-cookie', { baseURL: "http://localhost:8000" });
-//                  await axiosInstance.post(ENDPOINTS.LOGIN, {
-//                     email: email,
-//                     password: password,
-//                     device_name: "brave-browser",
-//                 }).then((response) => {
-//                     console.log(response, "login user");
-
-//                 }).catch((error) => {
-//                     console.error(error, "unauthorized");
-//                 })
-//                 //   const accessToken = getAccessToken() as string ;
-//                 //   if(accessToken) {
-//                 //   await createSession(accessToken);
-//                 //   redirect('/dashboard');
-//                 //   }
-              
-
-//   // 5. Redirect user
-
-//     //    const accessToken = getAccessToken();
-//     //    if(accessToken) {
-//     //     redirect("/dashboard");
-//     //    }
-// }
-
-
-// try{
-//       axiosInstance.post("/login", {
-//                     email: email,
-//                     password: password,
-//                     device_name: "brave-browser",
-//                 }).then((response) => { 
-//                     console.log(response, "login user");
-//                     if(response.data.access_token) {
-//                         setAccessToken(response.data.access_token);
-//                         redirect("/dashboard");
-//                     }
-//                 }).catch((error) => {
-//                     console.error(error, "error logging in user");
-//                 })
-// } 
-// catch (error) {
-//     console.error(error, 'error getting token');
-// }
-// }
-        // try {
-        //     axiosInstance.get('/sanctum/csrf-cookie', { baseURL: "http://localhost:8000" }).then(response => {
-        //         axiosInstance.post("/login", {
-        //             email: email,
-        //             password: password,
-        //             device_name: "brave-browser",
-        //         }).then((response) => {
-        //             console.log(response, "login user")
-                   
-        //             // if (response.data.access_token) {
-        //             //     // setAccessToken(response.data.access_token);
-        //             //     redirect("/dashboard");
-                    
-        //             // }
-        //             // console.log(response, "login user")
-        //         }).catch((error) => {
-        //             console.error(error, "error logging in user");
-        //         });
-        //     }).catch((error) => {
-        //         console.error(error, "error getting csrf cookie")
-        //     })
-        // }
-        // catch (error) {
-        //     console.error(error, 'error getting token');
-        // }
-    
-    // }

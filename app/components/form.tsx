@@ -12,7 +12,7 @@ export default function Form() {
     const [state, action, pending] = useActionState(login, undefined);
     return (
         <>
-            <div className="  w-full">
+            <div className="w-full">
                 <form action={action} className="flex p-8 flex-col gap-4 bg-form-primary">
                     {/* {state?.errors?.name && <p>{state.errors.name}</p>} */}
                     <div className="flex flex-col gap-2">
@@ -25,8 +25,6 @@ export default function Form() {
                         <input id="password" className="bg-input-background text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" name="password" type="password" />
                         <Link href="/forgot-password" className=" self-end text-secondary-faded hover:underline">Forgot Password?</Link>
                     </div>
-
-
                     {state?.errors?.password && (
                         <div>
                             <p>Password must:</p>
@@ -38,7 +36,7 @@ export default function Form() {
                         </div>
                     )}
                     <Button disabled={pending} type="submit" value={"Login"} className={""} variant={"primary"} />
-                    <Button type="submit" value={"register"} className={""} variant={"secondary"} />
+                    <Link href="/signup" className="text-secondary-faded ">{"Don't"} have an account? Sign up</Link>
                 </form>
             </div>
         </>

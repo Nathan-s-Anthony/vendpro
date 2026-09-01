@@ -28,7 +28,7 @@ export type FormState =
     }
   | undefined
 
-  export type SessionPayload = {
+export type SessionPayload = {
 userID: string,
 userRole: string,
 expiresAt: Date,

@@ -1,6 +1,5 @@
 import { SignupFormSchema, FormState } from '@/app/lib/definitions'
 import { loginUser } from '../api/services/login';
-import { redirect } from 'next/navigation';
  
 export async function login(state: FormState, formData: FormData) {
       console.log("LOGIN SUBMITTED");
@@ -10,7 +9,6 @@ export async function login(state: FormState, formData: FormData) {
     email: formData.get('email'),
     password: formData.get('password'),
   })
- 
   // If any form fields are invalid, return early
   if (!validatedFields.success) {
     return {
