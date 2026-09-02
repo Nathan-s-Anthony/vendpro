@@ -15,7 +15,7 @@ export async function login(state: FormState, formData: FormData) {
       errors: validatedFields.error.flatten().fieldErrors,
     }
   }
-   loginUser(formData.get('email'), formData.get('password'));
+ loginUser(formData.get('email'), formData.get('password'));
 
   // Call the provider or db to create a user...
 }

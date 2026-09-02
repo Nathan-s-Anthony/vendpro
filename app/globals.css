@@ -58,6 +58,7 @@
 --button-primary-text:#0C0C0D;
 --form-primary:#161618;
 --aside-primary :#222225;
+--error-primary:#ef4444;
 }
 @theme inline {
 
@@ -75,6 +76,7 @@
   --color-primary-button-text:var(--button-primary-text);
   --color-form-primary:var(--form-primary);
   --color-aside-primary:var(--aside-primary);
+  --color-error-primary:var(--error-primary);
 
 /* fonts */
   --font-display: var(--font-barlow-condensed);

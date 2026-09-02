@@ -17,10 +17,13 @@ export const SignupFormSchema = z.object({
     .trim(),
 })
  
+export const LoginFormSchema = z.object({
+      email: z.email({ error: 'Enter a valid email.'}).trim(),
+      password:z.string({error:"Password too short"}).min(4).trim(),
+})
 export type FormState =
   | {
       errors?: {
-
         email?: string[]
         password?: string[]
       }

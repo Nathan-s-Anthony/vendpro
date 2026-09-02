@@ -3,25 +3,6 @@ import Logo from "@/app/components/logo";
 import Heading from "@/app/components/subHeading";
 import { Lock } from "lucide-react";
 import Form from "@/app/components/form";
-// import { getToken } from "../api/services/token";
-
-// const api: AxiosInstance = axios.create({
-//   baseURL: "http://localhost:8000",
-//   timeout: 5000,
-//     withCredentials: true,
-//     withXSRFToken:true,
-//      headers: {
-//         'Accept': 'application/json',
-//     }
-// });
-// api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-//   config.headers.set("Authorization", `Bearer ${csrfToken}`);
-//   return config;
-// });
-// api.interceptors.response.use(
-//   (response: AxiosResponse) => response,
-//   (error) => Promise.reject(error)
-// ); 
 
 export default function Login() {
     return (
@@ -37,14 +18,13 @@ export default function Login() {
                     <div className=" lg:col-span-1 col-span-2  ">
                         <div className="flex flex-col justify-between p-8 h-full">
                             <div>
-                                {/* <a href="/dashboard" className={"mt-4 mb-4"} >back to dashboard </a> */}
                                 <Logo variant="large" />
                             </div>
                             <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-6 flex-1 ">
                                 <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
                                 <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
                                 <div className="flex justify-evenly gap-4">
-                                    <Button value={"View Features"} className={""} variant={"primary"} type={"button"} />
+                                    <Button value={"View Features"} className={"text-background"} variant={"primary"} type={"button"} />
                                     <Button value={"View Pricing"} className={""} variant={"secondary"} type={"button"} />
                                 </div>
                             </div>

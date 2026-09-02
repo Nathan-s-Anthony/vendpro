@@ -1,18 +1,19 @@
 "use client";
-import { useActionState, } from "react";
-
-import { email } from "zod";
+import { useActionState, useState, } from "react";
 import { login } from "../actions/auth";
 import Button from "./button";
 import Link from "next/link";
-
-
+import { Eye } from "lucide-react";
 
 export default function Form() {
-    const [state, action, pending] = useActionState(login, undefined);
+    const [state, action, pending] = useActionState(login, { errors: {} });
+    const [errors, setErrors] = useState(state?.errors);
+    const [revealPassword, setRevealPassword] = useState(false);
+
     if (state?.errors) {
         console.log("erroring form....")
     }
+
     return (
         <>
             <div className="w-full">
@@ -20,16 +21,19 @@ export default function Form() {
                     <div className="flex flex-col gap-2">
                         <label htmlFor="email">Email</label>
                         <input autoComplete="email" className="bg-input-background text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" id="email" name="email" placeholder="Email" />
-                        {state?.errors?.email && <p>{state.errors.email}</p>}
+                        {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
                     </div>
                     <div className="flex flex-col gap-2">
                         <label htmlFor="password">Password</label>
-                        <input id="password" autoComplete="password" className="bg-input-background text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" name="password" type="password" />
+                        <div className="w-full  relative ">
+                            <input id="password" autoComplete="password" placeholder="Password" className="bg-input-background w-full text-foreground placeholder:text-secondary-faded border border-border focus:outline-none focus:ring-2 focus:ring-primary p-2" name="password" type={revealPassword ? "text" : "password"} />
+                            <Eye onClick={() => (setRevealPassword(prev => !prev))} className="absolute right-0 top-0 bottom-0 m-auto mr-2 text-secondary-faded hover:text-white transition-all duration-300 cursor-pointer" />
+                        </div>
                         <Link href="/forgot-password" className="text-secondary-faded hover:underline self-end transition-all duration-300 hover:text-primary">Forgot Password?</Link>
                         {state?.errors?.password && (
                             <div>
-                                <p>Password must:</p>
-                                <ul>
+                                <small className="text-error-primary">Password must match the following:</small>
+                                <ul className=" text-error-primary">
                                     {state.errors.password.map((error) => (
                                         <li key={error}>- {error}</li>
                                     ))}
@@ -37,7 +41,7 @@ export default function Form() {
                             </div>
                         )}
                     </div>
-                    <Button disabled={pending} type="submit" value={"Login"} className={""} variant={"primary"} />
+                    <Button disabled={pending} type="submit" value={"Login"} className={"text-background"} variant={"primary"} />
                     <Link href="/signup" className="text-secondary-faded text-center hover:underline transition-all duration-300 hover:text-primary ">{"Don't"} have an account? Sign up</Link>
                 </form>
             </div>
