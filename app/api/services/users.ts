@@ -1,7 +1,10 @@
-import { axiosInstance } from "@/app/lib/axios";
-import { ENDPOINTS } from "../endpoints/login/login";
+"use server";
+import "server-only";
 
-export async function getUser(){
- const response = await axiosInstance.get(ENDPOINTS.USER);
+import { axiosInstance } from "@/app/lib/axios";
+import { ENDPOINTS } from "../endpoints/main";
+
+export async function getUser(id:number){
+ const response = await axiosInstance.get(ENDPOINTS.USER.USERBYID(id));
  console.log(response,"response for user");
 }

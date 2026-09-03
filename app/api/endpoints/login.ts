@@ -1,7 +1,6 @@
 
-export const ENDPOINTS = {
+export const AUTH_USER = {
      CSRF: "/sanctum/csrf-cookie",
-     USER :"/user",
      LOGIN: "/login",
      REGISTER: "/register",
      LOGOUT: "/logout",

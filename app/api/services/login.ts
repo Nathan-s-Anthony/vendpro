@@ -1,44 +1,47 @@
 "use server";
 import "server-only";
-import  { axiosInstance} from "@/app/lib/axios";
+import { axiosInstance } from "@/app/lib/axios";
 import { redirect } from "next/navigation";
-import { ENDPOINTS } from "@/app/api/endpoints/login/login";
 import { createSession } from "@/app/lib/session";
 import { verifySession } from "@/app/lib/dal";
+import { ENDPOINTS } from "../endpoints/main";
+import axios from "axios";
+
 export async function loginUser(
     email: FormDataEntryValue | null,
     password: FormDataEntryValue | null
 ) {
     try {
-            const resp = await axiosInstance.post(ENDPOINTS.LOGIN, {
-                email,
-                password,
-                device_name: "brave-browser",
-            });
-            console.log(resp, "login response");
-            const accessToken = resp.data.access_token;
-            if (!accessToken) {
-                console.error("No access token returned");
-                return;
-            }
-            console.log("Access token:", accessToken);
-            await createSession(accessToken);
+        await axiosInstance.get("/sanctum/csrf-cookie");
+        const resp = await axiosInstance.post(ENDPOINTS.AUTH_USER.LOGIN, {
+            email,
+            password,
+        });
+        console.log(resp)
+        //     // await createSession(accessToken);
+        // })
+        // const resp = axiosInstance.get(ENDPOINTS.COMPANY.SEO(1));
 
+        // console.log(resp, "resp");
     } catch (error) {
         console.error(error, "Login failed");
-        return;
+        return {
+            status: error.status,
+            message: error.response?.data?.message,
+        };
     }
 
-    const session = await verifySession();
 
-    const userID = session?.userID;
-    const userRole = session?.userRole;
+    // const session = await verifySession();
 
-    console.log("Session:", session);
-    console.log("User ID:", userID);
-    console.log("User Role:", userRole);
+    // const userID = session?.userID;
+    // const userRole = session?.userRole;
+    // console.log("Session:", session);
+    // console.log("User ID:", userID);
+    // console.log("User Role:", userRole);
 
-    if (userID) {
-        redirect("/dashboard");
-    }
+    // if (userID) {
+
+    // }
+
 }
