@@ -6,9 +6,8 @@ import { Bell, CircleUser } from "lucide-react";
 import { useRouter } from 'next/navigation';
 import Logo from "./logo";
 import axios from "axios";
-import { logout } from "../api/services/logout";
-import Button from "./button";
 import { getUser } from "../api/services/users";
+import { getSEO } from "../api/services/seo";
 
 export default function Header({ className, burgerMenuClick, pageNavName, userID, userRole }: { className: string, burgerMenuClick: () => void, pageNavName: string, userID: string, userRole: string }) {
     const router = useRouter();
@@ -44,6 +43,7 @@ export default function Header({ className, burgerMenuClick, pageNavName, userID
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
                 <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
                 <Link href={"/slotspro"}>   </Link>
+                <button onClick={() => getSEO(1)} className="bg-primary" >test</button>
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />

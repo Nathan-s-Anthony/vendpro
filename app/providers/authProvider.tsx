@@ -3,34 +3,53 @@
 import {
     createContext,
     useContext,
+    useEffect,
     useState,
+    type ReactNode,
 } from "react";
 
 type AuthContextType = {
     token: string | null;
-    isAuthenticated: boolean;
-    login: (token: string) => void;
+    setToken: (token: string | null) => void;
     logout: () => void;
 };
 
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    const [token, setToken] = useState<string | null>(null);
 
-    const login = (newToken: string) => {
-        if (typeof window === "undefined") {
-            return null;
+
+
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+    const [token, setTokenState] = useState<string | null>(null);
+    // const storedToken = localStorage.getItem("access_token");
+
+
+    useEffect(() => {
+        try {
+            localStorage.setItem("token", JSON.stringify(token))
+
+        } catch (error) {
+            console.error(error, "error setting local storage item....")
         }
-        return localStorage.setItem("access_token", newToken);
+        // const storedToken = localStorage.getItem("access_token");
+
+        // if (storedToken) {
+        //     setTokenState(storedToken);
+        // }
+    }, [token]);
+    // Keep state + localStorage synchronized
+    const setToken = (newToken: string | null) => {
+        setTokenState(newToken);
+
+        if (newToken) {
+            localStorage.setItem("access_token", newToken);
+        } else {
+            localStorage.removeItem("access_token");
+        }
     };
 
     const logout = () => {
-        localStorage.removeItem("access_token");
         setToken(null);
     };
 
@@ -38,8 +57,7 @@ export function AuthProvider({
         <AuthContext.Provider
             value={{
                 token,
-                isAuthenticated: !!token,
-                login,
+                setToken,
                 logout,
             }}
         >
