@@ -7,7 +7,7 @@ import Panel from "@/app/components/panel";
 export default function Profile() {
 
     return (
-        <Panel heading={"Profile"} subHeading={"Edit your details"} highlight={""}>
+        <Panel heading={"Profile"} pageName={"profile"} subHeading={"Edit your details"} highlight={""}>
             <EditProfileForm />
         </Panel>
     )

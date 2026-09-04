@@ -243,6 +243,11 @@ input{
   background: linear-gradient(145deg, #111115 0%, #16100a 100%);
  }
 }
+.custom-scroll{
+  scrollbar-color: var(--primary) var(--color-secondary);
+  scrollbar-width:thin;
+  scrollbar-track-color: #030213;
+}
 @utility container{
   padding-inline: 1.5rem; 
 

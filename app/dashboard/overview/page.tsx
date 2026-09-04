@@ -58,11 +58,11 @@ export default function Overview() {
 
 
     return (
-        <Panel heading={"overview"} subHeading={"GROW YOUR VENDING BUSINESS"}>
-            <div className="w-full flex items-center justify-between ">
+        <Panel heading={"overview"} subHeading={"GROW YOUR VENDING BUSINESS"} pageName={"overview"}>
+            <div className="grid-cols-1 w-full p-4 flex items-center justify-between ">
                 <Graph data={data} />
             </div>
-            <div className="grid lg:grid-cols-4 grid-cols-2">
+            <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 mt-4 mb-4">
                 {stats.map((item, id) => {
                     return (
                         <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} />

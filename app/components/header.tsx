@@ -32,21 +32,13 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 lg:w-5 lg:h-5 h-7 w-7 group-hover:text-primary" />
                         <div className="lg:flex hidden flex-col  ">
-                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName}</small>
-                            <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{role} </small>
+                            <span className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName}</span>
                         </div>
                     </Link>
                 </div>
                 <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
             </div>
-            {/* <div className="lg:hidden">
-                <div>
-                    <svg onClick={burgerMenuClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </div>
-            </div> */}
         </header >
     )
 }
