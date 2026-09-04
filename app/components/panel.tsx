@@ -1,6 +1,6 @@
 "use client";
 
-import { logout } from "../api/services/logout";
+import { logout } from "../actions/logout";
 import Button from "./button";
 import SubHeading from "./subHeading";
 

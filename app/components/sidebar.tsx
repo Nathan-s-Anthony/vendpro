@@ -67,9 +67,8 @@ export default function SideBar({ burgerMenuExpand, childUrl, userRole }: { burg
                     <div className="col-span-2">
                         <nav>
                             <ul className="w-full flex flex-col justify-start gap-4 items-baseline  h-full">
-                                {navItems.filter((item) => item.permission.includes(userRole)).map((item) => {
+                                {navItems.filter((item) => !item.permission.includes(userRole)).map((item) => {
                                     return (
-
                                         <li key={item.id} className="group w-full rounded-sm">
                                             <Link
                                                 scroll={false}

@@ -1,3 +1,3 @@
-export const  USER ={
-USERBYID: (id:number)=>`/user/${id}`,
+export const USER = {
+    USERBYID: "api/user/",
 }

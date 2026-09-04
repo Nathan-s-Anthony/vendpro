@@ -3,36 +3,30 @@
 import Link from "next/link";
 import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
-import { useRouter } from 'next/navigation';
 import Logo from "./logo";
-import axios from "axios";
-import { getUser } from "../api/services/users";
-import { getSEO } from "../api/services/seo";
+import { useUser } from "../providers/userProvider";
+import { useGetUserQuery } from "../api/services/rtk-query/createApi";
+import { useEffect } from "react";
 
 export default function Header({ className, burgerMenuClick, pageNavName, userID, userRole }: { className: string, burgerMenuClick: () => void, pageNavName: string, userID: string, userRole: string }) {
-    const router = useRouter();
+    const { data, isLoading, isError, } = useGetUserQuery();
 
-    console.log(pageNavName, "page nav name");
+    const { setUserId, setName, setRole, name, role, userId } = useUser();
 
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
-    const api = axios.create({ baseURL: "http://localhost:8000/api" });
+    useEffect(() => {
+        if (data) {
+            setUserId(data.id);
+            setName(data.name);
+            setRole("admin");
+        }
+    }, [data, setUserId, setName, setRole]);
 
-    const handleUser = async () => {
-        try {
-            const response = await api.get("/user");
-            const user = response.data;
-            return user;
-        }
-        catch (error) {
-            console.error(error, 'error getting token');
-        }
-    };
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
             <Logo variant="normal" />
-
             <div className=" min-w-0 flex items-center flex-1  lg:pl-4">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
@@ -43,13 +37,12 @@ export default function Header({ className, burgerMenuClick, pageNavName, userID
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
                 <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
                 <Link href={"/slotspro"}>   </Link>
-                <button onClick={() => getSEO(1)} className="bg-primary" >test</button>
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
                         <div className="flex flex-col">
-                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">Nathan Anthony</small>
-                            <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{userRole} </small>
+                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{name} - {userId}</small>
+                            <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{role} </small>
                         </div>
                     </Link>
                 </div>

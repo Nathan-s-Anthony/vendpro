@@ -1,16 +1,14 @@
-import { axiosInstance } from "@/app/lib/axios";
+import { axiosApi } from "@/app/lib/axios";
 import { ENDPOINTS } from "../endpoints/main";
-import { getUser } from "./user";
 
 export async function loginUser(
     email: FormDataEntryValue | null,
     password: FormDataEntryValue | null
 ) {
-
     try {
-        await axiosInstance.get("/sanctum/csrf-cookie");
+        await axiosApi.get("/sanctum/csrf-cookie");
         console.log("CSRF cookie obtained...");
-        const resp = await axiosInstance.post(ENDPOINTS.AUTH_USER.LOGIN, {
+        const resp = await axiosApi.post(ENDPOINTS.AUTH_USER.LOGIN, {
             email,
             password,
         });

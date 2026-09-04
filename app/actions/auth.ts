@@ -24,7 +24,7 @@ export async function login(state: FormState, formData: FormData) {
   }
   return {
     apiResponse: {
-      data: resp?.data,
+      data: resp?.data?.user?.id,
       message: resp?.message,
       status: resp?.status,
     },

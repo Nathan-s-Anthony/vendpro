@@ -8,13 +8,7 @@ import { Eye } from "lucide-react";
 export default function Form() {
     const [state, action, pending] = useActionState(login, { errors: {} });
     const [errors, setErrors] = useState(false);
-
     const [revealPassword, setRevealPassword] = useState(false);
-
-    // if (state?.errors) {
-    //     console.log("erroring form....")
-    // }
-
     return (
         <>
             <div className="w-full">
