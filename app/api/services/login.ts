@@ -1,31 +1,25 @@
-
 import { axiosInstance } from "@/app/lib/axios";
-import { redirect } from "next/navigation";
-import { createSession } from "@/app/lib/session";
-import { verifySession } from "@/app/lib/dal";
 import { ENDPOINTS } from "../endpoints/main";
-import axios from "axios";
-
+import { getUser } from "./user";
 
 export async function loginUser(
     email: FormDataEntryValue | null,
     password: FormDataEntryValue | null
 ) {
+
     try {
         await axiosInstance.get("/sanctum/csrf-cookie");
-        console.log("CSRF cookie obtained");
+        console.log("CSRF cookie obtained...");
         const resp = await axiosInstance.post(ENDPOINTS.AUTH_USER.LOGIN, {
             email,
             password,
         });
-
-        console.log(resp.data, "login response");
-        if (resp.status === 200) {
-            redirect("/dashboard");
-        }
+        console.log(resp?.data, "login response");
         return {
-            user: resp.data
-        }
+            status: resp?.status,
+            message: resp?.data?.message,
+            data: resp?.data
+        };
 
     } catch (error: unknown) {
         console.error(error.response?.data ?? error);
@@ -35,6 +29,8 @@ export async function loginUser(
         };
     }
 }
+
+
 // export async function loginUser(
 //     email: FormDataEntryValue | null,
 //     password: FormDataEntryValue | null
