@@ -1,7 +1,7 @@
 import Card from "@/app/components/card";
+import Graphs from "@/app/components/graphs";
 import Panel from "@/app/components/panel";
 import { Zap, Construction, Package } from "lucide-react";
-
 export default function Overview() {
     const stats = [
         {
@@ -29,8 +29,39 @@ export default function Overview() {
             icon: <Zap className="w-8 h-8 text-orange-400" />
         }
     ]
+    const data = [
+        {
+            name: 'Page A',
+            uv: 400,
+            pv: 2400,
+            amt: 2400,
+        },
+        {
+            name: 'Page B',
+            uv: 200,
+            pv: 1400,
+            amt: 400,
+        },
+        {
+            name: 'Page C',
+            uv: 400,
+            pv: 1400,
+            amt: 2400,
+        },
+        {
+            name: 'Page D',
+            uv: 700,
+            pv: 100,
+            amt: 3000,
+        },
+    ]
     return (
-        <Panel heading={""} subHeading={""} className={""} btnValue={"View"} highlight={""}>
+        <Panel heading={"overview"} subHeading={"GROW YOUR VENDING BUSINESS"}>
+            <div className="w-full flex items-center justify-between ">
+                <Graphs data={data} />
+                <Graphs data={data} />
+            </div>
+
             <div className="flex w-full gap-4">
                 {stats.map((item, id) => {
                     return (

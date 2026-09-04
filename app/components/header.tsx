@@ -35,7 +35,8 @@ export default function Header({ className, burgerMenuClick, pageNavName, userID
                 </span>
             </div>
             <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
-                <span><b className="text-primary">Casino Manager? </b>Visit our <b className="text-primary">dedicated platform</b></span>
+                <span>Visit our <b className="text-primary">other dedicated platform</b></span>
+                <Link className="underline underline-2 underline-offset-4" href={"https://slotspro.co.za"}>www.slotspro.co.za</Link>
                 <Link href={"/slotspro"}>   </Link>
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>

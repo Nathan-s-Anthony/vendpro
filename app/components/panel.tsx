@@ -1,14 +1,13 @@
 "use client";
 
-import { logout } from "../actions/logout";
-import Button from "./button";
 import SubHeading from "./subHeading";
+import PanelActions from "./panelActions";
 
-export default function Panel({ heading, subHeading, highlight, children, desktopMenuCollapsed, className, btnValue, action }:
+export default function Panel({ heading, subHeading, highlight, children, className }:
     {
         heading: string, subHeading: string, children: React.ReactNode,
-        desktopMenuCollapsed?: boolean, className: string, btnValue: string,
-        highlight: string,
+        desktopMenuCollapsed?: boolean, className?: string,
+        highlight?: string,
         action?: () => void
     }) {
 
@@ -20,7 +19,7 @@ export default function Panel({ heading, subHeading, highlight, children, deskto
                         main: heading,
                         highlight: highlight
                     }} subHeading={subHeading} />
-                    <Button value={btnValue} action={() => logout()} className="mt-4 mb-4 text-" variant={"primary"} type={"button"} />
+                    <PanelActions page={""} />
                 </div>
             </div>
             <div className={className}>
