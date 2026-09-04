@@ -1,13 +1,14 @@
+import { error } from 'console'
 import * as z from 'zod'
- 
+
 export const SignupFormSchema = z.object({
-//   name: z
-//     .string()
-//     .min(2, { error: 'Name must be at least 2 characters long.' })
-//     .trim(),
+  //   name: z
+  //     .string()
+  //     .min(2, { error: 'Name must be at least 2 characters long.' })
+  //     .trim(),
   email: z.email({ error: 'Please enter a valid email.' }).trim(),
   password: z
-    .string().min(4)
+    .string().min(4, { error: "Password too short" })
     // .min(8, { error: 'Be at least 8 characters long' })
     // .regex(/[a-zA-Z]/, { error: 'Contain at least one letter.' })
     // .regex(/[0-9]/, { error: 'Contain at least one number.' })
@@ -16,23 +17,23 @@ export const SignupFormSchema = z.object({
     // })
     .trim(),
 })
- 
+
 export const LoginFormSchema = z.object({
-      email: z.email({ error: 'Enter a valid email.'}).trim(),
-      password:z.string({error:"Password too short"}).min(4).trim(),
+  email: z.email({ error: 'Enter a valid email.' }).trim(),
+  password: z.string().min(4, { error: "Be at least characters long" }).trim(),
 })
 export type FormState =
   | {
-      errors?: {
-        email?: string[]
-        password?: string[]
-      }
-
+    errors?: {
+      email?: string[]
+      password?: string[]
     }
+
+  }
   | undefined
 
 export type SessionPayload = {
-userID: string,
-userRole: string,
-expiresAt: Date,
-  }
+  userID: string,
+  userRole: string,
+  expiresAt: Date,
+}
