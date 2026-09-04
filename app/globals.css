@@ -244,6 +244,8 @@ input{
  }
 }
 @utility container{
+  padding-inline: 1.5rem; 
+
   margin-inline:auto;
 }
 @keyframes shake {

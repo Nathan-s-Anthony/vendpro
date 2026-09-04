@@ -9,7 +9,7 @@ export default function ChatBot() {
 
     return (
         <>
-            <div onClick={() => (setToggleChatBot((toggle: boolean) => !toggle))} className="bg-primary fixed bottom-10 cursor-pointer z-10 right-10 w-14 h-14 rounded-full block">
+            <div onClick={() => (setToggleChatBot((toggle: boolean) => !toggle))} className="hidden bg-primary fixed bottom-10 cursor-pointer z-10 right-10 w-14 h-14 rounded-full lg:block">
                 {toggleChatBot}
                 <div className="w-full bg-primary h-full rounded-full flex items-center justify-center">
                     <BotMessageSquare className="text-background" />
@@ -19,10 +19,9 @@ export default function ChatBot() {
                         <div className="bg-background p-4  w-full relative block header rounded-tr-sm rounded-tl-sm">
                             <h4 className="font-mono"> Chat with an AI assistant now</h4>
                         </div>
-
                     </div>
                     <div className="absolute bottom-0">
-                        <div className=" h-full w-full  w-full relative block header rounded-tr-sm rounded-tl-sm">
+                        <div className=" h-full w-full relative block header rounded-tr-sm rounded-tl-sm">
                             <div className="bg-background p-4  w-full relative block header rounded-tr-sm rounded-tl-sm">
                                 <h4 className="font-mono"> Chat with an AI assistant now</h4>
                             </div>

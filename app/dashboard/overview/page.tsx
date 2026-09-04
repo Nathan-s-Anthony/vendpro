@@ -62,10 +62,10 @@ export default function Overview() {
             <div className="w-full flex items-center justify-between ">
                 <Graph data={data} />
             </div>
-            <div className="flex w-full gap-4">
+            <div className="grid lg:grid-cols-4 grid-cols-2">
                 {stats.map((item, id) => {
                     return (
-                        <Card key={id} title={item.title} value={item.value} icon={item.icon} />
+                        <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} />
                     )
                 })}
             </div>

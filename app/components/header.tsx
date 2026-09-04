@@ -20,36 +20,33 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
             <Logo variant="normal" />
-            <div className=" min-w-0 flex items-center flex-1  lg:pl-4">
+            <div className=" min-w-0 hidden lg:flex items-center flex-1  lg:pl-4 l">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
-                <span className="font-bold font-mono text-3xl text-left p-2 uppercase">
+                <span className="hidden lg:block font-bold font-mono text-3xl text-left p-2 uppercase">
                     {pageNavName}
                 </span>
             </div>
-            <div className="font-mono min-w-0 flex items-center gap-2 transition-all duration-300 cursor-pointer lg:pr-4">
-                <span>Visit our <b className="text-primary">other dedicated platform</b></span>
-                <Link className="underline underline-2 underline-offset-4" href={"https://slotspro.co.za"}>www.slotspro.co.za</Link>
-                <Link href={"/slotspro"}>   </Link>
+            <div className="font-mono min-w-0 flex lg:justify-end justify-end gap-6 pr-6 items-center  transition-all duration-300 cursor-pointer  w-full lg:w-auto  lg:pr-4">
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
-                        <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
-                        <div className="flex flex-col">
-                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName} - {userId}</small>
+                        <CircleUser className="transition-all duration-300 lg:w-5 lg:h-5 h-7 w-7 group-hover:text-primary" />
+                        <div className="lg:flex hidden flex-col  ">
+                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName}</small>
                             <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{role} </small>
                         </div>
                     </Link>
                 </div>
-                <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  w-5 h-5 lg:mr-5 cursor-pointer" />
+                <Bell className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
                 <Pill name="LIVE" />
             </div>
-            <div className="lg:hidden">
+            {/* <div className="lg:hidden">
                 <div>
                     <svg onClick={burgerMenuClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                 </div>
-            </div>
+            </div> */}
         </header >
     )
 }

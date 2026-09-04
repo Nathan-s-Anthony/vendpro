@@ -5,7 +5,7 @@ import { LayoutDashboard, Package, Boxes, ChevronLeft, MapPin, DollarSign, Chevr
 import { useAside } from "../providers/asideProvider";
 
 
-export default function SideBar({ burgerMenuExpand, childUrl, userRole }: { burgerMenuExpand: boolean, childUrl: string, userRole: string }) {
+export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burgerMenuExpand: boolean, childUrl: string, userRole: string }) {
     const { toggled, setToggle } = useAside();
 
     const navItems = [

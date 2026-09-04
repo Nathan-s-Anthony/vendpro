@@ -12,7 +12,7 @@ export default function Panel({ heading, subHeading, highlight, children, classN
     }) {
 
     return (
-        <div className="mt-6 p-6 transition-all duration-300 ">
+        <div className="container">
             <div className="flex items-start flex-col justify-center">
                 <div className="flex items-center justify-between w-full ">
                     <SubHeading heading={{
