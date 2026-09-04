@@ -1,17 +1,14 @@
 "use client";
 
-import { useActionState, useState, } from "react";
+import { useActionState } from "react";
 import { login } from "@/app/actions/auth";
 import Button from "@/app/components/button";
-import Link from "next/link";
-import { Eye, User, } from "lucide-react";
+import { User } from "lucide-react";
 import { useUser } from "@/app/providers/userProvider";
 
 export default function Form() {
     const [state, action, pending] = useActionState(login, { errors: {} });
-    const [revealPassword, setRevealPassword] = useState(false);
     const { firstName, role, email } = useUser();
-
     return (
         <>
             <div className="w-3/3 grid lg:grid-cols-2 grid-cols-1">
@@ -60,7 +57,7 @@ export default function Form() {
                     <Button disabled={pending} type="submit" value={"Save"} className={"text-background w-1/3"} variant={"primary"} />
                 </form>
                 <div>
-                    <h1 className="text-6xl">Your Stats for the month</h1>
+                    <h1 className="text-5xl">Your Stats for the month</h1>
                     <p>test</p>
                 </div>
             </div>

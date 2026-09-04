@@ -1,7 +1,10 @@
+import Panel from "@/app/components/panel";
+
+
 export default function YourMachines() {
     return (
-        <div>
-            test
-        </div>
+        <Panel heading={"Your Machines"} subHeading={"EARN -> EARN SOME MORE -> REPEAT"} pageName={""}>
+            TEST
+        </Panel>
     )
 }

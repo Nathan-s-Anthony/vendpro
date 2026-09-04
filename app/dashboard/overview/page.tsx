@@ -58,7 +58,7 @@ export default function Overview() {
 
 
     return (
-        <Panel heading={"overview"} subHeading={"GROW YOUR VENDING BUSINESS"} pageName={"overview"}>
+        <Panel heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
             <div className="grid-cols-1 w-full  flex items-center justify-between ">
                 <Graph data={data} />
             </div>

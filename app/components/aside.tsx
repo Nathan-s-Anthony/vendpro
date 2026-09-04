@@ -71,8 +71,7 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
                                             <Link
                                                 scroll={false}
                                                 className={`${item.page === childUrl ? "active" : "group-hover:bg-secondary"} block transition-all duration-300 `}
-                                                href={`/dashboard/${item.page}`}
-                                            >
+                                                href={`/dashboard/${item.page}`}>
                                                 <div className="flex items-center justify-between relative">
                                                     <div className={`transition-all duration-300 flex items-center w-full ${toggled ? "justify-center" : ""}  min-h-12 relative`}>
                                                         {item.icon}
