@@ -17,7 +17,6 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
             icon: <LayoutDashboard className="transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
             page: "overview",
             permission: ["admin", "manager", "operator"]
-
         },
         {
             id: 1,
@@ -60,8 +59,8 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
     }
     return (
         <>
-            <MobileNavBar navItems={navItems} childUrl={childUrl} />
-            <aside className={`fixed hidden ${toggled ? "lg:w-14" : "lg:w-64"} ${burgerMenuExpand ? "flex" : "hidden"}  p-1 top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
+            {/* <MobileNavBar navItems={navItems} childUrl={childUrl} /> */}
+            <aside className={`fixed hidden ${toggled ? "lg:w-14" : "lg:w-64"} ${burgerMenuExpand ? "flex" : "hidden"} bg-[#030213]/40 p-1 top-0 left-0 h-full z-40  lg:flex flex-col border-r border-border/30 transition-all duration-300`}>
                 <div className="grid h-full grid-cols-2  mt-30 lg:mt-30 lg:p-2">
                     <div className="col-span-2">
                         <nav>
@@ -82,7 +81,7 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
                                                         </span>
                                                     </div>
                                                     {item.id === 2 ?
-                                                        <div className="bg-alert-primary  absolute top-0 -right-5 rounded-full lg:w-5 lg:h-5  text-center flex items-center justify-center mr-2"><span className="text-white text-sm font-mono font-bold">{item.restockNotification}</span></div>
+                                                        <div className="bg-alert-primary  absolute top-0 -right-5 lg:top-1 lg:right-12 rounded-full lg:w-5 lg:h-5  text-center flex items-center justify-center mr-2"><span className="text-white text-sm font-mono font-bold">{item.restockNotification}</span></div>
                                                         : null}
                                                 </div>
                                             </Link>

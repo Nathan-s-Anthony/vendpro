@@ -6,7 +6,7 @@
 } */
  
 :root {
- --font-size: 16px;
+
   /* --background: #0c0c0d;
   --foreground: #f2f2f0;
   --card: #161618;
@@ -312,4 +312,23 @@ input{
 .animate-bubble-close {
     transform-origin: bottom right;
     animation: bubble-close 0.2s ease-in forwards;
+}
+
+ @property --num {
+    syntax: '<integer>';
+    initial-value: 0;
+    inherits: false;
+  }
+@keyframes counter {
+  from { --num: 0; }
+  to { --num: 100; } /* Change 100 to your desired final number */
+}
+
+.animate-counter {
+  animation: counter 2s ease-out forwards;
+  counter-reset: num var(--num);
+}
+
+.animate-counter::after {
+  content: counter(num);
 }

@@ -18,7 +18,7 @@ export default function MobileNavBar({ navItems, userRole, childUrl }: {
 }) {
     const { toggled } = useAside();
     return (
-        <div className="bg-background fixed bottom-0 z-50 w-2/3 left-0 right-0 mx-auto   rounded-tr-lg rounded-tl-lg">
+        <div className="bg-[#030213]/40 fixed bottom-0 z-50 w-2/3 left-0 right-0 mx-auto   rounded-tr-lg rounded-tl-lg">
             <ul className="grid grid-cols-5 p-4">
                 {navItems.filter((item) => !item.permission.includes(userRole)).map((item) => {
                     return (
