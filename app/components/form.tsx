@@ -1,5 +1,6 @@
 "use client";
-import { useActionState, useState, } from "react";
+
+import { ReactNode, useActionState, useState, } from "react";
 import { login } from "../actions/auth";
 import Button from "./button";
 import Link from "next/link";
@@ -7,8 +8,8 @@ import { Eye } from "lucide-react";
 
 export default function Form() {
     const [state, action, pending] = useActionState(login, { errors: {} });
-    const [errors, setErrors] = useState(false);
     const [revealPassword, setRevealPassword] = useState(false);
+
     return (
         <>
             <div className="w-full">

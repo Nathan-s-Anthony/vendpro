@@ -1,5 +1,5 @@
 import Card from "@/app/components/card";
-import Graphs from "@/app/components/graphs";
+import Graph from "@/app/components/graphs";
 import Panel from "@/app/components/panel";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
@@ -55,13 +55,13 @@ export default function Overview() {
             amt: 3000,
         },
     ]
+
+
     return (
         <Panel heading={"overview"} subHeading={"GROW YOUR VENDING BUSINESS"}>
             <div className="w-full flex items-center justify-between ">
-                <Graphs data={data} />
-                <Graphs data={data} />
+                <Graph data={data} />
             </div>
-
             <div className="flex w-full gap-4">
                 {stats.map((item, id) => {
                     return (

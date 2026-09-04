@@ -10,7 +10,6 @@ import { Metadata } from "next";
 
 export default function Login() {
 
-
     return (
         <div className="relative w-screen min-w-screen grid grid-cols-1 min-h-screen h-screen">
             <div

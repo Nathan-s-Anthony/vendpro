@@ -1,9 +1,9 @@
 "use client";
 
-export default function Card({ title, value, icon, fullWidth, statsTile }: { title?: string, value?: string, icon?: React.ReactNode, fullWidth?: boolean, statsTile?: boolean }) {
+export default function Card({ title, value, icon, fullWidth, statsTile, className }: { title?: string, value?: string, icon?: React.ReactNode, fullWidth?: boolean, statsTile?: boolean, className?: string }) {
     return (
         !statsTile ? (
-            <div className={`${fullWidth ? "w-full" : "w-1/3"}  group transition-all rounded-sm bg-[#222225] p-4 duration-300 border border-card-primary hover:border-primary/50 cursor-pointer`}>
+            <div className={`${fullWidth ? "w-full" : "w-1/3"} ${className}  group transition-all rounded-sm bg-[#222225] p-4 duration-300 border border-card-primary hover:border-primary/50 cursor-pointer`}>
                 <div className="flex items-start justify-between flex-col gap-2">
                     <div className="flex flex-col gap-2">
                         <div className="flex flex-col">

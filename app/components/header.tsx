@@ -4,25 +4,18 @@ import Link from "next/link";
 import Pill from "./pill";
 import { Bell, CircleUser } from "lucide-react";
 import Logo from "./logo";
-import { useUser } from "../providers/userProvider";
 import { useGetUserQuery } from "../api/services/rtk-query/createApi";
-import { useEffect } from "react";
+import { useUser } from "../providers/userProvider";
 
-export default function Header({ className, burgerMenuClick, pageNavName, userID, userRole }: { className: string, burgerMenuClick: () => void, pageNavName: string, userID: string, userRole: string }) {
+
+export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const { data, isLoading, isError, } = useGetUserQuery();
+    const { firstName, role, userId } = useUser();
 
-    const { setUserId, setName, setRole, name, role, userId } = useUser();
 
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
-    useEffect(() => {
-        if (data) {
-            setUserId(data.id);
-            setName(data.name);
-            setRole("admin");
-        }
-    }, [data, setUserId, setName, setRole]);
 
     return (
         <header className={`${className} flex items-center  p-1 justify-between  h-20 border-b border-border/30 w-full `}>
@@ -42,7 +35,7 @@ export default function Header({ className, burgerMenuClick, pageNavName, userID
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 w-5 h-5 group-hover:text-primary" />
                         <div className="flex flex-col">
-                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{name} - {userId}</small>
+                            <small className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName} - {userId}</small>
                             <small className="transition-all duration-300 text-white  group-hover:text-primary font-bold mt-0.5">-{role} </small>
                         </div>
                     </Link>

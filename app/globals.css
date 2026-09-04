@@ -268,3 +268,41 @@ input{
 .animate-shake {
     animation: shake 0.3s ease-in-out;
 }
+
+@keyframes bubble-open {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-bubble-open {
+    transform-origin: bottom right;
+    animation: bubble-open 0.3s ease-in-out forwards;
+}
+@keyframes bubble-close {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.animate-bubble-close {
+    transform-origin: bottom right;
+    animation: bubble-close 0.2s ease-in forwards;
+}

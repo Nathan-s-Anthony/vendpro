@@ -2,7 +2,7 @@
 
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
-export default function Graphs({ data }: { data: [] }) {
+export default function Graph({ data, data2 }: { data: [], data2: [] }) {
     return (
         <LineChart
             style={{ width: '100%', aspectRatio: 1.618, maxWidth: 600 }}

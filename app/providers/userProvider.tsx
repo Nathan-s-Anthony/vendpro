@@ -9,12 +9,14 @@ import {
 
 type UserContextType = {
     userId: number | null;
-    name: string | null;
-    role: string | null;
+    firstName: string;
+    role: string;
+    email: string;
 
     setUserId: (userId: number) => void;
-    setName: (name: string) => void;
+    setFirstName: (name: string) => void;
     setRole: (role: string) => void;
+    setEmail: (email: string) => void;
 };
 
 const UserContext = createContext<UserContextType | undefined>(
@@ -27,18 +29,21 @@ export function UserProvider({
     children: ReactNode;
 }) {
     const [userId, setUserId] = useState<number | null>(null);
-    const [name, setName] = useState<string | null>(null);
-    const [role, setRole] = useState<string | null>(null);
+    const [firstName, setFirstName] = useState<string>("");
+    const [role, setRole] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
 
     return (
         <UserContext.Provider
             value={{
                 userId,
-                name,
+                firstName,
                 role,
+                email,
                 setUserId,
-                setName,
+                setFirstName,
                 setRole,
+                setEmail
             }}
         >
             {children}

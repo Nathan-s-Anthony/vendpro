@@ -1,4 +1,4 @@
-import { SignupFormSchema, FormState } from '@/app/lib/definitions'
+import { FormState, LoginFormSchema } from '@/app/lib/definitions'
 import { loginUser } from '../api/services/login';
 import { redirect } from 'next/navigation';
 
@@ -6,7 +6,7 @@ export async function login(state: FormState, formData: FormData) {
   console.log("LOGIN SUBMITTED");
 
   // Validate form fields
-  const validatedFields = SignupFormSchema.safeParse({
+  const validatedFields = LoginFormSchema.safeParse({
     email: formData.get('email'),
     password: formData.get('password'),
   })
@@ -20,7 +20,7 @@ export async function login(state: FormState, formData: FormData) {
   const resp = await loginUser(validatedFields.data.email, validatedFields.data.password);
   console.log(resp, "response from login from");
   if (resp.status === 200) {
-    redirect("/dashboard");
+    redirect("/dashboard/overview");
   }
   return {
     apiResponse: {
