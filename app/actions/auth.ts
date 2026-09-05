@@ -5,12 +5,10 @@ import { redirect } from 'next/navigation';
 export async function login(state: FormState, formData: FormData) {
   console.log("LOGIN SUBMITTED");
 
-  // Validate form fields
   const validatedFields = LoginFormSchema.safeParse({
     email: formData.get('email'),
     password: formData.get('password'),
   })
-  // If any form fields are invalid, return early
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
@@ -21,6 +19,7 @@ export async function login(state: FormState, formData: FormData) {
   console.log(resp, "response from login from");
   if (resp.status === 200) {
     redirect("/dashboard/overview");
+
   }
   return {
     apiResponse: {

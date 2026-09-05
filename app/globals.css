@@ -347,3 +347,10 @@ input{
 .animate-card-action-close {
     animation: card-action-close 0.2s ease-in forwards;
 }
+
+.modal-container-compact{
+  width: calc( 100vw - 256px);
+}
+.modal-container-full{
+  width:100%;
+}

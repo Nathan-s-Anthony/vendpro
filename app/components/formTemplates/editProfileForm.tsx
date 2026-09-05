@@ -57,8 +57,14 @@ export default function Form() {
                     <Button disabled={pending} type="submit" value={"Save"} className={"text-background w-1/3"} variant={"primary"} />
                 </form>
                 <div>
-                    <h1 className="text-5xl">Your Stats for the month</h1>
-                    <p>test</p>
+                    <div>
+                        <h1 className="text-5xl">Your Stats for the month</h1>
+                        <p>test</p>
+                    </div>
+                    <div>
+                        <h1 className="text-5xl">Your Stats for the month</h1>
+                        <p>test</p>
+                    </div>
                 </div>
             </div>
         </>

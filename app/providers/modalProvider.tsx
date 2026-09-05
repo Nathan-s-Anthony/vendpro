@@ -8,40 +8,39 @@ import {
 } from "react";
 
 type ModalContextType = {
-    toggled: boolean;
-    setToggle: (toggle: boolean) => void;
+    toggledModal: boolean;
+    setToggleModal: (toggle: boolean) => void;
 };
 
-const AsideContext = createContext<ModalContextType | undefined>(
+const ModalContext = createContext<ModalContextType | undefined>(
     undefined
 );
 
-export function AsideProvider({
+export function ModalProvider({
     children,
 }: {
     children: ReactNode;
 }) {
-    const [toggled, setToggle] = useState<boolean>(false);
+    const [toggledModal, setToggleModal] = useState<boolean>(false);
     return (
-        <AsideContext.Provider
+        <ModalContext.Provider
             value={{
-                toggled,
-                setToggle
+                toggledModal,
+                setToggleModal
             }}
         >
             {children}
-        </AsideContext.Provider>
+        </ModalContext.Provider>
     );
 }
 
-export function useUser() {
-    const context = useContext(AsideContext);
+export function useModal() {
+    const context = useContext(ModalContext);
 
     if (!context) {
         throw new Error(
-            "useUser must be used within a AsideProvider"
+            "useUser must be used within a ModalProvider"
         );
     }
-
     return context;
 }

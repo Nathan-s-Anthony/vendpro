@@ -2,7 +2,6 @@ import { ENDPOINTS } from "../endpoints/main";
 import { axiosApi } from "@/app/lib/axios";
 
 
-
 export async function logoutUser() {
   try {
     const resp = await axiosApi.post(ENDPOINTS.AUTH_USER.LOGOUT);
