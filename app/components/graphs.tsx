@@ -1,22 +1,34 @@
 "use client";
 
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, BarChart, ResponsiveContainer } from "recharts";
 
-export default function Graph({ data }: { data: [] }) {
+
+export default function Graph({ data }: { data: any[] }) {
     return (
-        <LineChart
-            style={{ width: '100%', aspectRatio: 3 }}
-            responsive
-            data={data}
-            className=""
-        >
-            <CartesianGrid strokeDasharray="5 5" />
-            <Line type="monotone" dataKey="uv" strokeWidth={2} name="My data series name" />
-            <XAxis dataKey="name" />
-            <YAxis width="auto" label={{ value: 'UV', position: 'insideLeft', angle: -90 }} />
-            <Legend position="insideBottomRight" />
-            <Tooltip />
-            {/* <RechartsDevtools /> */}
-        </LineChart>
+        <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+                width={700}
+                height={400}
+                data={data}
+            >
+                <CartesianGrid />
+                <XAxis dataKey="label" />
+                <YAxis width="auto" />
+                <Tooltip />
+                <Legend />
+                <Bar
+                    dataKey="stock"
+                    name="Stock"
+                    radius={[10, 10, 0, 0]}
+                />
+
+                <Bar
+                    dataKey="reorderPoint"
+                    name="Reorder Point"
+                    radius={[10, 10, 0, 0]}
+                />
+                {/* <RechartsDevtools /> */}
+            </BarChart>
+        </ResponsiveContainer>
     )
 }
