@@ -3,7 +3,7 @@
 import SubHeading from "./subHeading";
 import PanelActions from "./panelActions";
 
-export default function Panel({ heading, subHeading, highlight, children, className, pageName, disableHeadings }:
+export default function Panel({ heading, subHeading, highlight, children, pageName, disableHeadings }:
     {
         heading: string, subHeading: string, children: React.ReactNode,
         desktopMenuCollapsed?: boolean, className?: string,

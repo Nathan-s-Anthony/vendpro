@@ -9,6 +9,7 @@ type NavItems = {
     link: string;
     name: string;
 };
+
 function setURL(id: number, link: string) {
     if (id === 0) {
         return (`/dashboard/profile`)
