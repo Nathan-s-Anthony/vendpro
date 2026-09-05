@@ -248,11 +248,11 @@ input{
   scrollbar-width:thin;
   scrollbar-track-color: #030213;
 }
-@utility container{
+/* @utility container{
   padding-inline: 1.5rem; 
 
   margin-inline:auto;
-}
+} */
 @keyframes shake {
     0%,
     100% {

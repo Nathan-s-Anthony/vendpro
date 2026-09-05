@@ -12,7 +12,7 @@ export default function Form() {
     return (
         <>
             <div className="w-3/3 grid lg:grid-cols-2 grid-cols-1">
-                <form action={action} className={`flex rounded-sm p-8 flex-col gap-4  `}>
+                <form action={action} className={`flex rounded-sm p-8 flex-col gap-4`}>
                     <div className="flex flex-col gap-2">
                         <div className="rounded-full relative w-40 h-40 bg-secondary ">
                             <User className="absolute w-full p-4 h-full inset-0" />

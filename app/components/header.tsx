@@ -6,18 +6,20 @@ import { Bell, CircleUser } from "lucide-react";
 import Logo from "./logo";
 import { useGetUserQuery } from "../api/services/rtk-query/createApi";
 import { useUser } from "../providers/userProvider";
+import { useAside } from "../providers/asideProvider";
 
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
     const { data, isLoading, isError, } = useGetUserQuery();
     const { firstName, role, userId } = useUser();
+    const { toggled } = useAside();
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
 
     return (
         <header className={`${className} flex items-center p-1 justify-between  h-20 border-b border-border/30 w-full `}>
-            <Logo variant="normal" />
+            <Logo variant="normal" className={`${toggled ? "hidden" : "in"}`} />
             <div className=" min-w-0 hidden lg:flex items-center flex-1  lg:pl-4 l">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
