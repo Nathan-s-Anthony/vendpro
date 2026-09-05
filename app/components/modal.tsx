@@ -2,7 +2,7 @@
 
 import { useAside } from "../providers/asideProvider";
 import { useModal } from "../providers/modalProvider";
-import { models } from "../utils/dummydata";
+import { machines } from "../utils/dummydata";
 import Button from "./button";
 import Tile from "./tile";
 import Image from "next/image";
@@ -16,7 +16,7 @@ export default function Modal() {
                 <h3 className="text-3xl font-display font-bold text-center">Select your model</h3>
                 <div className=" flex items-center justify-center">
                     <div className="grid grid-cols-3  gap-5 mb-4 mt-4">
-                        {models.map((machine) => (
+                        {machines.map((machine) => (
                             <Tile
                                 key={machine.id}
                                 id={`machine-${machine.id}`}

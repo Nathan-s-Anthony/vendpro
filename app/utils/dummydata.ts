@@ -1,4 +1,6 @@
-export const models = [
+import { VendingMachine } from "../types/vendingMachinesTypes";
+
+export const machines = [
     {
         id: 0,
         name: "VendPro V-200",
@@ -456,4 +458,4 @@ export const models = [
         lastMaintenance: "2026-08-14",
         nextMaintenance: "2026-11-14",
     },
-];
+] satisfies VendingMachine[];

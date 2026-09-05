@@ -28,10 +28,14 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 </span>
             </div>
             <div className="font-mono min-w-0 flex lg:justify-end justify-end gap-6 pr-6 items-center  transition-all duration-300 cursor-pointer  w-full lg:w-auto  lg:pr-4">
+                <Pill name={role} />
                 <div onMouseEnter={handleMouseEnterProfile}>
+
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 lg:w-5 lg:h-5 h-7 w-7 group-hover:text-primary" />
+
                         <div className="lg:flex hidden flex-col  ">
+
                             <span className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName}</span>
                         </div>
                     </Link>

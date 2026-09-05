@@ -1,8 +1,8 @@
-import Panel from "@/app/components/panel";
+import Panel from "@/app/components/panels/panel";
 
 export default function SourceCargo() {
     return (
-        <Panel heading={"Stock levels"} pageName={"source-cargo"} subHeading={"stay on top of your stock"} highlight={""}>
+        <Panel heading={"Source cargo"} pageName={"source-cargo"} subHeading={"Get a bang for your buck"} highlight={""}>
             ests
         </Panel>
     )

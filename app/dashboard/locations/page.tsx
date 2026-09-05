@@ -1,13 +1,11 @@
 import GoogleMap from "@/app/components/map";
+import Panel from "@/app/components/panels/panel";
+import SubPanels from "@/app/components/panels/subPanels";
 
 export default function Locations() {
     return (
-        <div className="grid lg:grid-cols-2 h-full ">
-            <GoogleMap />
-            <div>
-                <h1>Your locations</h1>
-            </div>
-        </div>
-
+        <Panel className="z-20" heading={"locations"} subHeading={"network"} pageName={"locations"}>
+            <SubPanels />
+        </Panel>
     )
 }

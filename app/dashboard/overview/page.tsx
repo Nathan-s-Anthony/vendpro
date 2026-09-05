@@ -1,6 +1,6 @@
 import Card from "@/app/components/card/card";
 import Graph from "@/app/components/graphs";
-import Panel from "@/app/components/panel";
+import Panel from "@/app/components/panels/panel";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
     const stats = [

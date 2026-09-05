@@ -1,6 +1,6 @@
 "use client";
 
-import SubHeading from "./subHeading";
+import SubHeading from "../subHeading";
 import PanelActions from "./panelActions";
 
 export default function Panel({ heading, subHeading, highlight, children, pageName, disableHeadings }:

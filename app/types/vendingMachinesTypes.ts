@@ -1,7 +1,8 @@
 type MachineTelemetry = {
     temperature: number;
-    temperatureUnit: "°C"
+    temperatureUnit: "°C" | "°F";
     humidity: number;
+
     power: {
         voltage: number;
         current: number;
@@ -61,17 +62,20 @@ type VendingMachine = {
     name: string;
     model: string;
     serialNumber: string;
+
     status: "online" | "offline" | "warning";
+
+    image: string;
 
     location: {
         name: string;
         address: string;
     };
 
-    telemetry?: MachineTelemetry;
+    telemetry: MachineTelemetry;
 
     lastMaintenance: string;
     nextMaintenance: string;
 };
 
-export type { VendingMachine }
+export type { VendingMachine, MachineTelemetry };

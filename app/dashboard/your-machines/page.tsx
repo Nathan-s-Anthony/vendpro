@@ -1,5 +1,5 @@
 import Modal from "@/app/components/modal";
-import Panel from "@/app/components/panel";
+import Panel from "@/app/components/panels/panel";
 
 
 export default function YourMachines() {

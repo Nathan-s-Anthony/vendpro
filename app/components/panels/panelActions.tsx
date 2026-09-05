@@ -1,7 +1,7 @@
 "use client";
 
 import { logout } from "@/app/actions/logout";
-import Button from "./button";
+import Button from "../button";
 
 export default function PanelActions({ page }: { page: string }) {
     const extraActionsPages = [

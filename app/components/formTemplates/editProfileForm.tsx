@@ -16,11 +16,11 @@ export default function Form() {
                     <User className="absolute w-full p-4 h-full inset-0" />
                 </div>
             </div>
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
                 <label htmlFor="email">Permission Status</label>
                 <input defaultValue={role} disabled className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded`} id="role" name="role" placeholder="role" />
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
-            </div>
+            </div> */}
             <div className="flex flex-col gap-2">
                 <label htmlFor="name">Name</label>
                 <input defaultValue={firstName} className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded `} id="first_name" name="first_name" placeholder="First Name" />
@@ -31,6 +31,7 @@ export default function Form() {
                 <input defaultValue={email} className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded`} id="email" name="email" placeholder="Email" />
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
             </div>
+
             <Button disabled={pending} type="submit" value={"Save"} className={"text-background w-1/3"} variant={"primary"} />
         </form>
     )

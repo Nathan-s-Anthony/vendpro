@@ -1,5 +1,5 @@
 import EditProfileForm from "@/app/components/formTemplates/editProfileForm";
-import Panel from "@/app/components/panel";
+import Panel from "@/app/components/panels/panel";
 
 export default function Profile() {
     return (
