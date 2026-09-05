@@ -44,7 +44,7 @@ export default function ChatBot() {
                             return (
                                 <div key={id} className="relative column-1 mb-4 mt-4 gap-4  h-full bg-secondary  header rounded-tr-sm rounded-tl-sm">
                                     <div className="bg-secondary p-4 w-full  block header rounded-sm ">
-                                        <button className="font-mono font-bold">{item.promptText}</button>
+                                        <button className="font-mono font-bold text-xs">{item.promptText}</button>
                                     </div>
                                 </div>
                             )
