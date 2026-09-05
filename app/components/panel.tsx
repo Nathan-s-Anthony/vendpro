@@ -23,9 +23,7 @@ export default function Panel({ heading, subHeading, highlight, children, classN
                     <PanelActions page={pageName} />
                 </div>
             </div>
-            <div className={className}>
-                {children}
-            </div>
+            {children}
         </div>
     )
 }

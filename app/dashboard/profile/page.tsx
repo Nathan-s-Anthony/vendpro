@@ -1,4 +1,4 @@
-import Card from "@/app/components/card";
+import Card from "@/app/components/card/card";
 import Form from "@/app/components/form";
 import EditProfileForm from "@/app/components/formTemplates/editProfileForm";
 import Panel from "@/app/components/panel";

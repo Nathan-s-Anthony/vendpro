@@ -1,4 +1,4 @@
-import Card from "@/app/components/card";
+import Card from "@/app/components/card/card";
 import Graph from "@/app/components/graphs";
 import Panel from "@/app/components/panel";
 import { Zap, Construction, Package } from "lucide-react";
@@ -70,15 +70,15 @@ export default function Overview() {
     ]
 
     return (
-        <Panel heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
+        <Panel className="z-20" heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
             <h2 className="mb-2">Current Stock levels</h2>
             <div className="lg:w-full lg:h-[50vh] mb-4 mt-4 pt-6 pb-6" >
                 <Graph data={data} />
             </div>
-            <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 mt-10 mb-4 pr-6 pl-6">
+            <div className="grid lg:grid-cols-4 z-20 grid-cols-2 gap-4 mt-20 mb-4 bg-red-500 pr-6 pl-6">
                 {stats.map((item, id) => {
                     return (
-                        <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} />
+                        <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} id={item.id} />
                     )
                 })}
             </div>
