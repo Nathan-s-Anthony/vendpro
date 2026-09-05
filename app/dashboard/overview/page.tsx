@@ -31,28 +31,28 @@ export default function Overview() {
     ]
     const data = [
         {
-            name: 'Page A',
+            name: 'Coca Cola',
             uv: 400,
             pv: 2400,
             amt: 2400,
         },
         {
-            name: 'Page B',
+            name: 'Chips',
             uv: 200,
             pv: 1400,
             amt: 400,
         },
         {
-            name: 'Page C',
+            name: 'Chocolate Bars',
             uv: 400,
-            pv: 1400,
+            pv: 1500,
             amt: 2400,
         },
         {
-            name: 'Page D',
+            name: 'Energy Drinks',
             uv: 700,
             pv: 100,
-            amt: 3000,
+            amt: 1000,
         },
     ]
 
@@ -71,21 +71,22 @@ export default function Overview() {
 
     return (
         <Panel heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
-            <div className="lg:w-100 lg:h-100" >
-                <Graph data={stockLevel} />
+            <h2 className="mb-2">Current Stock levels</h2>
+            <div className="lg:w-full lg:h-[50vh] mb-4 mt-4 pt-6 pb-6" >
+                <Graph data={data} />
             </div>
-            <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 mt-4 mb-4">
+            <div className="grid lg:grid-cols-4 grid-cols-2 gap-4 mt-10 mb-4 pr-6 pl-6">
                 {stats.map((item, id) => {
                     return (
                         <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} />
                     )
                 })}
             </div>
-            <div className="grid grid-cols-2 w-full gap-4 mt-4">
+            <div className="grid grid-cols-2 w-full gap-4 mt-4 pr-6 pl-6">
                 <div className=" col-span-1 bg-secondary p-4 rounded-sm border border-card-primary hover:border-primary/50 cursor-pointer">
                     <div className="flex items-center justify-between">
                         <h2 className="text-3xl mb-4 mt-4 p-2 ">MACHINE STATUS</h2>
-                        <small className="text-secondary-faded text-sm">8 Locations</small>
+                        <small className="text-secondary-faded text-sm rounded-sm bg-[#030213]/40 p-4">8 Locations</small>
                     </div>
                     <Card title={"Active Machines"} value={"3"} fullWidth icon={<Zap className="w-8 h-8 text-orange-400" />} statsTile />
                 </div>
