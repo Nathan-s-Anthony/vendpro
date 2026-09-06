@@ -24,7 +24,7 @@ export default function Pill({ name, status }: { name: string, status: string })
                     <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${colors}`}></span>
                     <span className={`relative inline-flex size-2 rounded-full ${colors}`}></span>
                 </span>
-                <span className="font-mono  capitalize  font-bold text-sm ">{name}</span>
+                <span className="font-mono  capitalize  font-bold text-white  text-sm ">{name}</span>
             </div>
         </div>
     )

@@ -65,8 +65,6 @@ export default function Overview() {
 
     return (
         <Panel className="z-20" heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
-            <h2 className="mb-4 mt-4">Current Stock levels</h2>
-            <Graph data={stockLevel} />
             <div className="grid lg:grid-cols-4 z-20 grid-cols-2 gap-4 mt-20 mb-4  pr-6 pl-6">
                 {stats.map((item, id) => {
                     return (
@@ -74,15 +72,18 @@ export default function Overview() {
                     )
                 })}
             </div>
+            <h2 className="mb-4 mt-4">Current Stock levels</h2>
+            <Graph data={stockLevel} />
+
             <div className="grid grid-cols-2 w-full gap-4 mt-4 pr-6 pl-6 ">
-                <div className=" col-span-1 bg-secondary p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
+                <div className=" col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
                     <div className="flex items-center justify-between">
                         <h2 className="text-3xl mb-4 mt-4 p-2 ">MACHINE STATUS</h2>
                         <small className="text-secondary-faded text-sm rounded-sm bg-[#030213]/40 p-4">8 Locations</small>
                     </div>
                     <Card title={"Active Machines"} value={"3"} fullWidth icon={<Zap className="w-8 h-8 text-orange-400" />} statsTile />
                 </div>
-                <div className=" col-span-1 bg-secondary p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
+                <div className=" col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
                     <h2 className="text-3xl mb-4 mt-4 p-2 ">RECENT ACTIVITY</h2>
                     <Card title={"Active Machines"} value={"3"} fullWidth icon={<Zap className="w-8 h-8 text-orange-400" />} statsTile />
                 </div>

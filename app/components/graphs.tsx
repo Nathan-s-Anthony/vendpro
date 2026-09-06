@@ -55,7 +55,7 @@ export default function Graph({ data }: { data: any[] }) {
             style={{
                 width: "100%",
                 height: "500px",
-                minHeight: "50vh",
+                maxWidth: 500,
                 aspectRatio: 1.618,
             }}
 
