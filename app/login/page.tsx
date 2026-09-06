@@ -19,8 +19,8 @@ export default function Login() {
                 <div className="absolute bottom-16 right-0 w-56 h-56 rounded-full bg-accent/6 blur-[80px] pointer-events-none" />
             </div>
             <div className="absolute inset-0">
-                <div className="container-lg">
-                    <div className="relative grid grid-cols-2 h-screen container lg:p-8 p-0">
+                <div className="">
+                    <div className="relative grid grid-cols-2 h-screen  lg:p-8 p-0">
                         <div className=" lg:col-span-1 col-span-2  ">
                             <div className="flex flex-col justify-between p-8 h-full">
                                 <div>
