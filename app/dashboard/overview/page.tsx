@@ -1,6 +1,9 @@
+import Bars from "@/app/components/bars";
 import Card from "@/app/components/card/card";
-import Graph from "@/app/components/graphs";
+import Graph from "@/app/components/graphs/barChart";
+import LegendEffectOpacity from "@/app/components/graphs/lineChart";
 import Panel from "@/app/components/panels/panel";
+import { Bar } from "@/app/types/barTypes";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
     const stats = [
@@ -29,32 +32,32 @@ export default function Overview() {
             icon: <Zap className="w-8 h-8 text-orange-400" />
         }
     ]
-    const data = [
-        {
-            name: 'Coca Cola',
-            uv: 400,
-            pv: 2400,
-            amt: 2400,
-        },
-        {
-            name: 'Chips',
-            uv: 200,
-            pv: 1400,
-            amt: 400,
-        },
-        {
-            name: 'Chocolate Bars',
-            uv: 400,
-            pv: 1500,
-            amt: 2400,
-        },
-        {
-            name: 'Energy Drinks',
-            uv: 700,
-            pv: 100,
-            amt: 1000,
-        },
-    ]
+    // const data = [
+    //     {
+    //         name: 'Coca Cola',
+    //         uv: 400,
+    //         pv: 2400,
+    //         amt: 2400,
+    //     },
+    //     {
+    //         name: 'Chips',
+    //         uv: 200,
+    //         pv: 1400,
+    //         amt: 400,
+    //     },
+    //     {
+    //         name: 'Chocolate Bars',
+    //         uv: 400,
+    //         pv: 1500,
+    //         amt: 2400,
+    //     },
+    //     {
+    //         name: 'Energy Drinks',
+    //         uv: 700,
+    //         pv: 100,
+    //         amt: 1000,
+    //     },
+    // ]
 
     const stockLevel = [
         { name: "Jan", stock: 5000, sales: 4000 },
@@ -62,10 +65,24 @@ export default function Overview() {
         { name: "Mar", stock: 3500, sales: 2000 },
         { name: "Apr", stock: 4000, sales: 2780 },
     ];
+    const data = [
+        {
+            id: 0,
+            value: 78,
+            text: "Drinks",
+            total: 150,
+        },
+        {
+            id: 1,
+            value: 50,
+            text: "Food Level",
+            total: 120,
 
+        }
+    ] satisfies Bar[];
     return (
         <Panel className="z-20" heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
-            <div className="grid lg:grid-cols-4 z-20 grid-cols-2 gap-4 mt-20 mb-4  pr-6 pl-6">
+            <div className="grid lg:grid-cols-4 z-20 grid-cols-2 gap-4 mt-4 mb-4 ">
                 {stats.map((item, id) => {
                     return (
                         <Card fullWidth key={id} title={item.title} value={item.value} icon={item.icon} id={item.id} />
@@ -73,19 +90,21 @@ export default function Overview() {
                 })}
             </div>
             <h2 className="mb-4 mt-4">Current Stock levels</h2>
-            <Graph data={stockLevel} />
-
-            <div className="grid grid-cols-2 w-full gap-4 mt-4 pr-6 pl-6 ">
-                <div className=" col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
-                    <div className="flex items-center justify-between">
+            <div className="flex justify-between flex-wrap w-full">
+                <Graph data={stockLevel} />
+                <LegendEffectOpacity />
+            </div>
+            <div className=" flex flex-wrap lg:flex-nowrap  justify-between  gap-4 mt-4">
+                <div className="w-full col-span-1 bg-[#222225]/30 border border-border/30  p-4 rounded-sm  hover:border-primary/50 cursor-pointer">
+                    <div className="flex items-center justify-between ">
                         <h2 className="text-3xl mb-4 mt-4 p-2 ">MACHINE STATUS</h2>
-                        <small className="text-secondary-faded text-sm rounded-sm bg-[#030213]/40 p-4">8 Locations</small>
                     </div>
-                    <Card title={"Active Machines"} value={"3"} fullWidth icon={<Zap className="w-8 h-8 text-orange-400" />} statsTile />
+                    <div className="bg-[#222225]/30">
+                        <Bars data={data} />
+                    </div>
                 </div>
-                <div className=" col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
+                <div className="w-full  col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
                     <h2 className="text-3xl mb-4 mt-4 p-2 ">RECENT ACTIVITY</h2>
-                    <Card title={"Active Machines"} value={"3"} fullWidth icon={<Zap className="w-8 h-8 text-orange-400" />} statsTile />
                 </div>
             </div>
         </Panel>

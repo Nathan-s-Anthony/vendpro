@@ -19,14 +19,14 @@ export default function Login() {
                 <div className="absolute bottom-16 right-0 w-56 h-56 rounded-full bg-accent/6 blur-[80px] pointer-events-none" />
             </div>
             <div className="absolute inset-0">
-                <div className="">
-                    <div className="relative grid grid-cols-2 h-screen  lg:p-8 p-0">
-                        <div className=" lg:col-span-1 col-span-2  ">
-                            <div className="flex flex-col justify-between p-8 h-full">
-                                <div>
+                <div className="container mx-auto">
+                    <div className="relative grid grid-cols-2 h-screen">
+                        <div className=" lg:col-span-1 col-span-2">
+                            <div className="flex flex-col justify-between  h-full">
+                                <div className="lg:h-20 place-content-end">
                                     <Logo variant="large" className={""} />
                                 </div>
-                                <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-6 flex-1 ">
+                                <div style={{ marginTop: -80 }} className="flex justify-center  flex-col items-start lg:max-w-120 gap-6 flex-1 ">
                                     <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
                                     <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
                                     <div className="flex justify-evenly gap-4">

@@ -10,7 +10,7 @@ export default function Form() {
     const [state, action, pending] = useActionState(login, { errors: {} });
     const { firstName, role, email } = useUser();
     return (
-        <form action="#" className={`flex rounded-sm p-8 flex-col gap-4`}>
+        <form action="#" className={`flex rounded-sm w-full  flex-col gap-4`}>
             <div className="flex flex-col gap-2">
                 <div className="rounded-full relative w-40 h-40 bg-secondary ">
                     <User className="absolute w-full p-4 h-full inset-0" />

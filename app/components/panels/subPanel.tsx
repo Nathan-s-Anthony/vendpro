@@ -7,12 +7,12 @@ import { MapPin } from "lucide-react";
 export default function SubPanel({ machines }: { machines: VendingMachine[] }) {
 
     return (
-        <div className="grid grid-cols-3 gap-4 py-6" >
+        <div className="grid grid-cols-4 gap-4 mt-6" >
             {machines
                 // .filter((subPanelSelected: VendingMachine) => subPanelSelected.status === "warning")
                 .map((machine: VendingMachine) => {
                     return (
-                        <div key={machine.id} className={`group transition-all rounded-sm bg-[#222225] p-4 duration-300 border border-border/30  hover:border-primary/50 relative cursor-pointer`}>
+                        <div key={machine.id} className={`group transition-all rounded-sm bg-[#222225]/30 p-4 duration-300 border border-border/30  hover:border-primary/50 relative cursor-pointer`}>
                             <div className=" w-full flex items-center justify-between">
                                 <Pill status={machine.status} name={machine.status} />
                                 <MapPin className="text-secondary-faded" />

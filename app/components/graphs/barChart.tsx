@@ -53,14 +53,12 @@ export default function Graph({ data }: { data: any[] }) {
         // <AnimationControllerProvider value={scrollAnimationController}>
         <Typed.BarChart
             style={{
-                width: "100%",
                 height: "500px",
-                maxWidth: 500,
                 aspectRatio: 1.618,
             }}
-
+            className="flex-1 lg:w-1/3"
             data={stockLevel}
-
+            responsive
         >
             <CartesianGrid />
 

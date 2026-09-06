@@ -25,9 +25,9 @@ const navItems = [
 
 export default function ProfileLayout({ children }: LayoutProps<"/">) {
     return (
-        <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">
+        <div className="">
             <MiniNav navItems={navItems} />
-            <div className="min-w-0 lg:col-start-1 col-span-2  z-10 overflow-y-auto custom-scroll overflow-x-hidden  lg:px-6 py-4">
+            <div className="min-w-0 z-10 overflow-y-auto custom-scroll overflow-x-hidden  ">
                 {children}
             </div>
         </div>
