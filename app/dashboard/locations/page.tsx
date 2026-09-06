@@ -4,7 +4,7 @@ import SubPanels from "@/app/components/panels/subPanels";
 
 export default function Locations() {
     return (
-        <Panel className="z-20" heading={"locations"} subHeading={"network"} pageName={"locations"}>
+        <Panel className="" heading={"locations"} subHeading={"network"} pageName={"locations"}>
             <SubPanels />
         </Panel>
     )

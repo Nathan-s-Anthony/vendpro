@@ -385,7 +385,7 @@ export const machines = [
         name: "VendPro V-280",
         model: "V-280",
         serialNumber: "VPV280-009184",
-        status: "warning",
+        status: "offline",
         image: "https://images.pexels.com/photos/3735168/pexels-photo-3735168.jpeg",
 
         location: {

@@ -74,7 +74,7 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
                                                 <div className="flex items-center justify-between relative">
                                                     <div className={`transition-all duration-300 flex items-center w-full ${toggled ? "justify-center" : ""}  min-h-12 relative`}>
                                                         {item.icon}
-                                                        <span className={`${toggled ? "hidden " : "block absolute left-8"} ${item.page === childUrl ? "active-name  " : "text-secondary-faded "}   text-nowrap text-lg block font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
+                                                        <span className={`${toggled ? "hidden " : "block absolute left-8"} ${item.page === childUrl ? "active-name  " : "text-secondary-faded "} text-sm   text-nowrap block font-bold transition-all duration-300 group-hover:translate-x-2 group-hover:text-white`}>
                                                             {item.name}
                                                         </span>
                                                     </div>

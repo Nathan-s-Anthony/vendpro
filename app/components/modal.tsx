@@ -12,7 +12,7 @@ export default function Modal() {
     const { toggledModal, setToggleModal } = useModal();
     return (
         <div onClick={() => (setToggleModal(!toggledModal))} className={`${toggled ? "modal-container-full" : "modal-container-compact"}   flex items-center justify-center p-6 ml-auto fixed   inset-0 z-50 w-screen h-screen`}>
-            <div className="test bg-secondary p-10 max-w-180 w-full rounded-sm lg:h-[70vh] ">
+            <div className="test bg-secondary p-10 max-w-180 w-full rounded-sm lg:h-[70vh] border-1 border-border/30 ">
                 <h3 className="text-3xl font-display font-bold text-center">Select your model</h3>
                 <div className=" flex items-center justify-center">
                     <div className="grid grid-cols-3  gap-5 mb-4 mt-4">
