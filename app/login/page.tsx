@@ -24,7 +24,7 @@ export default function Login() {
                         <div className=" lg:col-span-1 col-span-2  ">
                             <div className="flex flex-col justify-between p-8 h-full">
                                 <div>
-                                    <Logo variant="large" />
+                                    <Logo variant="large" className={""} />
                                 </div>
                                 <div className="flex justify-center  flex-col items-start lg:max-w-96 gap-6 flex-1 ">
                                     <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
