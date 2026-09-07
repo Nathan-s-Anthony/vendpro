@@ -16,6 +16,13 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
+    if (isLoading) {
+        return (
+            <div>loading user...</div>
+        )
+    }
+
+    console.log("user data", data)
 
     return (
         <header className={`${className} flex items-center p-1 justify-between  h-20 border-b border-border/30 w-full `}>

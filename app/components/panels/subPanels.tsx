@@ -4,6 +4,7 @@ import { useState } from "react";
 import SubPanel from "./subPanel";
 import Button from "../button";
 import { machines } from "@/app/utils/dummydata";
+import { useCreateVendingMachineMutation, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
 
 const panelBtns = [
     {
@@ -27,9 +28,17 @@ const panelBtns = [
 export default function SubPanels() {
 
     const [activeSubPanelId, setActiveSubPanelId] = useState<string>(panelBtns[0].id);
+
+
     const handlePanelChange = (id: string) => {
         setActiveSubPanelId(id);
     };
+
+    // if (isLoading) {
+    //     return <div>loading...</div>
+    // }
+
+    // console.log("machines for user", data);
     return (
         <div className="w-full flex flex-col gap-4">
             <div className=" flex gap-4 justify-end ">

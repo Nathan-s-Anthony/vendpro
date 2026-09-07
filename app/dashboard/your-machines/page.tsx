@@ -6,8 +6,8 @@ import SubPanels from "@/app/components/panels/subPanels";
 export default function YourMachines() {
     return (
         <Panel heading={"Your Machines"} subHeading={"All your vending machines telemetry data under one roof"} pageName={"your-machines"}>
-            {/* <Modal /> */}
             <SubPanels />
+            <Modal />
         </Panel>
     )
 }

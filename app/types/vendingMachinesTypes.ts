@@ -76,6 +76,7 @@ type VendingMachine = {
 
     lastMaintenance: string;
     nextMaintenance: string;
+    location_id: number;
 };
 
 export type { VendingMachine, MachineTelemetry };
