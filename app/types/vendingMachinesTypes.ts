@@ -65,7 +65,10 @@ type VendingMachine = {
 
     status: "online" | "offline" | "warning";
 
-    image: string;
+    image: {
+        data: string;
+        type: string;
+    }
 
     location: {
         name: string;
