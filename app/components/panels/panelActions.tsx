@@ -14,6 +14,10 @@ export default function PanelActions({ page }: { page: string }) {
     const createMachine = async () => {
         createVendingMachine({ location_id: 2 })
     }
+
+    if (data) {
+        console.log("machines", data)
+    }
     const extraActionsPages = [
         {
             id: 0,

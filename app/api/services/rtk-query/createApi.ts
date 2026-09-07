@@ -15,7 +15,7 @@ export const vendPropApi = createApi({
             query: () => "/api/user",
         }),
         getVendingMachinesByUser: build.query<any, void>({
-            query: () => "/api/user/machines",
+            query: () => "/api/user/getMachines",
         }),
         createVendingMachine: build.mutation<VendingMachine, Partial<VendingMachine> & Pick<VendingMachine, 'location_id'>>({
             // note: an optional `queryFn` may be used in place of `query`
