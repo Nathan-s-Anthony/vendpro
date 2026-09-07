@@ -5,6 +5,7 @@ import SubPanel from "./subPanel";
 import Button from "../button";
 import { machines } from "@/app/utils/dummydata";
 import { useCreateVendingMachineMutation, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
+import Modal from "../modal";
 
 const panelBtns = [
     {
@@ -28,17 +29,17 @@ const panelBtns = [
 export default function SubPanels() {
 
     const [activeSubPanelId, setActiveSubPanelId] = useState<string>(panelBtns[0].id);
+    const { data, isLoading, isError } = useGetVendingMachinesByUserQuery();
 
 
     const handlePanelChange = (id: string) => {
         setActiveSubPanelId(id);
     };
 
-    // if (isLoading) {
-    //     return <div>loading...</div>
-    // }
+    if (data) {
+        console.log(data, "data for modal")
+    }
 
-    // console.log("machines for user", data);
     return (
         <div className="w-full flex flex-col gap-4">
             <div className=" flex gap-4 justify-end ">
@@ -49,6 +50,7 @@ export default function SubPanels() {
                 })}
             </div>
             <SubPanel machines={machines} />
+            <Modal data={data?.data} />
         </div>
     )
 }

@@ -7,8 +7,9 @@ import { machines } from "../utils/dummydata";
 import Button from "./button";
 import Tile from "./tile";
 import Image from "next/image";
+import { VendingMachine } from "../types/vendingMachinesTypes";
 
-export default function Modal() {
+export default function Modal({ data }: { data: VendingMachine[] }) {
     const { toggled } = useAside();
     const { toggledModal, setToggleModal } = useModal();
     return (
@@ -21,23 +22,27 @@ export default function Modal() {
                             <h3 className="text-3xl font-display font-bold text-center">Select your model</h3>
                             <div className=" flex items-center justify-center">
                                 <div className="grid grid-cols-3  gap-5 mb-4 mt-4">
-                                    {machines.map((machine) => (
-                                        <Tile
-                                            key={machine.id}
-                                            id={`machine-${machine.id}`}
-                                            className="p-4  relative group rounded-sm "
-                                            onClick={() => console.log(machine.id)}>
-                                            <div className="lg:w-40 lg:h-40 relative overflow-hidden">
-                                                <Image
-                                                    alt={`${machine.name} - ${machine.model}`}
-                                                    className="rounded-sm cursor-pointer transition-transform  duration-300 group-hover:scale-125"
-                                                    src={machine.image}
-                                                    fill
-                                                />
-                                            </div>
-                                            <h4 className="font-bold font-display" title={`${machine.name} - ${machine.model}`}>{machine.name}</h4>
-                                            <div className="absolute inset-0 w-full h-full rounded-sm  bg-[#030213]/40">test</div>
-                                        </Tile>))}
+                                    {data.map((machine) => {
+                                        console.log(machine, "machine logging")
+                                        return (
+                                            <Tile
+                                                key={machine.id}
+                                                id={`machine-${machine.id}`}
+                                                className="p-4  relative group rounded-sm "
+                                                onClick={() => console.log(machine.id)}>
+                                                <div className="lg:w-40 lg:h-40 relative overflow-hidden">
+                                                    {/* <Image
+                                                        alt={`${machine.name} - ${machine.model}`}
+                                                        className="rounded-sm cursor-pointer transition-transform  duration-300 group-hover:scale-125"
+                                                        src={machine.image}
+                                                        fill
+                                                    /> */}
+                                                </div>
+                                                <h4 className="font-bold font-display" title={`${machine.name} - ${machine.model}`}>{machine.name}</h4>
+                                                <div className="absolute inset-0 w-full h-full rounded-sm  bg-[#030213]/40">test</div>
+                                            </Tile>
+                                        )
+                                    })}
                                 </div>
                             </div>
                             <Button value="Continue" type={"button"} className={"justify-self-center"} variant={"primary"} />

@@ -8,16 +8,13 @@ import { useModal } from "@/app/providers/modalProvider";
 export default function PanelActions({ page }: { page: string }) {
 
     const [createVendingMachine, result] = useCreateVendingMachineMutation();
-    const { data, isLoading, isError } = useGetVendingMachinesByUserQuery();
     const { setToggleModal, toggledModal } = useModal();
 
     const createMachine = async () => {
         createVendingMachine({ location_id: 2 })
     }
 
-    if (data) {
-        console.log("machines", data)
-    }
+
     const extraActionsPages = [
         {
             id: 0,
