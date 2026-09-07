@@ -20,6 +20,9 @@ export default function StockLevels() {
                     </div>
                 </div>
             </div>
+            <div className="bg-[#222225]/30 border border-border/30 min-h-100 mt-4 ">
+                test
+            </div>
         </Panel>
     )
 }
