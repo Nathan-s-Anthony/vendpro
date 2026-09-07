@@ -24,7 +24,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             setEmail(data.email)
             setRole("admin");
         }
-        else if (!data && isError) {
+        if (isError) {
             setIsAuthenticated(false);
         }
 

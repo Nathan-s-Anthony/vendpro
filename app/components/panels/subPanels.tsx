@@ -4,8 +4,9 @@ import { useState } from "react";
 import SubPanel from "./subPanel";
 import Button from "../button";
 import { machines } from "@/app/utils/dummydata";
-import { useCreateVendingMachineMutation, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
+import { useCreateVendingMachineMutation, useGetVendingMachinesAllQuery, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
 import Modal from "../modal";
+import { LoaderCircle } from "lucide-react";
 
 const panelBtns = [
     {
@@ -31,11 +32,13 @@ export default function SubPanels() {
     const [activeSubPanelId, setActiveSubPanelId] = useState<string>(panelBtns[0].id);
     const { data, isLoading, isError } = useGetVendingMachinesByUserQuery();
 
+    if (isLoading) {
+        return <LoaderCircle className="animate-spin text-primary" />
+    }
 
     const handlePanelChange = (id: string) => {
         setActiveSubPanelId(id);
     };
-
     if (data) {
         console.log(data, "data for modal")
     }
@@ -49,8 +52,9 @@ export default function SubPanels() {
                     )
                 })}
             </div>
-            <SubPanel machines={machines} />
-            <Modal data={data?.data} />
+
+            <SubPanel data={data?.data} />
+            <Modal />
         </div>
     )
 }

@@ -16,11 +16,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
     const handleMouseEnterProfile = (e: React.MouseEvent<HTMLDivElement>) => {
         console.log(e, "mouse entering");
     };
-    if (isLoading) {
-        return (
-            <div>loading user...</div>
-        )
-    }
+
 
     console.log("user data", data)
 

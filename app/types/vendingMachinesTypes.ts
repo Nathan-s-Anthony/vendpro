@@ -61,7 +61,7 @@ type VendingMachine = {
     id: number;
     name: string;
     model: string;
-    serialNumber: string;
+    serial_number: string;
 
     status: "online" | "offline" | "warning";
 
