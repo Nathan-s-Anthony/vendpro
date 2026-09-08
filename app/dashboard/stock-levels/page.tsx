@@ -9,14 +9,21 @@ export default function StockLevels() {
     return (
         <Panel heading={"Stock levels"} pageName={"stock-levels"} subHeading={"stay on top of your stock"} highlight={""}>
             <div className="grid lg:grid-cols-3 grid-cols-3  gap-4  rounded-sm min-h-30">
-                <div className="bg-green-500/10 text-green-400 lg:h-full flex justify-center items-center border-green-500/20"><div><span className="font-display font-bold text-white">6</span><span>Well Stocked</span></div></div>
-                <div className="bg-yellow-500/10 text-yellow-400 justify-center  flex items-center lg:h-full border-yellow-500/20"><div><span className="font-display font-bold text-white">2</span><span>Running Low</span></div></div>
-                <div className="bg-alert-primary/10 text-alert-primary lg:h-full h-30   border-alert-primary/20">
-                    <div className="flex lg:h-full h-full justify-center items-center gap-2">
-                        <span>Critical -</span>
-                        <Link href={"#"} className=" flex items-center text-alert-primary underline underline-offset-4 group" ><div><span className="font-display font-bold text-white">1</span><span>Restock Now</span></div>
-                            <ChevronRight className="mt-1 text-alert-primary block transition-all duration-300 group-hover:translate-x-2 " />
-                        </Link>
+                <div className="bg-green-500/20  p-4  text-secondary-faded lg:h-full flex justify-start  items-center border-green-500/20"><div className="flex flex-col"><span className="font-display font-bold text-green-400 text-3xl ">6</span><span>Well Stocked</span></div></div>
+                <div className="bg-yellow-500/10  p-4  text-secondary-faded justify-start flex items-center lg:h-full border-yellow-500/20"><div className="flex flex-col"><span className="font-display font-bold text-yellow-400 text-3xl ">2</span><span>Running Low</span></div></div>
+                <div className="bg-alert-primary/10  p-4 justify-start flex items-cente  text-secondary-faded lg:h-full h-30   border-alert-primary/20">
+                    <div className="flex  flex-col lg:h-full h-full justify-start items-center gap-2">
+                        <div className="">
+                            <div className="flex justify-start items-start flex-col">
+                                <span className="font-display font-bold text-alert-primary text-3xl ">1</span>
+                                <span>Critical</span>
+                            </div>
+                            <div className="flex flex-col">
+                                <Link href={"#"} className=" flex items-center text-alert-primary underline underline-offset-4 group" ><div className="flex flex-col"><span>Restock Now</span></div>
+                                    <ChevronRight className="mt-1 text-alert-primary block transition-all duration-300 group-hover:translate-x-2 " />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div >
