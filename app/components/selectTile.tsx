@@ -46,12 +46,14 @@ export default function SelectTile() {
                             id={`machine-${machine.id}`}
                             className="p-4  z-50  relative group rounded-sm "
                             onClick={() => handleTileSelection(machine)}>
-                            <div className="lg:w-40 lg:h-40 relative overflow-hidden">
+                            <div className="lg:w-20 lg:h-20 relative overflow-hidden">
                                 <Image
                                     alt={`${machine.name} - ${machine.model}`}
-                                    className="contain rounded-sm cursor-pointer transition-transform  duration-300 group-hover:scale-125"
+                                    className=" rounded-sm cursor-pointer transition-transform  duration-300 group-hover:scale-125"
                                     src={`data:${machine.image.type};base64,${machine.image.data}`}
-                                    fill
+                                    width={200}
+                                    height={100}
+                                    object-fit
                                 />
                                 {selectedMachines.some((selected) => selected.id === machine.id) && (
                                     <div className="absolute inset-0 w-full h-full rounded-sm place-content-center place-items-center bg-[#030213]/50 flex">
