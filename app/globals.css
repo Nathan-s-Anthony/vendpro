@@ -381,3 +381,9 @@ small{
    color: var(--offline-primary);
 
 }
+select option {
+   @apply bg-[#222225];
+}
+select option:focus {
+   @apply bg-[#222225] text-[#222225];
+}
