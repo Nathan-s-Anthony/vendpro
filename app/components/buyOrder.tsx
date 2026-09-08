@@ -1,13 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import BuyOrderForm from "./formTemplates/buyOrder";
+import { useRouter } from "next/router";
 
 export default function BuyOrder() {
+    const router = useRouter();
     return (
         <div className=" flex flex-wrap lg:flex-nowrap  justify-between  gap-4 mt-4">
             <div className="w-full col-span-1 bg-[#222225]/30 border border-border/30  p-4 rounded-sm  hover:border-primary/50 cursor-pointer">
                 <div className="flex items-center justify-between ">
-                    <h2 className="text-3xl mb-4 mt-4 p-2 ">Buy Order</h2>
+                    <h2 className="text-3xl mb-4 mt-4 p-2 ">General Buy Order</h2>
+                    <p className="text-secondary-faded">or</p>
+                    {/* <Link href={router.push("/machine")}>Buy for specific machine</Link> */}
                 </div>
                 <div className="bg-[#222225]/30">
                     <BuyOrderForm />

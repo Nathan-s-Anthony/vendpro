@@ -1,17 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
-import { vendPropApi } from "../api/services/rtk-query/createApi"
+import { api } from "../api/services/rtk-query/createApi"
 
 
 export const store = configureStore({
     reducer: {
         // Add the generated reducer as a specific top-level slice
-        [vendPropApi.reducerPath]: vendPropApi.reducer,
+        [api.reducerPath]: api.reducer,
     },
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(vendPropApi.middleware),
+        getDefaultMiddleware().concat(api.middleware),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

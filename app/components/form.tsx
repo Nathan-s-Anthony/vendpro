@@ -1,13 +1,19 @@
 "use client";
 
 import { ReactNode, useActionState, useState, } from "react";
-import { login } from "../actions/auth";
+// import { login } from "../actions/auth";
 import Button from "./button";
 import Link from "next/link";
 import { Eye } from "lucide-react";
+import { useLoginUserMutation } from "../api/services/rtk-query/createApi";
 
 export default function Form() {
-    const [state, action, pending] = useActionState(login, { errors: {} });
+    const [loginUser] = useLoginUserMutation();
+
+    const [state, action, pending] = useActionState(
+        loginUser,
+        { errors: {} }
+    );
     const [revealPassword, setRevealPassword] = useState(false);
 
     return (

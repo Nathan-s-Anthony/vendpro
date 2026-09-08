@@ -11,7 +11,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     const { setUserId, setFirstName, setRole, setEmail } = useUser();
     const { isAuthenticated, setIsAuthenticated } = useAuth();
     const router = useRouter()
-    const { data, isLoading, isError, } = useGetUserQuery();
+    // const { data, isLoading, isError, } = useGetUserQuery();
     // const { results, isError } = useCheckAuthQuery();
 
     console.log(isAuthenticated, "is authenticated...")
