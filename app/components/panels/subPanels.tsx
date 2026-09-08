@@ -7,6 +7,7 @@ import { machines } from "@/app/utils/dummydata";
 import { useCreateVendingMachineMutation, useGetVendingMachinesAllQuery, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
 import Modal from "../modal";
 import { LoaderCircle } from "lucide-react";
+import Loading from "../loading";
 
 const panelBtns = [
     {
@@ -33,7 +34,7 @@ export default function SubPanels() {
     const { data, isLoading, isError } = useGetVendingMachinesByUserQuery();
 
     if (isLoading) {
-        return <LoaderCircle className="animate-spin text-primary" />
+        return <Loading />;
     }
 
     const handlePanelChange = (id: string) => {

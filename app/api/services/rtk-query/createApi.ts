@@ -35,6 +35,9 @@ export const vendPropApi = createApi({
         getVendingMachinesByUser: build.query<any, void>({
             query: () => "/api/user/getMachines",
         }),
+        getRetailers: build.query<any, void>({
+            query: () => "/api/user/getRetailers",
+        }),
         checkAuth: build.query<any, void>({
             query: () => "/api/user/checkAuth",
         }),
@@ -62,4 +65,5 @@ export const {
     useGetAvailableVendingMachinesQuery,
     useGetVendingMachinesByUserQuery,
     useCheckAuthQuery,
+    useGetRetailersQuery,
 } = vendPropApi;

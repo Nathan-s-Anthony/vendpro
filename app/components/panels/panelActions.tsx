@@ -2,17 +2,13 @@
 
 import { logout } from "@/app/actions/logout";
 import Button from "../button";
-import { useCreateVendingMachineMutation, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
 import { useModal } from "@/app/providers/modalProvider";
 
 export default function PanelActions({ page }: { page: string }) {
 
-    const [createVendingMachine, result] = useCreateVendingMachineMutation();
     const { setToggleModal, toggledModal } = useModal();
 
-    const createMachine = async () => {
-        createVendingMachine({ location_id: 2 })
-    }
+
 
 
     const extraActionsPages = [
