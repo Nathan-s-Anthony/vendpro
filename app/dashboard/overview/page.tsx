@@ -32,32 +32,6 @@ export default function Overview() {
             icon: <Zap className="w-8 h-8 text-orange-400" />
         }
     ]
-    // const data = [
-    //     {
-    //         name: 'Coca Cola',
-    //         uv: 400,
-    //         pv: 2400,
-    //         amt: 2400,
-    //     },
-    //     {
-    //         name: 'Chips',
-    //         uv: 200,
-    //         pv: 1400,
-    //         amt: 400,
-    //     },
-    //     {
-    //         name: 'Chocolate Bars',
-    //         uv: 400,
-    //         pv: 1500,
-    //         amt: 2400,
-    //     },
-    //     {
-    //         name: 'Energy Drinks',
-    //         uv: 700,
-    //         pv: 100,
-    //         amt: 1000,
-    //     },
-    // ]
 
     const stockLevel = [
         { name: "Jan", stock: 5000, sales: 4000 },

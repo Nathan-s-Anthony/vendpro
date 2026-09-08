@@ -57,7 +57,6 @@ export default function Modal() {
                 })
             )
         );
-        await Promise()
     }
     return (
         <>
