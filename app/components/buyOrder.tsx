@@ -12,7 +12,7 @@ export default function BuyOrder() {
                 <div className="flex items-center justify-between ">
                     <h2 className="text-3xl mb-4 mt-4 p-2 ">General Buy Order</h2>
                     <p className="text-secondary-faded">or</p>
-                    {/* <Link href={router.push("/machine")}>Buy for specific machine</Link> */}
+                    <Link href={"#"}>Buy for specific machine</Link>
                 </div>
                 <div className="bg-[#222225]/30">
                     <BuyOrderForm />
