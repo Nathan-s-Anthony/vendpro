@@ -23,7 +23,6 @@ export default function SubPanel({ data }: { data: VendingMachine[] }) {
                             height={100}
                         /> */}
                         <div className="">
-
                             <h4 className="font-display font-bold">{machine.name}</h4>
                             <h5 className="font-display text-secondary-faded">{machine.serial_number}</h5>
                         </div>

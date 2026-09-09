@@ -45,7 +45,6 @@ export default function Bars({ data }: { data: Bar[] }) {
                 return (
                     <div key={bar.id} className="w-full relative">
                         <small>{bar.text}</small>
-
                         <div className="bg-[#222225] border border-border/30 w-full mb-2 mt-2 relative rounded-full h-2.5">
                             <div
                                 style={{

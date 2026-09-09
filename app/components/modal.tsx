@@ -66,7 +66,7 @@ export default function Modal() {
                         <div className=" bg-[#222225] p-10 max-w-180 w-full rounded-sm lg:h-[70vh] relative   border border-border/30  ">
                             <X className=" cursor-pointer justify-self-end" onClick={(e) => handleToggleModal(e)} />
                             <h3 className="text-3xl font-display font-bold text-center">Select your model</h3>
-                            {/* <div className=" flex items-center justify-center">
+                            <div className=" flex items-center justify-center">
                                 <div className="grid grid-cols-3  gap-5 mb-4 mt-4">
                                     {data?.data.map((machine) => {
                                         console.log('machine data', machine)
@@ -94,7 +94,7 @@ export default function Modal() {
                                         )
                                     })}
                                 </div>
-                            </div> */}
+                            </div>
                             <Button disabled={isLoading} value="Add" type={"button"} action={() => handleCreateMachine(data?.data)} className={"justify-self-center"} variant={"primary"} />
                         </div>
                     </div>

@@ -44,13 +44,13 @@ export default function Overview() {
             id: 0,
             value: 78,
             text: "Drinks",
-            total: 150,
+            total: 100,
         },
         {
             id: 1,
             value: 50,
             text: "Food Level",
-            total: 120,
+            total: 100,
 
         }
     ] satisfies Bar[];

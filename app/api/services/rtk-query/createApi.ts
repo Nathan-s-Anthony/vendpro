@@ -70,20 +70,20 @@ export const api = createApi({
             query: () => "/api/user",
         }),
         getAvailableVendingMachines: build.query<any, void>({
-            query: () => "/api/getAvailableMachines",
+            query: () => "api/getAvailableMachines",
         }),
         getVendingMachinesByUser: build.query<any, void>({
-            query: () => "/api/user/getMachines",
+            query: () => "api/user/getMachines",
         }),
         getRetailers: build.query<any, void>({
-            query: () => "/api/user/getRetailers",
+            query: () => "api/user/getRetailers",
         }),
         checkAuth: build.query<any, void>({
-            query: () => "/api/user/checkAuth",
+            query: () => "api/user/checkAuth",
         }),
         createVendingMachine: build.mutation({
             query: (machine) => ({
-                url: "api/user/vending-machines",
+                url: "api/createMachine",
                 method: "POST",
                 body: machine,
             }),
