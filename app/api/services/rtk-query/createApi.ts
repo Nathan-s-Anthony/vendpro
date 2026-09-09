@@ -51,6 +51,7 @@ const baseQueryWithCsrf: BaseQueryFn<
 };
 export const api = createApi({
     reducerPath: "api",
+    tagTypes: ["VendingMachines"],
     baseQuery: baseQueryWithCsrf,
     endpoints: (build) => ({
         loginUser: build.mutation({
@@ -74,6 +75,7 @@ export const api = createApi({
         }),
         getVendingMachinesByUser: build.query<any, void>({
             query: () => "api/user/getMachines",
+            providesTags: ["VendingMachines"],
         }),
         getRetailers: build.query<any, void>({
             query: () => "api/user/getRetailers",
