@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useActionState, useState } from "react";
-import { login } from "@/app/actions/auth";
 import Button from "@/app/components/button";
-import { User } from "lucide-react";
 import { useUser } from "@/app/providers/userProvider";
 import { Dropdown } from "../dropdown";
 import { useGetRetailersQuery } from "@/app/api/services/rtk-query/createApi";
 import Loading from "../loading";
 
 export default function BuyOrderForm() {
-    const [state, action, pending] = useActionState(login, { errors: {} });
+    // const [state, action, pending] = useActionState(login, { errors: {} });
     const [selectedOpton, setSelectedOption] = useState("");
     const { firstName, role, email } = useUser();
     const { data, isLoading, isError } = useGetRetailersQuery();
@@ -58,8 +56,8 @@ export default function BuyOrderForm() {
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
             </div> */}
             <div className="flex gap-4">
-                <Button disabled={pending} type="submit" value={"Create"} className={"text-background "} variant={"primary"} />
-                <Button disabled={pending} type="reset" value={"Reset"} className={"text-background "} variant={"secondary"} />
+                <Button disabled={isLoading} type="submit" value={"Create"} className={"text-background "} variant={"primary"} />
+                <Button disabled={isLoading} type="reset" value={"Reset"} className={"text-background "} variant={"secondary"} />
             </div>
         </form>
     )

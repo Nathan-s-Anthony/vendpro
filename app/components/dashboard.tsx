@@ -7,11 +7,12 @@ import { useAuth } from "../providers/authProvider";
 import { useRouter } from 'next/navigation'
 import ToolBar from "./toolbar";
 import { logout } from "../actions/logout";
+import Loading from "./loading";
 export default function Dashboard({ children }: { children: ReactNode }) {
     const { setUserId, setFirstName, setRole, setEmail } = useUser();
     const { isAuthenticated, setIsAuthenticated } = useAuth();
     const router = useRouter()
-    // const { data, isLoading, isError, } = useGetUserQuery();
+    const { data, isLoading, isError, } = useGetUserQuery();
     // const { results, isError } = useCheckAuthQuery();
 
     console.log(isAuthenticated, "is authenticated...")
@@ -32,9 +33,12 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             logout();
         }
 
-
     }, [isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 
+
+    if (isLoading) {
+        return <Loading />;
+    }
     return (
         <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">
             <ToolBar userID={""} userRole={""} />

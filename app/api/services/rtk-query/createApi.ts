@@ -38,9 +38,12 @@ const baseQueryWithCsrf: BaseQueryFn<
         typeof args !== "string" && args.url === "/login";
 
     if (isLoginRequest) {
-        await fetch("/sanctum/csrf-cookie", {
-            credentials: "include",
-        });
+        await fetch(
+            `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/sanctum/csrf-cookie`,
+            {
+                credentials: "include",
+            }
+        );
     }
 
     return baseQuery(args, api, extraOptions);
@@ -51,7 +54,7 @@ export const api = createApi({
     endpoints: (build) => ({
         loginUser: build.mutation({
             query: ({ email, password }) => ({
-                url: "api/login",
+                url: "/login",
                 method: "POST",
                 body: { email, password },
             }),
