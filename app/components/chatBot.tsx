@@ -41,7 +41,7 @@ export default function ChatBot() {
                 <div className="w-full bg-primary h-full rounded-full flex items-center justify-center">
                     <BotMessageSquare className="text-background" onClick={(e) => handleChatBotOpen(e)} />
                 </div>
-                <div className={`${toggleChatBot ? "animate-bubble-open" : "animate-bubble-close"}  absolute transition-all duration-300  bg-background border border-border/30  z-40 right-15 bottom-10 w-100 block rounded-sm h-full min-h-100`}>
+                <div className={`${toggleChatBot ? "animate-bubble-open block" : "animate-bubble-close hidden"}  absolute transition-all duration-300  bg-background border border-border/30  z-40 right-15 bottom-10 w-100  rounded-sm h-full min-h-100`}>
                     <div className=" h-full p-4  w-full relative block header rounded-tr-sm rounded-tl-sm">
                         <div className="bg-background p-4  w-full relative block header rounded-tr-sm rounded-tl-sm">
                             <h4 className="font-mono">Quick stats from your AI Assistant</h4>

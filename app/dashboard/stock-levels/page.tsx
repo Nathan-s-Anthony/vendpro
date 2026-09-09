@@ -5,7 +5,6 @@ import Link from "next/link";
 
 export default function StockLevels() {
 
-
     return (
         <Panel heading={"Stock levels"} pageName={"stock-levels"} subHeading={"stay on top of your stock"} highlight={""}>
             <div className="grid lg:grid-cols-3 grid-cols-3  gap-4  rounded-sm min-h-30">

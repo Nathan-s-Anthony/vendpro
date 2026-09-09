@@ -1,13 +1,11 @@
 "use client";
 
 import { useActionState } from "react";
-import { login } from "@/app/actions/auth";
-import Button from "@/app/components/button";
 import { User } from "lucide-react";
 import { useUser } from "@/app/providers/userProvider";
 
 export default function Form() {
-    const [state, action, pending] = useActionState(login, { errors: {} });
+    // const [state, action, pending] = useActionState(login, { errors: {} });
     const { firstName, role, email } = useUser();
     return (
         <form action="#" className={`flex rounded-sm w-full  flex-col gap-4`}>
@@ -21,7 +19,7 @@ export default function Form() {
                 <input defaultValue={role} disabled className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded`} id="role" name="role" placeholder="role" />
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
             </div> */}
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
                 <label htmlFor="name">Name</label>
                 <input defaultValue={firstName} className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded `} id="first_name" name="first_name" placeholder="First Name" />
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
@@ -30,7 +28,7 @@ export default function Form() {
                 <label htmlFor="email">Email</label>
                 <input defaultValue={email} className={`${state?.errors?.email ? "input-error animate-shake" : "input"} bg-input-background text-foreground placeholder:text-secondary-faded`} id="email" name="email" placeholder="Email" />
                 {state?.errors?.email && <small className="text-error-primary">{state.errors.email}</small>}
-            </div>
+            </div> */}
 
             {/* <Button disabled={pending} type="submit" value={"Save"} className={"text-background w-1/3"} variant={"primary"} /> */}
         </form>

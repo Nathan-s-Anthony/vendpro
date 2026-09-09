@@ -18,7 +18,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     console.log(isAuthenticated, "is authenticated...")
 
     useEffect(() => {
-        if (data && !isError) {
+        if (data && !isError && !isLoading) {
             setIsAuthenticated(true);
             setUserId(data.id);
             setFirstName(data.name);
@@ -33,12 +33,10 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             logout();
         }
 
-    }, [isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
+    }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 
 
-    if (isLoading) {
-        return <Loading />;
-    }
+
     return (
         <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">
             <ToolBar userID={""} userRole={""} />

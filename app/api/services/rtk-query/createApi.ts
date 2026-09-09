@@ -42,6 +42,7 @@ const baseQueryWithCsrf: BaseQueryFn<
             `${process.env.NEXT_PUBLIC_BASE_BACKEND_URL}/sanctum/csrf-cookie`,
             {
                 credentials: "include",
+
             }
         );
     }
@@ -57,6 +58,12 @@ export const api = createApi({
                 url: "/login",
                 method: "POST",
                 body: { email, password },
+            }),
+        }),
+        logoutUser: build.mutation({
+            query: () => ({
+                url: "api/logout",
+                method: "POST",
             }),
         }),
         getUser: build.query<any, void>({
@@ -147,5 +154,7 @@ export const {
     useGetVendingMachinesByUserQuery,
     useCheckAuthQuery,
     useGetRetailersQuery,
-    useLoginUserMutation
+    useLoginUserMutation,
+    useLogoutUserMutation,
+
 } = api;
