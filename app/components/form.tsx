@@ -23,7 +23,7 @@ export default function Form() {
 
             console.log(response.user);
             if (response.user) {
-                router.push("/dashboard")
+                router.push("/dashboard/overview")
             }
         } catch (error) {
             console.error(error);
