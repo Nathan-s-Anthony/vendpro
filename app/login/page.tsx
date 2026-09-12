@@ -26,7 +26,7 @@ export default function Login() {
                                 <div className="lg:h-20 place-content-end">
                                     <Logo variant="large" className={""} />
                                 </div>
-                                <div style={{ marginTop: -80 }} className="flex justify-center  flex-col items-start lg:max-w-120 gap-6 flex-1 ">
+                                <div className="flex justify-center  flex-col items-start lg:max-w-120 gap-6 flex-1 ">
                                     <h1 className="uppercase">VENDING <b className="text-primary"><br></br>MACHINES</b><br></br>THAT WORK</h1>
                                     <p className="font-sans text-secondary-faded">Manage your entire vending network stock levels, service calls, and new installations —from one place.</p>
                                     <div className="flex justify-evenly gap-4">
