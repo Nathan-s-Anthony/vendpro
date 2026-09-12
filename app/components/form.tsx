@@ -14,7 +14,6 @@ export default function Form() {
     const onSubmit = async (formData: FormData) => {
         const email = formData.get("email") as string;
         const password = formData.get("password") as string;
-
         try {
             const response = await loginUser({
                 email,

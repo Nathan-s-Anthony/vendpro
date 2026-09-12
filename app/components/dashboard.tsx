@@ -1,16 +1,19 @@
 "use client"
 
 import { ReactNode, useEffect } from "react";
-import { useCheckAuthQuery, useGetUserQuery } from "../api/services/rtk-query/createApi";
+import { useCheckAuthQuery, useGetUserQuery, useLogoutUserMutation } from "../api/services/rtk-query/createApi";
 import { useUser } from "../providers/userProvider";
 import { useAuth } from "../providers/authProvider";
 import { useRouter } from 'next/navigation'
 import ToolBar from "./toolbar";
 import { logout } from "../actions/logout";
 import Loading from "./loading";
+import { logoutUser } from "../api/services/logout";
 export default function Dashboard({ children }: { children: ReactNode }) {
     const { setUserId, setFirstName, setRole, setEmail } = useUser();
     const { isAuthenticated, setIsAuthenticated } = useAuth();
+    const [logoutUser, { error }] = useLogoutUserMutation();
+
     const router = useRouter()
     const { data, isLoading, isError, } = useGetUserQuery();
     // const { results, isError } = useCheckAuthQuery();
@@ -30,10 +33,21 @@ export default function Dashboard({ children }: { children: ReactNode }) {
         }
 
         if (!isAuthenticated) {
-            logout();
+            try {
+                const logout = async () => {
+                    const user = await logoutUser({}).unwrap();
+                    if (user.status === 200) {
+                        router.push("/login");
+                    }
+                }
+
+            }
+            catch (error) {
+                console.error(error)
+            }
         }
 
-    }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
+    }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError, logoutUser]);
 
 
 
