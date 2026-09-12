@@ -43,15 +43,6 @@ export default function Aside({ burgerMenuExpand, childUrl, userRole }: { burger
             page: "source-cargo",
 
         },
-        {
-            id: 4,
-            defaultSelected: false,
-            name: "Locations",
-            icon: <MapPin className=" transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary" />,
-            permission: ["admin", "manager", "operator"],
-            page: "locations",
-
-        },
     ]
     const handleCollapseDesktopMenu = () => {
         setToggle(!toggled);
