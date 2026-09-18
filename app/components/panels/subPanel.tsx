@@ -6,8 +6,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Bar } from "@/app/types/barTypes";
 import Bars from "../bars";
-export default function SubPanel({ data, subPanelMode }: { data: VendingMachine[], subPanelMode: "full-with-tabs" | "compact" }) {
+export default function SubPanel({ data, subPanelMode, machinesStatus }: { data: VendingMachine[], subPanelMode: "full-with-tabs" | "compact", machinesStatus: string }) {
     const router = useRouter();
+    console.log(data, "filter machines inc")
     const dataBar = [
         {
             id: 0,
@@ -25,11 +26,13 @@ export default function SubPanel({ data, subPanelMode }: { data: VendingMachine[
     ] satisfies Bar[];
     return (
         <div className={`grid  ${subPanelMode === "full-with-tabs" ? "grid-cols-4" : "grid-cols-1"}  gap-4 mt-6`}>
-            {data?.map((machine) => {
+            {data?.filter((item) =>
+                machinesStatus === "all" ||
+                item.status.includes(machinesStatus)
+            ).map((machine) => {
                 console.log(machine, "machine sub panel");
-                const serialNumberLower = machine.serial_number.toLowerCase();
                 return (
-                    <div key={machine.id} onClick={() => router.push(`/dashboard/your-machines/machine/${serialNumberLower}`)} className={`group transition-all rounded-sm bg-[#222225]/30 p-4 duration-300 border border-border/30  hover:border-primary/50 relative cursor-pointer`}>
+                    <div key={machine.id} onClick={() => router.push(`/dashboard/your-machines/machine/${machine.id}`)} className={`group transition-all rounded-sm bg-[#222225]/30 p-4 duration-300 border border-border/30  hover:border-primary/50 relative cursor-pointer`}>
                         <div className=" w-full flex items-center justify-between relative">
                             <Pill status={machine.status} name={machine.status} />
                         </div>

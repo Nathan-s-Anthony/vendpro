@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import SubPanel from "./subPanel";
 import Button from "../button";
 import { machines } from "@/app/utils/dummydata";
-import { useCreateVendingMachineMutation, useGetVendingMachinesAllQuery, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
+import { useCreateVendingMachineMutation, useGetVendingMachinesByUserQuery } from "@/app/api/services/rtk-query/createApi";
 import Modal from "../modal";
 import { LoaderCircle } from "lucide-react";
 import Loading from "../loading";
@@ -15,16 +15,16 @@ const panelBtns = [
         name: "All",
     },
     {
-        id: "active",
-        name: "Active",
+        id: "online",
+        name: "Online",
     },
     {
-        id: "maintenance",
-        name: "Maintenance",
+        id: "warning",
+        name: "Warning",
     },
     {
-        id: "down",
-        name: "Down",
+        id: "offline",
+        name: "Offline",
     }
 ]
 
@@ -53,7 +53,7 @@ export default function SubPanels({ panelMode }: { panelMode: "full-with-tabs" |
                         )
                     })}
                 </div>}
-            <SubPanel data={data?.data} subPanelMode={panelMode} />
+            <SubPanel machinesStatus={activeSubPanelId} data={data?.data} subPanelMode={panelMode} />
         </div>
     )
 }

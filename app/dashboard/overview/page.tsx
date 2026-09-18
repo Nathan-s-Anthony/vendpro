@@ -51,7 +51,6 @@ export default function Overview() {
                     )
                 })}
             </div>
-
             <div className="flex justify-start item-start gap-4  w-full lg:flex-nowrap flex-wrap">
                 <div className=" w-full lg:w-4/12">
                     <h2 className="mb-4 mt-4">Current Stock levels</h2>
