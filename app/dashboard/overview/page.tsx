@@ -3,7 +3,9 @@ import Card from "@/app/components/card/card";
 import Graph from "@/app/components/graphs/barChart";
 import LegendEffectOpacity from "@/app/components/graphs/lineChart";
 import Panel from "@/app/components/panels/panel";
+import SubPanel from "@/app/components/panels/subPanel";
 import SubPanels from "@/app/components/panels/subPanels";
+import View from "@/app/components/view";
 import { Bar } from "@/app/types/barTypes";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
@@ -87,6 +89,7 @@ export default function Overview() {
                 </div>
                 <div className="w-full  col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
                     <h2 className="text-3xl mb-4 mt-4 p-2 ">RECENT ACTIVITY</h2>
+                    <View />
                 </div>
             </div>
         </Panel>

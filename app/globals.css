@@ -324,6 +324,47 @@ small{
 }
 
 
+
+@keyframes notifications-open {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-notifications-open {
+    transform-origin: top right;
+    animation: notifications-open 0.2s ease-in-out forwards;
+}
+
+@keyframes notifications-close {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.animate-notifications-close {
+    transform-origin: top right;
+    animation: notifications-close 0.2s ease-in forwards;
+}
+
+
 @keyframes card-action-open {
     0% {
         opacity: 0;

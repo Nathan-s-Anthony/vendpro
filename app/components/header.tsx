@@ -39,24 +39,25 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 lg:w-5 lg:h-5 h-7 w-7 group-hover:text-primary" />
+                        <Modal>
+                            test
+                        </Modal>
                         <div className="lg:flex hidden flex-col  ">
                             <span className="transition-all duration-300  group-hover:text-primary font-bold mt-0.5">{firstName}</span>
                         </div>
                     </Link>
                 </div>
                 <Bell onMouseEnter={handleMouseEnterBell} className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
-                {toggledModal && <Modal>
+                <Modal>
                     <div className="bg-[#030213]/60 border border-border/30 block w-full h-full rounded-sm">
                         <div className="p-4">
                             <h5 className="font-bold border-b border/30 border-spacing-2">Latest Notifications</h5>
-                            <div className="h-full justify-center flex w-full bg-red-500">
+                            <div className="h-full justify-center flex w-full ">
                                 <Loading />
                             </div>
                         </div>
-
                     </div>
                 </Modal>
-                }
             </div>
         </header >
     )
