@@ -6,32 +6,31 @@ import Panel from "@/app/components/panels/panel";
 import SubPanel from "@/app/components/panels/subPanel";
 import SubPanels from "@/app/components/panels/subPanels";
 import View from "@/app/components/view";
-import { Bar } from "@/app/types/barTypes";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
     const stats = [
         {
             id: 0,
             title: "Active Machines",
-            value: "3",
+            value: 3,
             icon: <Zap className="w-8 h-8 text-orange-400" />
         },
         {
             id: 1,
             title: "Under Maintenance",
-            value: "5",
+            value: 5,
             icon: <Construction className="w-8 h-8 text-yellow-400" />
         },
         {
             id: 2,
             title: "Avg Stock Level",
-            value: "54%",
+            value: 54,
             icon: <Package className="w-8 h-8 text-blue-400" />
         },
         {
             id: 3,
             title: "Revenue Growth per machine",
-            value: "$12,345",
+            value: 12345,
             icon: <Zap className="w-8 h-8 text-orange-400" />
         }
     ]
@@ -42,21 +41,7 @@ export default function Overview() {
         { name: "Mar", stock: 3500, sales: 2000 },
         { name: "Apr", stock: 4000, sales: 2780 },
     ];
-    const data = [
-        {
-            id: 0,
-            value: 78,
-            text: "Drinks",
-            total: 100,
-        },
-        {
-            id: 1,
-            value: 50,
-            text: "Food Level",
-            total: 100,
 
-        }
-    ] satisfies Bar[];
     return (
         <Panel className="z-20" heading={"overview"} subHeading={"GROWING YOUR EMPIRE TAKES TIME"} pageName={"overview"}>
             <div className="grid lg:grid-cols-4 z-20 grid-cols-2 gap-4 mt-4 mb-4 ">
@@ -84,7 +69,6 @@ export default function Overview() {
                     </div>
                     <div className="bg-[#222225]/30">
                         <SubPanels panelMode={"compact"} />
-                        <Bars data={data} />
                     </div>
                 </div>
                 <div className="w-full  col-span-1 bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">

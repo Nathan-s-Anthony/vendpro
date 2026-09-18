@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "./button";
 import { logout } from "../actions/logout";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 type NavItems = {
@@ -26,8 +27,15 @@ export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
 
     return (
         <div className="container mx-auto py-4">
-            {/* <Button type={"button"} value={"Back"} className={""} variant={"primary"} action={() => handleBack()} /> */}
-            <nav className=" w-full col-span-2 flex justify-between">
+            <div className=" col-span-2  flex justify-end items-end ">
+                <div className="w-full text-end  mt-4 mb-4 flex items-center h-[20%]">
+                    <button className="group hover:cursor-pointer transition-all duration-300 z-60 flex items-center justify-start gap-1 w-full" onClick={() => router.back()}>
+                        <ChevronLeft className="text-secondary-faded block transition-all duration-300 group-hover:-translate-x-2 group-hover:text-primary" />
+                        <span className={` transition-all duration-300 text-sm  group-hover:-translate-x-1 font-sans text-secondary-faded group-hover:text-white`}>Back</span>
+                    </button>
+                </div>
+            </div>
+            <nav className=" w-full col-span-2 flex justify-start items-center ">
                 <ul className="flex gap-4 ">
                     {navItems.map((item) => {
                         const itemLink = setURL(item.id, item.link);
@@ -44,7 +52,7 @@ export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
                         )
                     })}
                 </ul>
-                <Button value={"Logout"} action={() => logout()} type={"button"} className={"rounded-full"} variant={"primary"} />
+                {pathName === "/profile" && <Button value={"Logout"} action={() => logout()} type={"button"} className={"rounded-full"} variant={"primary"} />}
             </nav>
         </div>
     )
