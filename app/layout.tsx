@@ -6,6 +6,7 @@ import "./globals.css";
 import { Provider } from "react-redux";
 import { store } from "./stores/store";
 import { UserProvider } from "./providers/userProvider";
+import { AuthProvider } from "./providers/authProvider";
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${barlowCondensed.variable} ${dmSans.variable} ${jetBrainsMono.variable}`}
     >
-      <body className=""><Provider store={store}><UserProvider>{children}</UserProvider></Provider></body>
+      <body className=""><Provider store={store}><AuthProvider><UserProvider>{children}</UserProvider></AuthProvider></Provider></body>
     </html>
   );
 }

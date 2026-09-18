@@ -1,15 +1,16 @@
 "use client";
 
-import { ReactNode, useActionState, useState, } from "react";
-// import { login } from "../actions/auth";
+import { useState, } from "react";
 import Button from "./button";
 import Link from "next/link";
-import { Eye } from "lucide-react";
+import { Eye, Router } from "lucide-react";
 import { useLoginUserMutation } from "../api/services/rtk-query/createApi";
+import { useAuth } from "../providers/authProvider";
 import { useRouter } from "next/navigation";
 
 export default function Form() {
     const [loginUser, { isLoading, error }] = useLoginUserMutation();
+    const { setIsAuthenticated, isAuthenticated } = useAuth();
     const router = useRouter();
     const onSubmit = async (formData: FormData) => {
         const email = formData.get("email") as string;
@@ -20,9 +21,12 @@ export default function Form() {
                 password,
             }).unwrap();
 
-            console.log(response.user);
+            console.log(response);
             if (response.user) {
-                router.push("/dashboard/overview")
+                setIsAuthenticated(true);
+                router.replace("/dashboard/overview");
+                console.log(response.message, isAuthenticated);
+
             }
         } catch (error) {
             console.error(error);

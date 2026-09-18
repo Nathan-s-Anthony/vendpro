@@ -6,9 +6,7 @@ import {
     useState,
     type ReactNode,
 } from "react";
-
 type AuthContextType = {
-    hasSession: boolean;
     isAuthenticated: boolean;
     setIsAuthenticated: (value: boolean) => void;
 };
@@ -17,18 +15,13 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({
     children,
-    hasSession,
 }: {
     children: ReactNode;
-    hasSession: boolean;
 }) {
-    const [isAuthenticated, setIsAuthenticated] =
-        useState(hasSession);
-
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     return (
         <AuthContext.Provider
             value={{
-                hasSession,
                 isAuthenticated,
                 setIsAuthenticated,
             }}

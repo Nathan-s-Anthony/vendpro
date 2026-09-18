@@ -6,8 +6,6 @@ import { useUser } from "../providers/userProvider";
 import { useAuth } from "../providers/authProvider";
 import { useRouter } from 'next/navigation'
 import ToolBar from "./toolbar";
-import { logout } from "../actions/logout";
-import Loading from "./loading";
 import { useAside } from "../providers/asideProvider";
 export default function Dashboard({ children }: { children: ReactNode }) {
     const { setUserId, setFirstName, setRole, setEmail } = useUser();
@@ -15,21 +13,24 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     const [logoutUser, { error }] = useLogoutUserMutation();
     const { toggled } = useAside();
 
-    const router = useRouter()
+    const router = useRouter();
     const { data, isLoading, isError, } = useGetUserQuery();
     // const { results, isError } = useCheckAuthQuery();
 
 
     useEffect(() => {
-        if (data && !isError && !isLoading) {
+        if (data) {
             setIsAuthenticated(true);
             setUserId(data.id);
             setFirstName(data.name);
             setEmail(data.email)
             setRole("admin");
         }
-        if (isError) {
-            setIsAuthenticated(false);
+        if (isAuthenticated) {
+            router.replace("/dashboard/overview");
+        }
+        else {
+            router.replace("/login");
         }
 
         // if (!isAuthenticated) {
