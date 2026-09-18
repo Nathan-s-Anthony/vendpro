@@ -10,7 +10,7 @@ import { VendingMachine } from "../types/vendingMachinesTypes";
 import { useState } from "react";
 import { useCreateVendingMachineMutation, useGetAvailableVendingMachinesQuery, useGetVendingMachinesByUserQuery } from "../api/services/rtk-query/createApi";
 
-export default function Modal() {
+export default function Modal({ children }: { children: React.ReactNode }) {
     const { data, isLoading, isError } = useGetAvailableVendingMachinesQuery();
     const { toggled } = useAside();
     const { toggledModal, setToggleModal } = useModal();
@@ -66,9 +66,15 @@ export default function Modal() {
         setToggleModal(false);
         refetch();
     }
+    const handleLeaveModal = (e: React.MouseEvent<HTMLDivElement>) => {
+        setToggleModal(false);
+    };
     return (
         <>
-            {toggledModal ?
+            <div onMouseLeave={handleLeaveModal} className="fixed  bg-red-500 right-10 top-15 block w-120 h-50 z-50">
+                {children}
+            </div>
+            {/* {toggledModal ?
                 <div className={`${toggled ? "modal-container-full" : "modal-container-compact"}   flex items-center justify-center p-6 ml-auto fixed   inset-0 z-50 w-screen h-screen`}>
                     <div className=" bg-[#222225] p-10 max-w-180 w-full rounded-sm lg:h-[70vh] relative   border border-border/30  ">
                         <X className=" cursor-pointer justify-self-end" onClick={(e) => handleToggleModal(e)} />
@@ -105,7 +111,7 @@ export default function Modal() {
                         <Button disabled={isLoading} value="Add" type={"button"} action={() => handleCreateMachine(data?.data)} className={"justify-self-center"} variant={"primary"} />
                     </div>
                 </div>
-                : null}
+                : null} */}
         </>
     )
 }

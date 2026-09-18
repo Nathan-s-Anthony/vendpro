@@ -31,7 +31,7 @@ const panelBtns = [
 export default function SubPanels({ panelMode }: { panelMode: "full-with-tabs" | "compact" }) {
 
     const [activeSubPanelId, setActiveSubPanelId] = useState<string>(panelBtns[0].id);
-    const { data, isLoading, isError } = useGetVendingMachinesByUserQuery();
+    const { data, isLoading } = useGetVendingMachinesByUserQuery();
 
     if (isLoading) {
         return <Loading />;
@@ -54,7 +54,6 @@ export default function SubPanels({ panelMode }: { panelMode: "full-with-tabs" |
                     })}
                 </div>}
             <SubPanel data={data?.data} subPanelMode={panelMode} />
-            <Modal />
         </div>
     )
 }

@@ -32,9 +32,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
         if (isAuthenticated) {
             router.push("/dashboard/overview");
         }
-        else if (!isAuthenticated) {
-            router.replace("/login");
-        }
+
 
     }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 

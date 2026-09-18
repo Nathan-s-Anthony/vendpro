@@ -8,6 +8,9 @@ import { useGetUserQuery } from "../api/services/rtk-query/createApi";
 import { useUser } from "../providers/userProvider";
 import { useAside } from "../providers/asideProvider";
 import { useModal } from "../providers/modalProvider";
+import { Modak } from "next/font/google";
+import Modal from "./modal";
+import Loading from "./loading";
 
 
 export default function Header({ className, burgerMenuClick, pageNavName }: { className: string, burgerMenuClick: () => void, pageNavName: string }) {
@@ -20,10 +23,8 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
         console.log(e, "mouse entering");
     };
     const handleMouseEnterBell = (event: React.MouseEvent<SVGSVGElement>) => {
-        console.info(event, "notifications bell");
-        setToggleModal(!toggled);
+        setToggleModal(true);
     };
-
     return (
         <header className={`${className} flex items-center p-1 justify-between  h-20 border-b border-border/30 w-full `}>
             <Logo variant="normal" className={`${toggled ? "hidden" : "in"}`} />
@@ -44,6 +45,18 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                     </Link>
                 </div>
                 <Bell onMouseEnter={handleMouseEnterBell} className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
+                {toggledModal && <Modal>
+                    <div className="bg-[#030213]/60 border border-border/30 block w-full h-full rounded-sm">
+                        <div className="p-4">
+                            <h5 className="font-bold border-b border/30 border-spacing-2">Latest Notifications</h5>
+                            <div className="h-full justify-center flex w-full bg-red-500">
+                                <Loading />
+                            </div>
+                        </div>
+
+                    </div>
+                </Modal>
+                }
             </div>
         </header >
     )
