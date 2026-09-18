@@ -1,3 +1,4 @@
+import Loading from "@/app/components/loading";
 import Panel from "@/app/components/panels/panel";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -27,7 +28,7 @@ export default function StockLevels() {
                 </div>
             </div >
             <div className="bg-[#222225]/30 border border-border/30 min-h-100 mt-4 ">
-                <div className="p-4">
+                <div className="p-4 h-full">
                     <h2 className="mb-4">ALL LOCATIONS</h2>
                     <div className="border-b border-t border-border/30 flex items-center justify-between p-2">
                         <span className="text-secondary-faded font-mono text-xs">LOCATION</span>
@@ -36,9 +37,10 @@ export default function StockLevels() {
                         <span className="text-secondary-faded font-mono text-xs">LAST RESTOCK</span>
                         <span className="text-secondary-faded font-mono text-xs">NEXT RESTOCK</span>
                     </div>
-                    <div className="bg-red-500 p-4">
-                        test
-                    </div>
+
+                </div>
+                <div className="flex items-center justify-center  w-full  h-100 p-4">
+                    <Loading />
                 </div>
             </div>
         </Panel >

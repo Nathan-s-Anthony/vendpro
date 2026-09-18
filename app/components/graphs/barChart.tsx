@@ -71,18 +71,18 @@ export default function Graph({ data }: { data: any[] }) {
             <Legend />
 
             <Typed.Bar
-                fill="#0ea5e9"
+                fill="#5EEB5B"
                 fillOpacity={0.85}
-                stroke="#0369a1"
+                stroke="#5EEB5B"
                 strokeWidth={2}
                 dataKey="sales"
                 activeBar
                 radius={[10, 10, 0, 0]}
             />
             <Typed.Bar
-                fill="#0ea5e9"
+                fill="#5EEB5B9"
                 fillOpacity={0.85}
-                stroke="#0369a1"
+                stroke="#5EEB5B"
                 strokeWidth={2}
                 radius={4}
                 barSize={30}

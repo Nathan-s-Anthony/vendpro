@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import BuyOrderForm from "./formTemplates/buyOrder";
+import BuyOrderForm from "./formTemplates/generalBuyOrder";
 
 export default function BuyOrder() {
     return (

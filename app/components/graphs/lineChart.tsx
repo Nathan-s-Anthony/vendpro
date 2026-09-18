@@ -88,8 +88,8 @@ const LegendEffectOpacity = () => {
             <YAxis width="auto" niceTicks="snap125" />
             <Tooltip />
             <Legend onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
-            <Line type="monotone" dataKey="pv" strokeOpacity={pvOpacity} activeDot={{ r: 8 }} />
-            <Line type="monotone" dataKey="uv" strokeOpacity={uvOpacity} />
+            <Line type="monotone" dataKey="pv" fill='#A6EBC9' stroke='#A6EBC9' strokeOpacity={pvOpacity} activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="uv" fill='#A6EBC9' stroke='#A6EBC9' strokeOpacity={uvOpacity} />
             {/* <RechartsDevtools /> */}
         </LineChart>
     );

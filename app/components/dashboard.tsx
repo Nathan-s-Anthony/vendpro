@@ -33,24 +33,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             router.replace("/login");
         }
 
-        // if (!isAuthenticated) {
-        //     try {
-        //         const logout = async () => {
-        //             const user = await logoutUser({}).unwrap();
-        //             if (user.status === 200) {
-        //                 router.push("/login");
-        //             }
-        //         }
-
-        //     }
-        //     catch (error) {
-        //         console.error(error)
-        //     }
-        // }
-
     }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError, logoutUser]);
-
-
 
     return (
         <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">
