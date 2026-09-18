@@ -77,6 +77,9 @@ export const api = createApi({
         getUser: build.query<any, void>({
             query: () => "/api/user",
         }),
+        getUserAcitvity: build.query<any, void>({
+            query: () => "/api/userActivity",
+        }),
         getAvailableVendingMachines: build.query<any, void>({
             query: () => "api/getAvailableMachines",
         }),
@@ -166,4 +169,5 @@ export const {
     useLoginUserMutation,
     useLogoutUserMutation,
     useRegisterUserMutation,
+    useGetUserAcitvityQuery
 } = api;
