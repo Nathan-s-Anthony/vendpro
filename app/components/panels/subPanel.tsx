@@ -5,11 +5,13 @@ import Pill from "../pill";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-export default function SubPanel({ data }: { data: VendingMachine[] }) {
+export default function SubPanel({ data, }: { data: VendingMachine[] }) {
     const router = useRouter();
     return (
         <div className="grid grid-cols-4 gap-4 mt-6" >
-            {data?.map((machine) => {
+            {data?.filter(
+                (selected) => selected.id !== machine.id
+            ).map((machine) => {
                 console.log(machine, "machine sub panel");
                 const serialNumberLower = machine.serial_number.toLowerCase();
                 return (

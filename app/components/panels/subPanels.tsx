@@ -54,7 +54,7 @@ export default function SubPanels() {
                 })}
             </div>
 
-            <SubPanel data={data?.data} />
+            {/* <SubPanel data={data?.data} /> */}
             <Modal />
         </div>
     )
