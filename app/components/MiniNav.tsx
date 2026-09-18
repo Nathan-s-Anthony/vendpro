@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "./button";
 import { logout } from "../actions/logout";
+
 
 type NavItems = {
     id: number;
@@ -17,12 +18,13 @@ function setURL(id: number, link: string) {
     }
     return (`/dashboard/profile/${link}`)
 }
-export default function miniNav({ navItems }: { navItems: NavItems[] }) {
+export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
+    const router = useRouter();
     const pathName = usePathname();
     console.log(pathName, 'pathname');
     return (
         <div className="container mx-auto py-4">
-            <Button type={"button"} value={"Back"} className={""} variant={"primary"} />
+            <Button type={"button"} value={"Back"} className={""} variant={"primary"} action={router} />
             <nav className=" w-full col-span-2 flex justify-between">
                 <ul className="flex gap-4 ">
                     {navItems.map((item) => {
