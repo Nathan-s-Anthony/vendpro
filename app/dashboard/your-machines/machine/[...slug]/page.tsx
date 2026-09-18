@@ -17,11 +17,17 @@ export default async function Page({
             link: "stock-level",
             name: "Stock Level",
         },
+        {
+            id: 2,
+            link: "history",
+            name: "history",
+        },
 
     ]
     return (
         <div>
             <MiniNav navItems={navItems} />
+
         </div>
     )
 }

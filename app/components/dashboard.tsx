@@ -26,14 +26,17 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             setEmail(data.email)
             setRole("admin");
         }
-        if (isAuthenticated) {
-            router.replace("/dashboard/overview");
+        else if (!data) {
+            setIsAuthenticated(false)
         }
-        else {
+        if (isAuthenticated) {
+            router.push("/dashboard/overview");
+        }
+        else if (!isAuthenticated) {
             router.replace("/login");
         }
 
-    }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError, logoutUser]);
+    }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 
     return (
         <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">

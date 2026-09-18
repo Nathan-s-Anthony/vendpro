@@ -16,10 +16,10 @@ export default function SubPanel({ data, subPanelMode }: { data: VendingMachine[
                         <div className=" w-full flex items-center justify-between relative">
                             <Pill status={machine.status} name={machine.status} />
                         </div>
-                        <div className="relative lg:w-80 lg:h-80">
+                        <div className="relative overflow-hidden  lg:w-80 lg:h-80">
                             <Image
                                 alt={`${machine.name} - ${machine.model}`}
-                                className="rounded-sm cursor-pointer p-4"
+                                className="rounded-sm hover:scale-125  transition-all duration-300 cursor-pointer p-4"
                                 src={`data:${machine.image.type};base64,${machine.image.data}`}
                                 fill />
                         </div>

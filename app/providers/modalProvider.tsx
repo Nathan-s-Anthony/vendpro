@@ -39,7 +39,7 @@ export function useModal() {
 
     if (!context) {
         throw new Error(
-            "useUser must be used within a ModalProvider"
+            "useModal must be used within a ModalProvider"
         );
     }
     return context;

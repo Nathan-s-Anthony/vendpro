@@ -26,7 +26,7 @@ export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
 
     return (
         <div className="container mx-auto py-4">
-            <Button type={"button"} value={"Back"} className={""} variant={"primary"} action={() => handleBack()} />
+            {/* <Button type={"button"} value={"Back"} className={""} variant={"primary"} action={() => handleBack()} /> */}
             <nav className=" w-full col-span-2 flex justify-between">
                 <ul className="flex gap-4 ">
                     {navItems.map((item) => {

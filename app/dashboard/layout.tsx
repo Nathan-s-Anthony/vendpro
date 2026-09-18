@@ -15,16 +15,16 @@ export const metadata: Metadata = {
 export default function DashboardLayout({ children }: LayoutProps<"/">) {
     return (
         <main>
-            <AsideProvider>
-                <ChatBotProvider>
-                    <Dashboard>
-                        <ModalProvider>
+            <ModalProvider>
+                <AsideProvider>
+                    <ChatBotProvider>
+                        <Dashboard>
                             {children}
                             <ChatBot />
-                        </ModalProvider>
-                    </Dashboard>
-                </ChatBotProvider>
-            </AsideProvider>
+                        </Dashboard>
+                    </ChatBotProvider>
+                </AsideProvider>
+            </ModalProvider>
         </main>
     );
 }
