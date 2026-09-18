@@ -12,6 +12,8 @@ export default function Form() {
     const [loginUser, { isLoading, error }] = useLoginUserMutation();
     const { setIsAuthenticated, isAuthenticated } = useAuth();
     const router = useRouter();
+    const { bfcacheId } = useRouter()
+
     const onSubmit = async (formData: FormData) => {
         const email = formData.get("email") as string;
         const password = formData.get("password") as string;
@@ -38,7 +40,7 @@ export default function Form() {
     return (
         <>
             <div className="w-full">
-                <form onSubmit={(e) => {
+                <form key={bfcacheId} onSubmit={(e) => {
                     e.preventDefault();
                     onSubmit(new FormData(e.currentTarget));
                 }} className={`flex rounded-sm p-8 flex-col gap-4 bg-form-primary `}>

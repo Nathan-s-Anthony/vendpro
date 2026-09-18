@@ -2,16 +2,13 @@
 
 import type { VendingMachine } from "@/app/types/vendingMachinesTypes";
 import Pill from "../pill";
-import { MapPin } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-export default function SubPanel({ data, }: { data: VendingMachine[] }) {
+export default function SubPanel({ data }: { data: VendingMachine[] }) {
     const router = useRouter();
     return (
         <div className="grid grid-cols-4 gap-4 mt-6" >
-            {data?.filter(
-                (selected) => selected.id !== machine.id
-            ).map((machine) => {
+            {data?.map((machine) => {
                 console.log(machine, "machine sub panel");
                 const serialNumberLower = machine.serial_number.toLowerCase();
                 return (
@@ -24,8 +21,7 @@ export default function SubPanel({ data, }: { data: VendingMachine[] }) {
                                 alt={`${machine.name} - ${machine.model}`}
                                 className="rounded-sm cursor-pointer p-4"
                                 src={`data:${machine.image.type};base64,${machine.image.data}`}
-                                fill
-                            />
+                                fill />
                         </div>
                         <div className="">
                             <h4 className="font-display font-bold">{machine.name}</h4>

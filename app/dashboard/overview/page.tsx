@@ -3,6 +3,7 @@ import Card from "@/app/components/card/card";
 import Graph from "@/app/components/graphs/barChart";
 import LegendEffectOpacity from "@/app/components/graphs/lineChart";
 import Panel from "@/app/components/panels/panel";
+import SubPanels from "@/app/components/panels/subPanels";
 import { Bar } from "@/app/types/barTypes";
 import { Zap, Construction, Package } from "lucide-react";
 export default function Overview() {
@@ -74,6 +75,7 @@ export default function Overview() {
                         <h2 className="text-3xl mb-4 mt-4 p-2 ">MACHINE STATUS</h2>
                     </div>
                     <div className="bg-[#222225]/30">
+                        <SubPanels panelMode={"compact"} />
                         <Bars data={data} />
                     </div>
                 </div>
