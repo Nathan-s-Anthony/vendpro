@@ -258,7 +258,8 @@ small{
   scrollbar-track-color: #030213;
 }
 @utility container{
-  padding-inline: 1.5rem; 
+  /* padding-inline: 1.5rem;  */
+  @apply 2xl:pr-8 2xl:pl-8 lg:pl-0 lg:pr-0;
 }
 @keyframes shake {
     0%,

@@ -64,10 +64,16 @@ export default function Overview() {
                     )
                 })}
             </div>
-            <h2 className="mb-4 mt-4">Current Stock levels</h2>
-            <div className="flex justify-between flex-wrap w-full">
-                <Graph data={stockLevel} />
-                <LegendEffectOpacity />
+
+            <div className="flex justify-start item-start gap-4 ">
+                <div className="w-4/12">
+                    <h2 className="mb-4 mt-4">Current Stock levels</h2>
+                    <Graph data={stockLevel} />
+                </div>
+                <div className="w-8/12">
+                    <h2 className="mb-4 mt-4">Current Revenue Projection</h2>
+                    <LegendEffectOpacity />
+                </div>
             </div>
             <div className=" flex flex-wrap lg:flex-nowrap  justify-between  gap-4 mt-4">
                 <div className="w-full col-span-1 bg-[#222225]/30 border border-border/30  p-4 rounded-sm  hover:border-primary/50 cursor-pointer">

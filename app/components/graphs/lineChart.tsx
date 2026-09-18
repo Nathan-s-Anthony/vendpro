@@ -78,10 +78,11 @@ const LegendEffectOpacity = () => {
             style={{
                 height: "500px",
                 aspectRatio: 1.618,
+                width: "100%",
             }}
             responsive
             data={data}
-            className="flex-1 lg:w-1/3"
+            className=""
         >
             <CartesianGrid />
             <XAxis dataKey="name" niceTicks="snap125" />

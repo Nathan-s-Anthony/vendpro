@@ -29,7 +29,7 @@ export default function BuyOrder() {
                             <h2 className="text-3xl">{item.title}</h2>
                             <p className="text-sm">{item.description}</p>
                         </div>
-                        <div className="bg-[#222225]/30 hidden ">
+                        <div className="bg-[#222225]/30  ">
                             {item.form}
                         </div>
                     </div>

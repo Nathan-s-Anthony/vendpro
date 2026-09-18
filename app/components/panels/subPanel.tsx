@@ -4,10 +4,10 @@ import type { VendingMachine } from "@/app/types/vendingMachinesTypes";
 import Pill from "../pill";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-export default function SubPanel({ data }: { data: VendingMachine[] }) {
+export default function SubPanel({ data, subPanelMode }: { data: VendingMachine[], subPanelMode: "full-with-tabs" | "compact" }) {
     const router = useRouter();
     return (
-        <div className="grid grid-cols-4 gap-4 mt-6" >
+        <div className={`grid  ${subPanelMode === "full-with-tabs" ? "grid-cols-4" : "grid-cols-1"}  gap-4 mt-6`}>
             {data?.map((machine) => {
                 console.log(machine, "machine sub panel");
                 const serialNumberLower = machine.serial_number.toLowerCase();

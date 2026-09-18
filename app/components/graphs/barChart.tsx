@@ -55,6 +55,7 @@ export default function Graph({ data }: { data: any[] }) {
             style={{
                 height: "500px",
                 aspectRatio: 1.618,
+                width: '100%',
             }}
             className="flex-1 lg:w-1/3"
             data={stockLevel}
