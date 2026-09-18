@@ -17,6 +17,8 @@ export default function View() {
                 return (
                     <div key={id}>
                         {item.action}
+                        {item.endpoint}
+                        {item.ip_address}
                     </div>
                 )
             })}

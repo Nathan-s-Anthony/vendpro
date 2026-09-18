@@ -14,7 +14,7 @@ export default function Panel({ heading, subHeading, highlight, children, pageNa
     }) {
 
     return (
-        <div className="container mx-auto">
+        <div className="pl-6 pr-6">
             <div className="flex items-start flex-col justify-center ">
                 <div className="flex items-center justify-between w-full ">
                     {!disableHeadings && (
