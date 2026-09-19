@@ -25,7 +25,7 @@ export default function SubPanel({ data, subPanelMode, machinesStatus }: { data:
         }
     ] satisfies Bar[];
     return (
-        <div className={`grid  ${subPanelMode === "full-with-tabs" ? "grid-cols-4" : "grid-cols-1"}  gap-4 mt-6`}>
+        <div className={`grid  ${subPanelMode === "full-with-tabs" ? "lg:grid-cols-4" : "grid-cols-1"}  gap-4 mt-6`}>
             {data?.filter((item) =>
                 machinesStatus === "all" ||
                 item.status.includes(machinesStatus)

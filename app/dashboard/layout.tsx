@@ -4,7 +4,6 @@ import { AsideProvider } from "../providers/asideProvider";
 import ChatBot from "../components/chatBot";
 import { ChatBotProvider } from "../providers/chatBotProvider";
 import { ModalProvider } from "../providers/modalProvider";
-import { AuthProvider } from "../providers/authProvider";
 
 
 export const metadata: Metadata = {
@@ -16,14 +15,12 @@ export default function DashboardLayout({ children }: LayoutProps<"/">) {
     return (
         <main>
             <ModalProvider>
-                <AsideProvider>
-                    <ChatBotProvider>
-                        <Dashboard>
-                            {children}
-                            <ChatBot />
-                        </Dashboard>
-                    </ChatBotProvider>
-                </AsideProvider>
+                <ChatBotProvider>
+                    <Dashboard>
+                        {children}
+                        <ChatBot />
+                    </Dashboard>
+                </ChatBotProvider>
             </ModalProvider>
         </main>
     );

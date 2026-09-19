@@ -26,16 +26,16 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
         setToggleModal(true);
     };
     return (
-        <header className={`${className} flex items-center p-1 justify-between  h-20 border-b border-border/30 w-full `}>
+        <header className={`${className} pl-4 pr-4 fixed lg:relative right-0 left-0 flex items-center  justify-between  h-20 border-b border-border/30 w-full `}>
             <Logo variant="normal" className={`${toggled ? "hidden" : "in"}`} />
-            <div className=" min-w-0 hidden lg:flex items-center flex-1  lg:pl-4 l">
+            <div className=" min-w-0 hidden lg:flex items-center flex-1  lg:pl-4 ">
                 <div className="bg-primary rounded-sm h-7 w-2">
                 </div>
                 <span className="hidden lg:block font-bold font-mono text-3xl text-left p-2 uppercase">
                     {pageNavName}
                 </span>
             </div>
-            <div className="font-mono min-w-0 flex lg:justify-end justify-end gap-6 pr-6 items-center  transition-all duration-300 cursor-pointer  w-full lg:w-auto  lg:pr-4">
+            <div className="font-mono min-w-0 flex lg:justify-end justify-end gap-6  items-center  transition-all duration-300 cursor-pointer  w-full lg:w-auto  lg:pr-4">
                 <div onMouseEnter={handleMouseEnterProfile}>
                     <Link href={"/dashboard/profile"} className={`group ${pageNavName === "profile" ? "active-name" : "text-secondary-faded"} flex items-center justify-center gap-2 text-sm   `}>
                         <CircleUser className="transition-all duration-300 lg:w-5 lg:h-5 h-7 w-7 group-hover:text-primary" />

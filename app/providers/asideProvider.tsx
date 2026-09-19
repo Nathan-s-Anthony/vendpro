@@ -39,7 +39,7 @@ export function useAside() {
 
     if (!context) {
         throw new Error(
-            "useUser must be used within a AsideProvider"
+            "useAside must be used within a AsideProvider"
         );
     }
 
