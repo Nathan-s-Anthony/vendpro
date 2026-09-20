@@ -19,11 +19,11 @@ export default function MobileNavBar({ navItems, userRole, childUrl }: {
     const { toggled } = useAside();
 
     return (
-        <div className="bg-[#030213] lg:hidden fixed bottom-0 z-50 w-3sd/3 left-0 right-0 mx-auto   rounded-tr-full rounded-tl-full">
+        <div className="bg-[#030213] lg:hidden fixed bottom-0 z-50 w-3sd/3 left-0 right-0 mx-auto rounded-tr-full rounded-tl-full">
             <ul className="grid grid-cols-4 justify-center  p-4">
                 {navItems.filter((item) => !item.permission.includes(userRole)).map((item) => {
                     return (
-                        <li key={item.id} className="group w-full items-center rounded-sm">
+                        <li key={item.id} className="group w-2/3 items-center rounded-sm">
                             <Link
                                 scroll={false}
                                 className={`${item.page === childUrl ? "active" : "group-hover:bg-secondary"}  rounded-full block transition-all duration-300 `}

@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Button from "./button";
 import { logout } from "../actions/logout";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import PanelActions from "./panels/panelActions";
 
 
 type NavItems = {
@@ -27,13 +28,14 @@ export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
 
     return (
         <div className="container mx-auto py-4">
-            <div className=" col-span-2  flex justify-end items-end ">
-                <div className="w-full text-end  mt-4 mb-4 flex items-center h-[20%]">
+            <div className=" col-span-2  flex  items-center mb-4 mt-4">
+                <div className="w-full text-end  flex items-center ">
                     <button className="group hover:cursor-pointer transition-all duration-300 z-60 flex items-center justify-start gap-1 w-full" onClick={() => router.back()}>
                         <ChevronLeft className="text-secondary-faded block transition-all duration-300 group-hover:-translate-x-2 group-hover:text-primary" />
                         <span className={` transition-all duration-300 text-sm  group-hover:-translate-x-1 font-sans text-secondary-faded group-hover:text-white`}>Back</span>
                     </button>
                 </div>
+                <PanelActions page={"profile"} />
             </div>
             <nav className=" w-full col-span-2 flex justify-start items-center ">
                 <ul className="flex gap-4 ">
@@ -41,7 +43,7 @@ export default function MiniNav({ navItems }: { navItems: NavItems[] }) {
                         const itemLink = setURL(item.id, item.link);
                         return (
                             <li key={item.id} className="group">
-                                <Link className={`font-mono capitalize ${pathName === itemLink ? "" : ""}`} href={`${item.id === 0 ? "/dashboard/profile" : `/dashboard/profile/${item.link}`}`} >
+                                <Link href={`#${item.link}`} className={`font-mono capitalize ${pathName === itemLink ? "" : ""}`}  >
                                     {item.name}
                                     <div className={`${pathName === itemLink ? "flex" : "hidden"}  transition-all  duration-300  min-w-0  items-center  lg:pl-4 `}>
                                         <div className="bg-primary rounded-sm  h-2 w-10">

@@ -23,9 +23,9 @@ export default function Panel({ heading, subHeading, highlight, children, pageNa
                                 main: heading,
                                 highlight: highlight
                             }} subHeading={subHeading} />
-                            {/* <PanelActions page={pageName} /> */}
                         </>
                     )}
+
                 </div>
             </div>
             {children}

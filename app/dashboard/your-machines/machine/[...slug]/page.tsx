@@ -11,11 +11,16 @@ export default async function Page({
     const navItems = [
         {
             id: 0,
+            link: "overview",
+            name: "Overview",
+        },
+        {
+            id: 1,
             link: "stock-level",
             name: "Stock Level",
         },
         {
-            id: 1,
+            id: 2,
             link: "history",
             name: "history",
         },
