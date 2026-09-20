@@ -1,5 +1,4 @@
 import { useGetUserMachineByIdQuery } from "@/app/api/services/rtk-query/createApi";
-import Bars from "@/app/components/bars";
 import MiniNav from "@/app/components/MiniNav";
 import MachinePanel from "@/app/components/userPanel";
 import { Bar } from "@/app/types/barTypes";
@@ -51,7 +50,7 @@ export default async function Page({
                     <MachinePanel slug={Number(slug)} />
                     <div className=" w-9/12 ml-auto bg-[#222225]/30 p-4 rounded-sm border border-border/30  hover:border-primary/50 cursor-pointer">
                         <h2 className="text-3xl mb-4 mt-4 p-2 ">RECENT ACTIVITY</h2>
-                        <Bars data={dataBar} />
+                        {/* <Bars data={dataBar} /> */}
                     </div>
                 </div>
             </div>

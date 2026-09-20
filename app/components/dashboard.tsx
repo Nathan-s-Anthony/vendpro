@@ -30,9 +30,9 @@ export default function Dashboard({ children }: { children: ReactNode }) {
             setIsAuthenticated(false);
             router.replace("/login");
         }
-        if (isAuthenticated && data) {
-            router.refresh();
-        }
+        // if (isAuthenticated && data) {
+        //     router.refresh();
+        // }
 
     }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 
