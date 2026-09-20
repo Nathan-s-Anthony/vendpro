@@ -12,9 +12,9 @@ export default function MachinePanel({ slug }: { slug: number }) {
     // console.log(data?.data, 'data incoming...');
     return (
         <div className="grid lg:grid-cols-3 gap-6 grid-cols-1">
-            <div className="bg-red-500 w-3/3 h-full block rounded-full"></div>
-            <div className="">
-                <h1>{data?.data?.name}</h1>
+            <div className="bg-red-500 w-3/3 h-80 block rounded-full"></div>
+            <div className="col-span-2">
+                <h1 className="text-5xl">{data?.data?.name}</h1>
                 <p>{data?.data?.model}</p>
                 <p>{data?.data?.serial_number}</p>
             </div>
