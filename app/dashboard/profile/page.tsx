@@ -28,7 +28,7 @@ export default function Profile() {
 
     return (
         <Panel heading={""} pageName={"profile"} subHeading={""} highlight={""} disableHeadings>
-            <div className="grid lg:grid-cols-2 z-20 grid-cols-2 gap-4 mt-20 mb-4 ">
+            <div className="grid lg:grid-cols-2 z-20 grid-cols-1 gap-4 mt-20 mb-4 ">
                 <EditProfileForm />
                 <div className="flex flex-col gap-4 rounded-sm   mb-4 mt-4 justify-end ">
                     <h2 className="2xl:self-start  self-end ">Your Goals for the week</h2>

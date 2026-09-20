@@ -16,6 +16,7 @@ export default function MachinePanel({ slug }: { slug: number }) {
                 <div className="bg-red-500 block w-60 h-60 rounded-full "> </div>
                 <div>
                     <h1>{machine.name} - {machine.id}</h1>
+                    <p>{machine}</p>
                 </div>
             </div>
 

@@ -6,20 +6,20 @@ import Panel from "@/app/components/panels/panel";
 import SubPanel from "@/app/components/panels/subPanel";
 import SubPanels from "@/app/components/panels/subPanels";
 import View from "@/app/components/view";
-import { Zap, Construction, Package } from "lucide-react";
+import { Zap, Construction, Package, BatteryWarning } from "lucide-react";
 export default function Overview() {
     const stats = [
         {
             id: 0,
-            title: "Active Machines",
+            title: "Online Machines",
             value: 3,
             icon: <Zap className="w-8 h-8 text-orange-400" />
         },
         {
             id: 1,
-            title: "Under Maintenance",
+            title: "Warnings",
             value: 5,
-            icon: <Construction className="w-8 h-8 text-yellow-400" />
+            icon: <BatteryWarning className="w-8 h-8 text-yellow-400" />
         },
         {
             id: 2,
