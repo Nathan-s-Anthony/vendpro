@@ -47,7 +47,7 @@ export default function Header({ className, burgerMenuClick, pageNavName }: { cl
                         </div>
                     </Link>
                 </div>
-                <Bell onMouseEnter={handleMouseEnterBell} className=" transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
+                <Bell onMouseEnter={handleMouseEnterBell} className="transition-all duration-300 text-sm text-secondary-faded hover:-translate-y-0.5  hover:text-primary  lg:w-5 lg:h-5 h-7 w-7 lg:mr-5 cursor-pointer" />
                 <Modal>
                     <div className="bg-[#222225]  border border-border/30 block w-full h-full rounded-sm">
                         <div className="p-4">

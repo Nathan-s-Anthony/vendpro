@@ -37,7 +37,7 @@ export default function Dashboard({ children }: { children: ReactNode }) {
     }, [isLoading, isAuthenticated, data, setUserId, setFirstName, setRole, setEmail, setIsAuthenticated, router, isError]);
 
     return (
-        <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr] grid-cols-1 grid-rows-[auto_1fr]">
+        <div className="grid h-screen relative overflow-hidden w-screen lg:grid-cols-[256px_1fr]  grid-rows-[auto_1fr]">
             <ToolBar userID={""} userRole={""} />
             <div className={`mt-20 lg:mt-0 min-w-0 col-span-2  z-10 overflow-y-auto custom-scroll overflow-x-hidden ${toggled ? "col-start-1" : "lg:col-start-2 col-start-2 "}`}>
                 {children}
